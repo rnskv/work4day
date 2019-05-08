@@ -1,0 +1,46 @@
+{
+  "name": "reactboilerplate2019",
+  "version": "1.0.0",
+  "description": "Simple boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "devserver": "webpack-dev-server",
+    "start": "webpack --mode development --watch",
+    "build:dev": "webpack --mode development",
+    "build:prod": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rnskv/ReactBoilerplate2019.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "react",
+    "redux"
+  ],
+  "author": "rnskv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rnskv/ReactBoilerplate2019/issues"
+  },
+  "homepage": "https://github.com/rnskv/ReactBoilerplate2019#readme",
+  "devDependencies": {
+    "@babel/core": "7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "7.4.4",
+    "@babel/preset-react": "7.0.0",
+    "babel-loader": "8.0.5",
+    "babel-preset-mobx": "2.0.0",
+    "css-loader": "2.1.1",
+    "html-webpack-plugin": "3.2.0",
+    "mobx": "5.9.4",
+    "mobx-react": "5.4.3",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-router-dom": "5.0.0",
+    "style-loader": "0.23.1",
+    "webpack": "4.30.0",
+    "webpack-cli": "3.3.1",
+    "webpack-dev-server": "3.3.1"
+  }
+}
