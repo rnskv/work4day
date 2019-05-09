@@ -14,11 +14,11 @@ async function api({url, method = 'GET', params, urlParams}) {
         mode: 'cors',
         method
     });
-    console.log(response);
+    console.log('123', response);
 
     const result = await response.json();
 
-    console.log(result);
+    console.log('213', result);
 
     return result;
 }
@@ -47,8 +47,8 @@ class VacanciesStore {
             }
         });
 
-        console.log(newVacancies)
-        this.list = [...this.list, ...newVacancies];
+        console.log(newVacancies.body)
+        this.list = [...this.list, ...newVacancies.body];
         this.isLoading = false;
     };
 

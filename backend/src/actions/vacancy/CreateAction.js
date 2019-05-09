@@ -10,7 +10,7 @@ class CreateAction extends Action {
             groupId: req.body.groupId,
             postId: req.body.postId,
             text: req.body.text,
-            date: new Date(req.body.date * 1000)
+            date: req.body.date * 1000
         });
         await vacancy.save();
 

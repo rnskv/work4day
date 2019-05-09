@@ -4,6 +4,11 @@ import Menu from "../components/navigation/Menu";
 
 import LazyWrapper from "../components/common/LazyWrapper";
 
+import Header from "../components/page/Header";
+import NewVacancies from "../components/vacancies/NewVacancies";
+import FindVacancies from "../components/vacancies/FindVacancies";
+
+
 import '../styles/Home.css';
 
 import MainStore from "../stores/Main";
@@ -13,10 +18,9 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <Menu/>
-                <LazyWrapper isLoading={MainStore.isLoading}>
-                    Home page
-                </LazyWrapper>
+                <Header/>
+                <NewVacancies />
+                <FindVacancies />
             </React.Fragment>
         );
     }

@@ -32,13 +32,29 @@ class GetListAction extends Action {
             .limit(limit)
             .exec();
 
-        const response = {
-            meta: {
-                groups: VacancyModel.find({ })
-            },
-            body: vacancies
-        };
-        res.json(vacancies)
+        const formattedVacancies = [];
+
+        vacancies.forEach(vacancy => {
+            const date = new Date(vacancy.date.toString());
+            formattedVacancies.push({
+                groupId: vacancy.groupId,
+                postId: vacancy.postId,
+                text: vacancy.text,
+                category: vacancy.categoryId,
+                date: `${date.getHours()}:${date.getMinutes()}, ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`,
+                group: {
+                    id: vacancy.group.id,
+                    name: vacancy.group.name,
+                    photo100: vacancy.group.photo100,
+                    screenName: vacancy.group.screenName
+                },
+            })
+        });
+
+        res.json({
+            body: formattedVacancies,
+            meta: { ok: true }
+        })
     }
 }
 

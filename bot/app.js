@@ -2,7 +2,7 @@ const VK = require('vk-io').VK;
 const vk = new VK();
 const request = require('request');
 
-vk.token = '9bfc1c449bfc1c449bfc1c44b99b9669e399bfc9bfc1c44c72f159e498311b89c2d63e0';
+vk.token = '809559a9809559a9809559a93180ff209588095809559a9dc417f0517bae525d706efd3';
 
 const config = {
     updateTime: 15 * 1000,
@@ -51,7 +51,7 @@ async function parseGroupWall(params) {
 
     const response = await vk.api.wall.get({
         owner_id: groupId * -1,
-        count: 5,
+        count: 2,
         extended: true,
         fields: ['photo_100', 'screen_name']
     });
@@ -81,7 +81,7 @@ async function fetchNews() {
         const posts = response.items;
         const newPosts = [];
         posts.forEach(async post => {
-            if (true || post.id > group.lastPostId) {
+            if (post.id > group.lastPostId) {
                 newPosts.push(post);
 
                 fetchAPI({
@@ -90,6 +90,8 @@ async function fetchNews() {
                     text: post.text,
                     date: post.date
                 });
+
+                console.log(post.date)
 
                 group.lastParsedId = post.id;
 
@@ -116,7 +118,7 @@ async function fetchNews() {
 
 async function run() {
     await fetchNews();
-    setInterval(async () => await fetchNews(), 15000);
+    setInterval(async () => await fetchNews(), 60000);
 }
 
 run().catch(console.log);
