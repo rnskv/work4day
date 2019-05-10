@@ -14,7 +14,6 @@ class FindVacancies extends Component {
                         <li className="vacancies-filter_item vacancies-filter_item--active">IT технологии</li>
                         <li className="vacancies-filter_item">Удаленная работа</li>
                         <li className="vacancies-filter_item">Маркетинг</li>
-                        <li className="vacancies-filter_item">Хуетинг</li>
                     </ul>
                 </div>
                 <div className="vacancies-posts">
