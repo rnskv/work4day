@@ -58,6 +58,7 @@
     align-items: center;
     background: #1f61ab;
     color: #fff;
+    flex: auto;
 }
 
 .vacancies-vacancy__group {

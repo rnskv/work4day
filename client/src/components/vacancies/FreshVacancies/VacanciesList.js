@@ -1,14 +1,11 @@
 import React, { Component } from "react";
+import Vacancy from "./Vacancy";
 
-import Post from './Post';
-
-import '../../../styles/Vacancies.css';
-
-class Posts extends Component {
+class VacanciesList extends Component {
     mockData = [
         {
-            whatNeed: 'Разработать программное обеспечение',
-            description: 'Разработка мобильного приложения.',
+            whoNeed: 'Разработчик ПО',
+            category: 'Information Technologies',
             text: 'Ищем ответственного разрабочика для создания мобильного приложения сайта work4day. Подробнее при личном общении.',
             group: {
                 name: 'Одна группа по поиску работы',
@@ -16,8 +13,8 @@ class Posts extends Component {
             }
         },
         {
-            whatNeed: 'Выполнять поручения',
-            description: 'Различные небольшие поручения.',
+            whoNeed: 'Разнорабочий',
+            category: 'Физический труд',
             text: 'Ищем человека способного в кратчайшие сроки качетсвенно выполнять порученные ему задания. За хорошую зп.',
             group: {
                 name: 'Прораб Ашот',
@@ -29,11 +26,10 @@ class Posts extends Component {
     render() {
         const { mockData } = this;
         return (
-            <div className="vacancies-posts">
-                <h2>Объявления</h2>
+            <div className="vacancies-list">
                 {
-                    mockData.map(post => {
-                        return  <Post post={post} />
+                    mockData.map(vacancy => {
+                        return <Vacancy vacancy={vacancy} />
                     })
                 }
             </div>
@@ -41,4 +37,8 @@ class Posts extends Component {
     }
 }
 
-export default Posts;
+export default VacanciesList;
+
+
+
+
