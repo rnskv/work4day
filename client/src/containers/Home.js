@@ -5,8 +5,8 @@ import Menu from "../components/navigation/Menu";
 import LazyWrapper from "../components/common/LazyWrapper";
 
 import Header from "../components/page/Header";
-import NewVacancies from "../components/vacancies/NewVacancies";
-import FindVacancies from "../components/vacancies/FindVacancies";
+import NewVacancies from "../components/vacancies/FreshVacancies/NewVacancies";
+import FindVacancies from "../components/vacancies/FindVacancies/FindVacancies";
 
 
 import '../styles/Home.css';

@@ -4,7 +4,7 @@ import Menu from "../components/navigation/Menu";
 
 import LazyWrapper from "../components/common/LazyWrapper";
 
-import VacanciesList from "../components/vacancies/VacanciesList";
+import VacanciesList from "../components/vacancies/legacy/VacanciesList";
 
 import '../styles/Vacancies.css';
 
