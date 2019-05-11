@@ -7,7 +7,7 @@ import '../../../styles/Vacancies.css';
 class NewVacancies extends Component {
     render() {
         return (
-            <div className="vacancies">
+            <div className="vacancies vacancies--new">
                 <h1 className="vacancies-title">Свежие подработки</h1>
                 <VacanciesList />
                 <button className="vacancies-button">Показать следующие</button>

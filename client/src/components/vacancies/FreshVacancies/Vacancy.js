@@ -20,7 +20,7 @@ class VacanciesList extends Component {
 
                 <div className="vacancies-vacancy__from">
                     <div className="vacancies-vacancy__group">
-                        Подработка из группы
+                        <i className="fab fa-vk" style={{fontSize: '18pt', marginRight: '9px'}}></i> Из группы:
                     </div>
                     <img src={vacancy.group.photo100} className="vacancies-vacancy__photo"/>
                     <div className="vacancies-vacancy__groupname">

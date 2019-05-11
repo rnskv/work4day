@@ -36,3 +36,13 @@ h2, h1 {
         transform: scale(1) translate3d(0,0,0);
     }
 }
+
+.section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.section--new_vacancies {
+    background: #e0e0e0;
+}

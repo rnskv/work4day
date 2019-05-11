@@ -19,8 +19,12 @@ class Home extends Component {
         return (
             <React.Fragment>
                 <Header/>
-                <NewVacancies />
-                <FindVacancies />
+                <div className="section">
+                    <NewVacancies />
+                </div>
+                <div className="section section--new_vacancies">
+                    <FindVacancies />
+                </div>
             </React.Fragment>
         );
     }
