@@ -15,7 +15,9 @@ a {
     text-decoration: none;
 }
 h2, h1 {
-    font-weight: 400;
+    font-weight: 600;
+    color: #3c3c3c;
+    width: 100%;
 }
 
 @keyframes bounceIn{

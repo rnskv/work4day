@@ -20,6 +20,15 @@ class VacanciesList extends Component {
                 name: 'Прораб Ашот',
                 photo100: 'https://pp.userapi.com/c10186/g30850836/d_7a5b239e.jpg?ava=1'
             }
+        },
+        {
+            whoNeed: 'Графический иллюстратор',
+            category: 'Дизайн',
+            text: 'Нужен тот, кто сможет реализовать наброски в готовый продукт. Выполнить все в кратчайшие сроки и максимально качественно! Оплата почасовая, договорная.',
+            group: {
+                name: 'Артемий лебедев',
+                photo100: 'https://pp.userapi.com/c847221/v847221707/1f80bf/auknO9Anmq0.jpg?ava=1'
+            }
         }
     ];
 
