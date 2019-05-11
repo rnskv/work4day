@@ -10,6 +10,7 @@ class NewVacancies extends Component {
             <div className="vacancies">
                 <h1 className="vacancies-title">Свежие подработки</h1>
                 <VacanciesList />
+                <button className="vacancies-button">Показать следующие</button>
             </div>
         );
     }

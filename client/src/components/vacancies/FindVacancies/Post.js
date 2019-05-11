@@ -22,8 +22,12 @@ class Post extends Component {
                     <img src={ post.group.photo100 } className="vacancies-post__group_photo"/>
                     <div className="vacancies-post__group_name">{ post.group.name }</div>
                     <div className="vacancies-post__group_raite">
-                        <button className="vacancies-post__group_like"><i className="far fa-thumbs-up"></i></button>
-                        <button className="vacancies-post__group_dislike"><i className="far fa-thumbs-down"></i></button>
+                        <button className="vacancies-post__group_like">
+                            <i className="far fa-thumbs-up"></i>
+                        </button>
+                        <button className="vacancies-post__group_dislike">
+                            <i className="far fa-thumbs-down"></i>
+                        </button>
                     </div>
                     <button className="vacancies-post__group_button">Откликнуться</button>
                 </div>
