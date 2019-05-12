@@ -22,10 +22,16 @@ class Home extends Component {
             <React.Fragment>
                 <Header/>
                 <div className="section">
-                    <NewVacancies vacancies={VacanciesStore.list} />
+                    <NewVacancies
+                        vacancies={VacanciesStore.newVacancies.list}
+                        next={VacanciesStore.newVacancies.next}
+                    />
                 </div>
                 <div className="section section--new_vacancies">
-                    <FindVacancies vacancies={VacanciesStore.list} />
+                    <FindVacancies
+                        vacancies={VacanciesStore.filteredVacancies.list}
+                        next={VacanciesStore.filteredVacancies.next}
+                    />
                 </div>
             </React.Fragment>
         );
