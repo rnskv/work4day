@@ -7,6 +7,8 @@ class ModeratedPost extends Component {
         const text = this.refs.text.value;
         const category = this.refs.category.value;
         const salary = this.refs.salary.value;
+        const description = this.refs.description.value;
+        const whatNeed = this.refs.whatNeed.value;
         const isModerated = true;
 
         await fetch('http://localhost:800/vacancies/'+this.props.post.id, {
@@ -15,7 +17,7 @@ class ModeratedPost extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                set: {whoNeed, whyNeed, text, category, salary, isModerated}
+                set: {whoNeed, whyNeed, text, category, salary, isModerated, description, whatNeed}
             })
         });
     };
@@ -43,6 +45,11 @@ class ModeratedPost extends Component {
                     <label className="moderated-post__label">
                         Зачем нужен*
                         <textarea ref="whatNeed" placeholder="Выполнить работу" className="moderated-post__input" required/>
+                    </label>
+
+                    <label className="moderated-post__label">
+                        Описание*
+                        <textarea ref="description" placeholder="Краткое описание" className="moderated-post__input" required/>
                     </label>
 
                     <label className="moderated-post__label">

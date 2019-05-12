@@ -9,9 +9,12 @@ class Vacancies {
     @observable skip = 0;
     @observable list = [];
 
+    constructor(defaultParams) {
+        ({ limit: this.limit = 10, skip: this.skip = 0, isAppend: this.isAppend = true} = defaultParams);
+    }
+
     @action
     load = async (params = {}) => {
-        const { isAppend = true } = params;
         this.isLoading = true;
 
         const response = await Api.fetch({
@@ -22,43 +25,40 @@ class Vacancies {
             }
         });
 
-        this.list = isAppend ? [...this.list, ...response.body] : response.body;
+        this.list = this.isAppend ? [...this.list, ...response.body] : response.body;
+
         this.isLoading = false;
+
+        return  response.body.length;
     };
 
     @action
-    next = async () => {
-        this.skip += this.limit;
-        await this.load();
-    }
+    next = async (params = {}) => {
+        const loadLength = await this.load(params);
+        console.log(loadLength);
+        if (loadLength < this.limit) {
+            this.skip = 0;
+        } else {
+            this.skip += this.limit;
+        }
+    };
 }
 
 class NewVacancies extends Vacancies {
-    constructor() {
-        super();
-        this.limit = 3;
-    }
-    @action
-    next = async () => {
-        this.skip += this.limit;
-        await this.load({ isAppend: false });
-    }
+
 }
 
 class FilteredVacancies extends Vacancies {
-    constructor() {
-        super();
-        this.skip = 3;
-    }
+
 }
 
 class VacanciesStore {
-    @observable
-    newVacancies = new NewVacancies();
-    filteredVacancies = new FilteredVacancies();
+    @observable newVacancies = new NewVacancies({limit: 3, isAppend: false});
+    @observable filteredVacancies = new FilteredVacancies({skip: 3});
+
     constructor() {
-        this.newVacancies.load().then().catch();
-        this.filteredVacancies.load().then().catch();
+        this.newVacancies.next().then().catch();
+        this.filteredVacancies.next().then().catch();
     }
 }
 

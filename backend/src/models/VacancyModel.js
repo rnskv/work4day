@@ -18,7 +18,11 @@ const vacancySchema = new Schema({
         type: String,
         default: '',
     },
-    whyNeed: {
+    whatNeed: {
+        type: String,
+        default: '',
+    },
+    description: {
         type: String,
         default: '',
     },

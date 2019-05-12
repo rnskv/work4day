@@ -7,12 +7,12 @@ import '../../../styles/Vacancies.css';
 
 class FindVacancies extends Component {
     render() {
-        const { vacancies } = this.props;
+        const { vacancies, next } = this.props;
         return (
             <div className="vacancies vacancies--find">
                 <h1 className="vacancies-title">Поиск работы</h1>
                 <Filter />
-                <Posts vacancies={vacancies}/>
+                <Posts vacancies={vacancies} next={next}/>
             </div>
         );
     }
