@@ -36,12 +36,12 @@ class Posts extends Component {
     ];
 
     render() {
-        const { mockData } = this;
+        const { vacancies } = this.props;
         return (
             <div className="vacancies-posts">
                 <h2>Объявления</h2>
                 {
-                    mockData.map(post => {
+                    vacancies.map(post => {
                         return  <Post post={post} />
                     })
                 }

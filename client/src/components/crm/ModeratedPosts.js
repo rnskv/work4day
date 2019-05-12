@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import Vacancy from "./Vacancy";
+import ModeratedPost from './ModeratedPost';
 
-class VacanciesList extends Component {
+class ModeratedPosts extends Component {
     mockData = [
         {
-            whoNeed: 'Разработчик ПО',
-            category: 'Information Technologies',
             text: 'Ищем ответственного разрабочика для создания мобильного приложения сайта work4day. Подробнее при личном общении.',
             group: {
                 name: 'Одна группа по поиску работы',
@@ -13,8 +11,6 @@ class VacanciesList extends Component {
             }
         },
         {
-            whoNeed: 'Разнорабочий',
-            category: 'Физический труд',
             text: 'Ищем человека способного в кратчайшие сроки качетсвенно выполнять порученные ему задания. За хорошую зп.',
             group: {
                 name: 'Прораб Ашот',
@@ -22,8 +18,6 @@ class VacanciesList extends Component {
             }
         },
         {
-            whoNeed: 'Графический иллюстратор',
-            category: 'Дизайн',
             text: 'Нужен тот, кто сможет реализовать наброски в готовый продукт. Выполнить все в кратчайшие сроки и максимально качественно! Оплата почасовая, договорная.',
             group: {
                 name: 'Артемий лебедев',
@@ -33,21 +27,21 @@ class VacanciesList extends Component {
     ];
 
     render() {
-        const { vacancies } = this.props;
+        const { posts } = this.props;
         return (
-            <div className="vacancies-list">
+            <React.Fragment>
+                <div className="moderated-posts">
+                    <h2>Модерация</h2>
                 {
-                    vacancies.map((vacancy, index) => {
-                        return <Vacancy key={index} vacancy={vacancy} />
+                    posts.map((data, index) => {
+                        return (<ModeratedPost key={index} post={data}/>)
                     })
                 }
-            </div>
+
+                </div>
+            </React.Fragment>
         );
     }
 }
 
-export default VacanciesList;
-
-
-
-
+export default ModeratedPosts;

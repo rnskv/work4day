@@ -5,12 +5,14 @@ import configs from '../../configs';
 
 class GetListAction extends Action {
     static async run (req, res, next) {
-        const skip = +req.query.skip || 0;
-        const limit = +req.query.limit || 100;
-        console.log(limit);
+        const skip = Number(req.query.skip) || 0;
+        const limit = Number(req.query.limit) || 100;
+        console.log('IMPORTANT', req.query)
+        const isModerated = req.query.isModerated === 'false' ? false : true;
 
         const vacancies = await VacancyModel
             .aggregate([
+                { $match : { isModerated: isModerated } },
                 {
                     $lookup: {
                         from: 'groups',
@@ -32,11 +34,16 @@ class GetListAction extends Action {
             .limit(limit)
             .exec();
 
+        console.log('isModerated', isModerated);
+
         const formattedVacancies = [];
 
         vacancies.forEach(vacancy => {
             const date = new Date(vacancy.date.toString());
             formattedVacancies.push({
+                id: vacancy._id,
+                whoNeed: vacancy.whoNeed,
+                whyNeed: vacancy.whyNeed,
                 groupId: vacancy.groupId,
                 postId: vacancy.postId,
                 text: vacancy.text,

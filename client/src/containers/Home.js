@@ -11,19 +11,21 @@ import FindVacancies from "../components/vacancies/FindVacancies/FindVacancies";
 
 import '../styles/Home.css';
 
-import MainStore from "../stores/Main";
+import VacanciesStore from "../stores/Vacancies";
 
 @observer
 class Home extends Component {
     render() {
+        console.log('store', VacanciesStore.list);
+
         return (
             <React.Fragment>
                 <Header/>
                 <div className="section">
-                    <NewVacancies />
+                    <NewVacancies vacancies={VacanciesStore.list} />
                 </div>
                 <div className="section section--new_vacancies">
-                    <FindVacancies />
+                    <FindVacancies vacancies={VacanciesStore.list} />
                 </div>
             </React.Fragment>
         );

@@ -14,7 +14,19 @@ const vacancySchema = new Schema({
         type: String,
         default: 'Text template',
     },
+    whoNeed: {
+        type: String,
+        default: '',
+    },
+    whyNeed: {
+        type: String,
+        default: '',
+    },
     categoryId: {
+        type: Number,
+        default: 0,
+    },
+    salary: {
         type: Number,
         default: 0,
     },

@@ -6,10 +6,12 @@ import '../../../styles/Vacancies.css';
 
 class NewVacancies extends Component {
     render() {
+        const { vacancies } = this.props;
+        console.log(vacancies)
         return (
             <div className="vacancies vacancies--new">
                 <h1 className="vacancies-title">Свежие подработки</h1>
-                <VacanciesList />
+                <VacanciesList vacancies={vacancies}/>
                 <button className="vacancies-button">Показать следующие</button>
             </div>
         );

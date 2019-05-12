@@ -3,7 +3,9 @@ import React, { Component } from "react";
 class VacanciesList extends Component {
     render() {
         const { vacancy } = this.props;
-
+        const CATEGORIES = {
+            0: 'Information Technjologies'
+        };
         return (
             <div className="vacancies-vacancy">
                 <div className="vacancies-vacancy__title">
@@ -11,7 +13,7 @@ class VacanciesList extends Component {
                 </div>
 
                 <div className="vacancies-vacancy__category">
-                    { vacancy.category }
+                    { CATEGORIES[vacancy.category] }
                 </div>
 
                 <div className="vacancies-vacancy__text">

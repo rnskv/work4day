@@ -8,7 +8,8 @@ class InitMiddleware extends Middleware {
 
     handler() {
         return (req, res, next) => {
-            res.header('Server', configs.app.name);
+            // res.header('Server', configs.app.name);
+            next()
         }
     }
 }
