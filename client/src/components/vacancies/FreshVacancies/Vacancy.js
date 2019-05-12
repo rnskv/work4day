@@ -4,12 +4,15 @@ class VacanciesList extends Component {
     render() {
         const { vacancy } = this.props;
         const CATEGORIES = {
-            0: 'Information Technjologies'
+            0: 'Информационные технологии',
+            1: 'Разное',
+            2: 'Дизайн',
+            3: 'Хуй проссыш чо'
         };
         return (
             <div className="vacancies-vacancy">
                 <div className="vacancies-vacancy__title">
-                    { vacancy.whoNeed }
+                    { vacancy.whoNeed || 'Названия нет, но вы держитесь'}
                 </div>
 
                 <div className="vacancies-vacancy__category">

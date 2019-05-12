@@ -8,13 +8,13 @@ class Post extends Component {
                 <img src={ post.group.photo100 } className="vacancies-post__photo"/>
                 <div className="vacancies-post__information">
                     <div className="vacancies-post__information_title">
-                        { post.whatNeed }
+                        { post.title || 'Заголовок который потерялся :/' }
                     </div>
                     <div className="vacancies-post__information_description">
-                        { post.description }
+                        { post.description || 'Тут было описание, но его украли' }
                     </div>
                     <div className="vacancies-post__information_text">
-                        { post.text }
+                        { post.text || 'Пустой пост, думаю мы уволим модератора' }
                     </div>
                 </div>
                 <div className="vacancies-post__group">
