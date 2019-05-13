@@ -33,7 +33,7 @@ class Filter extends Component {
                             )
                         })
                     }
-                    <button onClick={filteredVacancies.reload}>Применить</button>
+                    <button onClick={filteredVacancies.reload} className="vacancies-filter_button">Применить</button>
                 </ul>
             </div>
         );

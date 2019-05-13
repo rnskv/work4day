@@ -22,15 +22,14 @@
 
 .vacancies-vacancy {
     overflow: hidden;
-    width: 30%;
     display: flex;
     flex-direction: column;
     background: url(https://pp.userapi.com/c845120/v845120819/1fa1aa/vczEA18ESpU.jpg);
     background-size: 100%;
     margin: 0 25px 50px 25px;
-    border-radius: 20px;
-    min-width: 300px;
-    max-width: 400px;
+    border-radius: 10px;
+    min-width: 250px;
+    max-width: 320px;
     box-shadow: 0 0 8px 0 #00000017;
     transition: .4s cubic-bezier(0.49, -0.55, 0.46, 1.62)
 }
@@ -41,17 +40,18 @@
 }
 .vacancies-vacancy__title {
     margin: 25px 0 0 25px;
-    font-size: 21pt;
+    font-size: 18pt;
 }
 
 .vacancies-vacancy__category {
     margin: 5px 0 0 25px;
-    font-size: 11pt;
+    font-size: 9pt;
 }
 
 .vacancies-vacancy__text {
     margin: 25px;
-    font-size: 12pt;
+    font-size: 10pt;
+    height: 80px;
 }
 
 .vacancies-vacancy__from {
@@ -65,7 +65,7 @@
 
 .vacancies-vacancy__group {
     margin: 20px;
-    font-size: 11pt;
+    font-size: 9pt;
     width: 60%;
     text-align: center;
     display: flex;
@@ -76,6 +76,7 @@
     width: 50px;
     height: 50px;
     border-radius: 100%;
+    flex-grow: 1
 }
 
 .vacancies-button {
@@ -128,14 +129,16 @@
     display: flex;
     justify-content: space-between;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 0 8px 0 #00000017;
+    align-items: flex-start;
 }
 
 .vacancies-post__photo {
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    border-radius: 10%;
+    width: 50px;
+    height: 50px;
+    flex-grow: 1
 }
 
 .vacancies-post__information {
@@ -148,16 +151,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 5px;
     margin: 0 0 0 25px;
     min-width: 40%;
+    overflow: hidden;
 }
 
 .vacancies-post__group_title {
-    color: #fff;
-    margin: 15px;
-    font-size: 18pt;
+    margin: 0 0 15px;
+    font-size: 16pt;
     text-align: center;
+    width: 100%;
+    padding: 15px 0;
+    color: #fff;
+    background: #235298a6;
 }
 
 .vacancies-post__group_name {
@@ -166,8 +173,9 @@
     padding: 10px;
     border-radius: 4px;
     color: black;
-    font-size: 18px;
+    font-size: 15px;
     text-align: center;
+    width: 55%;
 }
 
 .vacancies-post__group_photo {
@@ -181,30 +189,31 @@
     padding: 10px 15px;
     background: #00000038;
     cursor: pointer;
-    font-size: 15pt;
+    font-size: 12pt;
     border: none;
     color: #fff;
     border-radius: 22px;
 }
 
 .vacancies-post__information_title {
-    margin: 20px 0 0 20px;
+    margin: 0px 0 0 20px;
     font-size: 20pt
 }
 
 .vacancies-post__information_description {
     margin: 10px 0 0 20px;
-    font-size: 10pt
+    font-size: 9pt;
+    color: #235298;
 }
 
 .vacancies-post__information_text {
     margin: 20px;
-    font-size: 12pt;
+    font-size: 10pt;
 }
 
 .vacancies-post__group_raite {
     background: #214384b5;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 
 .vacancies-post__group_like {
@@ -212,7 +221,7 @@
     margin: 10px;
     background: none;
     border: none;
-    font-size: 20pt;
+    font-size: 17pt;
     cursor: pointer;
 }
 
@@ -221,7 +230,7 @@
     margin: 10px;
     background: none;
     border: none;
-    font-size: 20pt;
+    font-size: 17pt;
     cursor: pointer;
 }
 
@@ -240,6 +249,23 @@
     outline: none;
 }
 
+.vacancies-filter_button {
+    background: none;
+    color: #1f61ab;
+    padding: 10px 15px;
+    font-size: 12pt;
+    max-width: 150px;
+    border: 1px solid #1f61ab;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: .3s;
+}
+
+.vacancies-filter_button:hover {
+    border-radius: 20px 0;
+    background: #2b76ca0a;
+}
+
 .vacancies-filter_items {
     display: flex;
     flex-direction: column;
@@ -247,7 +273,7 @@
 
 .vacancies-filter_item {
     display: flex;
-    font-size: 16pt;
+    font-size: 14pt;
     color: #484848;
     margin: 5px 0;
     cursor: pointer;

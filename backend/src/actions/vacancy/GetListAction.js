@@ -9,7 +9,7 @@ class GetListAction extends Action {
 
         const skip = Number(req.query.skip) || 0;
         const limit = Number(req.query.limit) || 100;
-        const isModerated = Boolean(Number(query.isModerated)) || true;
+        const isModerated = query.isModerated === undefined ? true : Boolean(Number(query.isModerated));
 
         const categories = query.categories && query.categories.split(',').map(e => +e) || [];
         const salary = Number(query.salary) || 0;

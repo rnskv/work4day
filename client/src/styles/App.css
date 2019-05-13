@@ -14,9 +14,10 @@ a {
     color: #fff;
     text-decoration: none;
 }
+
 h2, h1 {
-    font-weight: 600;
-    color: #3c3c3c;
+    font-weight: 400;
+    color: #263035;
     width: 100%;
 }
 
@@ -46,5 +47,31 @@ h2, h1 {
 }
 
 .section--new_vacancies {
-    background: #e0e0e0;
+    background: #efefef;
+}
+.section--find_vacancies {
+    background: #e2e2e2;
+}
+
+.loader {
+    border-left: 30px solid white;
+    border-right: 30px solid #1f61ab;
+    border-top: 30px solid #1f61ab;
+    border-bottom: 30px solid white;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    margin: 50px;
+    animation: spin;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: .5s;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+          transform: rotate(360deg);
+      }
 }

@@ -22,7 +22,7 @@ class Posts extends Component {
                     })
                 }
                 {
-                    isLoading ? 'Загрузка' : ''
+                    isLoading ? <div className="loader" /> : ''
                 }
                 { !isLoadAll
                     ? <button className="vacancies-button" onClick={next}>Показать следующие</button>

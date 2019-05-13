@@ -111,7 +111,7 @@ class Filter {
 class VacanciesStore {
     @observable filter = new Filter();
     @observable newVacancies = new NewVacancies({
-        limit: 3,
+        limit: 4,
         isAppend: false
     });
 

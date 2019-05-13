@@ -20,7 +20,7 @@ class Home extends Component {
         return (
             <React.Fragment>
                 <Header/>
-                <div className="section">
+                <div className="section section--find_vacancies">
                     <NewVacancies
                         vacancies={VacanciesStore.newVacancies.list}
                         next={VacanciesStore.newVacancies.next}
