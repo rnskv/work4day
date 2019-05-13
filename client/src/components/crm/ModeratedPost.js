@@ -23,6 +23,17 @@ class ModeratedPost extends Component {
         });
     };
 
+    removeAction = id => async (e) => {
+        e.preventDefault();
+        await fetch('http://localhost:800/vacancies/' + id, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        location.reload();
+    };
+
     render() {
         const { post } = this.props;
         return (
@@ -39,11 +50,6 @@ class ModeratedPost extends Component {
                     </label>
 
                     <label className="moderated-post__label">
-                        Для чего нужен*
-                        <textarea ref="whyNeed" placeholder="Выполнять свою работу" className="moderated-post__input" required/>
-                    </label>
-
-                    <label className="moderated-post__label">
                         Заголовок*
                         <textarea ref="title" placeholder="Выполнить работу" className="moderated-post__input" required/>
                     </label>
@@ -56,11 +62,6 @@ class ModeratedPost extends Component {
                     <label className="moderated-post__label">
                         Категория
                         <select ref="categoryId">
-                            <option value={0}>IT</option>
-                            <option value={1}>Разное</option>
-                            <option value={2}>Дизайн</option>
-                            <option value={3}>Хуй проссыш чо</option>
-
                             {
                                 Object.keys(categories).map((categoryId, index) => {
                                     return <option value={categoryId}>{ categories[categoryId] }</option>
@@ -92,7 +93,7 @@ class ModeratedPost extends Component {
 
 
                     <button className="moderated-post__button" onClick={this.updateAction}>Опубликовать</button>
-                    <button className="moderated-post__button moderated-post__button--remove">Удалить</button>
+                    <button className="moderated-post__button moderated-post__button--remove" onClick={this.removeAction(post.id)}>Удалить</button>
                 </div>
             </form>
         );

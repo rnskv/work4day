@@ -28,9 +28,8 @@ class Home extends Component {
                 </div>
                 <div className="section section--new_vacancies">
                     <FindVacancies
-                        vacancies={VacanciesStore.filteredVacancies.list}
-                        filterCategoryId={VacanciesStore.filter.categoryId}
-                        next={VacanciesStore.filteredVacancies.next}
+                        filteredVacancies={VacanciesStore.filteredVacancies}
+                        filter={VacanciesStore.filter}
                     />
                 </div>
             </React.Fragment>

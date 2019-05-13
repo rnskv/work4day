@@ -11,7 +11,7 @@ class VacanciesRouter extends Router {
         router.post('/vacancies', executeAction(actions.CreateAction));
         router.get('/vacancies', executeAction(actions.GetListAction));
         // router.get('/vacancies/:id', executeAction(actions.GetAction));
-        // router.delete('/vacancies/:id', executeAction(actions.DeleteAction));
+        router.delete('/vacancies/:id', executeAction(actions.DeleteAction));
         router.patch('/vacancies/:id', executeAction(actions.UpdateAction));
 
         return router;

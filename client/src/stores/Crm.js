@@ -23,6 +23,14 @@ class Vacancies {
         this.list = [...this.list, ...newVacancies.body];
         this.isLoading = false;
     }
+
+    @action
+    remove = (id) => async () => {
+        const response = await Api.fetch({
+            url: 'http://localhost:800/vacancies/' + id,
+            method: 'DELETE'
+        });
+    }
 }
 
 class VacanciesStore {

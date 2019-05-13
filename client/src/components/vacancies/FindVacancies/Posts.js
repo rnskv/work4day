@@ -1,27 +1,33 @@
 import React, { Component } from "react";
+import { observer } from 'mobx-react';
 
 import Post from './Post';
 
 import '../../../styles/Vacancies.css';
 
+import VacanciesStore from '../../../stores/Vacancies';
+
+@observer
 class Posts extends Component {
     render() {
-        const { filterCategoryId, vacancies, next } = this.props;
+        const { filteredVacancies, filter } = VacanciesStore;
+        const { list, next, isLoadAll, isLoading } = filteredVacancies;
 
-        const filteredVacancies = filterCategoryId === -1
-            ? vacancies
-            : vacancies.filter(vacancy => Number(vacancy.categoryId) === Number(filterCategoryId));
-
-        console.log(vacancies)
         return (
             <div className="vacancies-posts">
                 <h2>Объявления</h2>
                 {
-                    filteredVacancies.map((post, index) => {
+                    list.map((post, index) => {
                         return  <Post key={index} post={post} />
                     })
                 }
-                <button className="vacancies-button" onClick={next}>Показать следующие</button>
+                {
+                    isLoading ? 'Загрузка' : ''
+                }
+                { !isLoadAll
+                    ? <button className="vacancies-button" onClick={next}>Показать следующие</button>
+                    : 'Кажется вакансий больше нет, заходите позже :)'
+                }
             </div>
         );
     }

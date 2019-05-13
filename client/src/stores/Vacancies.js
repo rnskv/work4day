@@ -8,7 +8,7 @@ class Vacancies {
     @observable limit = 10;
     @observable skip = 0;
     @observable list = [];
-
+    @observable isLoadAll = false;
     constructor(defaultParams) {
         ({ limit: this.limit = 10, skip: this.skip = 0, isAppend: this.isAppend = true} = defaultParams);
     }
@@ -25,17 +25,28 @@ class Vacancies {
             }
         });
 
-        this.list = this.isAppend || response.body.length === 0 ? [...this.list, ...response.body] : response.body;
+        this.list = this.isAppend ? [...this.list, ...response.body] : response.body;
 
         this.isLoading = false;
 
         return  response.body.length;
     };
+    
+    @action
+    next = async (params = {}) => {
+        const loadLength = await this.load(params);
+        this.skip += this.limit;
+        if (loadLength === 0) {
+            this.isLoadAll = true;
+        }
+    };
+}
 
+class NewVacancies extends Vacancies {
     @action
     next = async (params = {}) => {
         let loadLength = await this.load(params);
-        console.log(loadLength);
+
         if (loadLength < this.limit) {
             this.skip = 0;
         } else {
@@ -47,10 +58,6 @@ class Vacancies {
             await this.next();
         }
     };
-}
-
-class NewVacancies extends Vacancies {
-
 }
 
 class FilteredVacancies extends Vacancies {
@@ -69,7 +76,7 @@ class Filter {
 
 class VacanciesStore {
     @observable newVacancies = new NewVacancies({limit: 3, isAppend: false});
-    @observable filteredVacancies = new FilteredVacancies({skip: 3});
+    @observable filteredVacancies = new FilteredVacancies({ skip: 0 });
     @observable filter = new Filter();
     constructor() {
         this.newVacancies.next().then().catch();
