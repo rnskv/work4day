@@ -16,8 +16,7 @@ import VacanciesStore from "../stores/Vacancies";
 @observer
 class Home extends Component {
     render() {
-        console.log('store', VacanciesStore.list);
-
+        console.log('store', VacanciesStore);
         return (
             <React.Fragment>
                 <Header/>
@@ -30,6 +29,7 @@ class Home extends Component {
                 <div className="section section--new_vacancies">
                     <FindVacancies
                         vacancies={VacanciesStore.filteredVacancies.list}
+                        filterCategoryId={VacanciesStore.filter.categoryId}
                         next={VacanciesStore.filteredVacancies.next}
                     />
                 </div>

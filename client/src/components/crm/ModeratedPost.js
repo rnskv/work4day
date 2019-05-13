@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import categories from '../../configs/categories';
 
 class ModeratedPost extends Component {
     updateAction = async (e) => {
@@ -59,6 +60,12 @@ class ModeratedPost extends Component {
                             <option value={1}>Разное</option>
                             <option value={2}>Дизайн</option>
                             <option value={3}>Хуй проссыш чо</option>
+
+                            {
+                                Object.keys(categories).map((categoryId, index) => {
+                                    return <option value={categoryId}>{ categories[categoryId] }</option>
+                                })
+                            }
                         </select>
                     </label>
 

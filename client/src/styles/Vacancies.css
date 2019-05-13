@@ -17,6 +17,7 @@
     flex-wrap: wrap;
     width: 90%;
     justify-content: center;
+    align-items: flex-start;
 }
 
 .vacancies-vacancy {
@@ -58,7 +59,8 @@
     align-items: center;
     background: #1f61ab;
     color: #fff;
-    flex: auto;
+    /*flex: auto;*/
+    height: 75px;
 }
 
 .vacancies-vacancy__group {
@@ -197,7 +199,7 @@
 
 .vacancies-post__information_text {
     margin: 20px;
-    font-size: 12pt
+    font-size: 12pt;
 }
 
 .vacancies-post__group_raite {

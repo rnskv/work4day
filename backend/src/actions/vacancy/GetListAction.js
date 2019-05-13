@@ -47,7 +47,7 @@ class GetListAction extends Action {
                 groupId: vacancy.groupId,
                 postId: vacancy.postId,
                 text: vacancy.text,
-                category: vacancy.categoryId,
+                categoryId: vacancy.categoryId,
                 date: `${date.getHours()}:${date.getMinutes()}, ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`,
                 title: vacancy.title,
                 description: vacancy.description,

@@ -20,7 +20,7 @@ class VacanciesList extends Component {
                 </div>
 
                 <div className="vacancies-vacancy__text">
-                    { vacancy.text }
+                    { vacancy.text.slice(0, 190) }...
                 </div>
 
                 <div className="vacancies-vacancy__from">
