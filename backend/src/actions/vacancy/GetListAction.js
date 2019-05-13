@@ -5,14 +5,26 @@ import configs from '../../configs';
 
 class GetListAction extends Action {
     static async run (req, res, next) {
+        const query = req.query;
+
         const skip = Number(req.query.skip) || 0;
         const limit = Number(req.query.limit) || 100;
-        console.log('IMPORTANT', req.query)
-        const isModerated = req.query.isModerated === 'false' ? false : true;
+        const isModerated = Boolean(Number(query.isModerated)) || true;
+
+        const categories = query.categories && query.categories.split(',').map(e => +e) || [];
+        const salary = Number(query.salary) || 0;
+        console.log(categories);
+
+        let filters = {
+            isModerated,
+            salary: { $gte: salary }
+        };
+
+        categories.length && Object.assign(filters, { categoryId: { $in: categories} });
 
         const vacancies = await VacancyModel
             .aggregate([
-                { $match : { isModerated: isModerated } },
+                { $match :  filters  },
                 {
                     $lookup: {
                         from: 'groups',
@@ -51,6 +63,7 @@ class GetListAction extends Action {
                 date: `${date.getHours()}:${date.getMinutes()}, ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`,
                 title: vacancy.title,
                 description: vacancy.description,
+                salary: vacancy.salary,
                 group: {
                     id: vacancy.group.id,
                     name: vacancy.group.name,

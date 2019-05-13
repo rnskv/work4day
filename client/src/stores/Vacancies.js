@@ -62,22 +62,63 @@ class NewVacancies extends Vacancies {
 
 class FilteredVacancies extends Vacancies {
 
+    constructor(defaultParams) {
+        super(defaultParams);
+        ({ filter: this.filter } = defaultParams);
+    }
+
+    @action
+    load = async () => {
+        this.isLoading = true;
+        console.log('FILTER', this.filter.categories.join(','));
+        const response = await Api.fetch({
+            url: 'http://localhost:800/vacancies',
+            urlParams: {
+                limit: this.limit,
+                skip: this.skip,
+                categories: this.filter.categories.join(',')
+            }
+        });
+
+        this.list = this.isAppend ? [...this.list, ...response.body] : response.body;
+
+        this.isLoading = false;
+
+        return  response.body.length;
+    };
+
+    @action
+    reload = async () => {
+        this.list = [];
+        this.skip = 0;
+        this.isLoadAll = false;
+        await this.load();
+    }
 }
 
 class Filter {
-    @observable categoryId = -1;
+    @observable categories = [];
 
     @action
     change = (id) => () => {
-        console.log('change', id, this)
-        this.categoryId = id;
+        console.log(12, this.categories.indexOf(id))
+        !this.categories.includes(id)
+            ? this.categories.push(id)
+            : this.categories.splice(this.categories.indexOf(id), 1);
     }
 }
 
 class VacanciesStore {
-    @observable newVacancies = new NewVacancies({limit: 3, isAppend: false});
-    @observable filteredVacancies = new FilteredVacancies({ skip: 0 });
     @observable filter = new Filter();
+    @observable newVacancies = new NewVacancies({
+        limit: 3,
+        isAppend: false
+    });
+
+    @observable filteredVacancies = new FilteredVacancies({
+        skip: 0,
+        filter: this.filter
+    });
     constructor() {
         this.newVacancies.next().then().catch();
         this.filteredVacancies.next().then().catch();

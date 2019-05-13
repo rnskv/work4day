@@ -10,7 +10,7 @@ class ModeratedPost extends Component {
         const salary = this.refs.salary.value;
         const description = this.refs.description.value;
         const title = this.refs.title.value;
-        const isModerated = true;
+        const isModerated = 1;
 
         await fetch('http://localhost:800/vacancies/'+this.props.post.id, {
             method: 'PATCH',

@@ -15,7 +15,7 @@ class Vacancies {
         const newVacancies = await Api.fetch({
             url: 'http://localhost:800/vacancies',
             urlParams: {
-                isModerated: false,
+                isModerated: 0,
                 limit: 10
             }
         });
