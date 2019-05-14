@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Filter from '../Filter';
+import Filter from '../Filter/Filter';
 import Posts from './Posts';
 
 import '../../../styles/Vacancies.css';

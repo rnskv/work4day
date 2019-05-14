@@ -98,13 +98,18 @@ class FilteredVacancies extends Vacancies {
 
 class Filter {
     @observable categories = [];
+    @observable city = 0;
 
     @action
-    change = (id) => () => {
-        console.log(12, this.categories.indexOf(id))
+    changeCategory = (id) => () => {
         !this.categories.includes(id)
             ? this.categories.push(id)
             : this.categories.splice(this.categories.indexOf(id), 1);
+    };
+
+    @action
+    changeCity = (id) => () => {
+        this.city = id;
     }
 }
 
