@@ -1,5 +1,20 @@
 class Api {
+    constructor(params) {
+
+        this.requestParams = {
+            protocol: params.protocol || 'https',
+            host: params.host || 'localhost',
+            port: params.port || 8000
+        }
+
+    }
+
     async fetch({url, method = 'GET', params, urlParams}) {
+
+        const  {
+
+        } = params;
+
         let requestUrl = url;
         if (urlParams) {
             const queryString = Object.keys(urlParams).map(key => key + '=' + urlParams[key]).join('&');
