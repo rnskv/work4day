@@ -13,7 +13,7 @@ class Vacancies {
         this.isLoading = true;
 
         const newVacancies = await Api.fetch({
-            url: 'http://localhost:800/vacancies',
+            url: 'http://localhost:8000/vacancies',
             urlParams: {
                 isModerated: 0,
                 limit: 10
@@ -27,7 +27,7 @@ class Vacancies {
     @action
     remove = (id) => async () => {
         const response = await Api.fetch({
-            url: 'http://localhost:800/vacancies/' + id,
+            url: 'http://localhost:8000/vacancies/' + id,
             method: 'DELETE'
         });
     }

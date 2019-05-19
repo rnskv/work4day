@@ -18,7 +18,7 @@ class Vacancies {
         this.isLoading = true;
 
         const response = await Api.fetch({
-            url: 'http://localhost:800/vacancies',
+            url: 'http://localhost:8000/vacancies',
             urlParams: {
                 limit: this.limit,
                 skip: this.skip
@@ -72,7 +72,7 @@ class FilteredVacancies extends Vacancies {
         this.isLoading = true;
         console.log('FILTER', this.filter.categories.join(','));
         const response = await Api.fetch({
-            url: 'http://localhost:800/vacancies',
+            url: 'http://localhost:8000/vacancies',
             urlParams: {
                 limit: this.limit,
                 skip: this.skip,
