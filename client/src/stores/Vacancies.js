@@ -1,7 +1,8 @@
 import { observable, action, autorun } from 'mobx';
 
-import Api from '../modules/api';
+import { DefaultApi as Api } from '../modules/api';
 
+console.log(Api)
 
 class Vacancies {
     @observable isLoading = true;
@@ -18,7 +19,7 @@ class Vacancies {
         this.isLoading = true;
 
         const response = await Api.fetch({
-            url: 'http://localhost:8000/vacancies',
+            url: '/vacancies',
             urlParams: {
                 limit: this.limit,
                 skip: this.skip
@@ -72,7 +73,7 @@ class FilteredVacancies extends Vacancies {
         this.isLoading = true;
         console.log('FILTER', this.filter.categories.join(','));
         const response = await Api.fetch({
-            url: 'http://localhost:8000/vacancies',
+            url: '/vacancies',
             urlParams: {
                 limit: this.limit,
                 skip: this.skip,

@@ -1,5 +1,5 @@
 export default {
     name: 'rnskv',
-    port: 8000,
+    port: 1337,
     host: 'localhost'
 }

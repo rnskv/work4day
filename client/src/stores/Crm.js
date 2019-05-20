@@ -1,6 +1,6 @@
 import { observable, action, autorun } from 'mobx';
 
-import Api from '../modules/api';
+import { DefaultApi as Api } from '../modules/api';
 
 class Vacancies {
     @observable
@@ -13,7 +13,7 @@ class Vacancies {
         this.isLoading = true;
 
         const newVacancies = await Api.fetch({
-            url: 'http://localhost:8000/vacancies',
+            url: '/vacancies',
             urlParams: {
                 isModerated: 0,
                 limit: 10
@@ -27,7 +27,7 @@ class Vacancies {
     @action
     remove = (id) => async () => {
         const response = await Api.fetch({
-            url: 'http://localhost:8000/vacancies/' + id,
+            url: '/vacancies/' + id,
             method: 'DELETE'
         });
     }

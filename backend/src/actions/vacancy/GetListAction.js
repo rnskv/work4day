@@ -21,7 +21,35 @@ class GetListAction extends Action {
         };
 
         categories.length && Object.assign(filters, { categoryId: { $in: categories} });
+        console.log('work 1');
 
+        try {
+            const vacancies = await VacancyModel
+                .aggregate([
+                    { $match :  filters  },
+                    {
+                        $lookup: {
+                            from: 'groups',
+                            localField: 'groupId',
+                            foreignField: 'id',
+                            as: 'group'
+                        }
+                    },
+                    {
+                        $unwind: "$group"
+                    },
+                    {
+                        $sort: {
+                            date: -1
+                        }
+                    }
+                ])
+                .skip(skip)
+                .limit(limit)
+                .exec()
+        } catch (err) {
+            console.log('Ohhh no') //Погуглить как решать ошибки при отстутсвии ответа от сервера
+        }
         const vacancies = await VacancyModel
             .aggregate([
                 { $match :  filters  },
@@ -44,11 +72,12 @@ class GetListAction extends Action {
             ])
             .skip(skip)
             .limit(limit)
-            .exec();
-
+            .exec()
+        console.log(2);
         console.log('isModerated', isModerated);
 
         const formattedVacancies = [];
+        console.log('res.json 1')
 
         vacancies.forEach(vacancy => {
             const date = new Date(vacancy.date.toString());
@@ -73,6 +102,7 @@ class GetListAction extends Action {
             })
         });
 
+        console.log('res.json2 ')
         res.json({
             body: formattedVacancies,
             meta: { ok: true }
