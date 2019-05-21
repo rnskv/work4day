@@ -102,7 +102,6 @@ class GetListAction extends Action {
             })
         });
 
-        console.log('res.json2 ')
         res.json({
             body: formattedVacancies,
             meta: { ok: true }
