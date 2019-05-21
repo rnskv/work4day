@@ -7,7 +7,6 @@ import '../../../styles/Vacancies.css';
 class NewVacancies extends Component {
     render() {
         const { vacancies, next } = this.props;
-        console.log(vacancies)
         return (
             <div className="vacancies vacancies--new">
                 <h1 className="vacancies-title">Свежие подработки</h1>

@@ -17,7 +17,6 @@ class Vacancy extends Component {
         const { vacancy } = this.props;
         const { isShowFullText } = this.state;
         const isLongText = vacancy.text.length > 100;
-        console.log(vacancy);
 
         const slicesText = isLongText ? vacancy.text.slice(0, 99) + '...' : vacancy.text;
 

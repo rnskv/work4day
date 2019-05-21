@@ -16,7 +16,6 @@ import VacanciesStore from "../stores/Vacancies";
 @observer
 class Home extends Component {
     render() {
-        console.log('store', VacanciesStore);
         return (
             <React.Fragment>
                 <Header/>

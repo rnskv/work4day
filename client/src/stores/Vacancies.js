@@ -2,8 +2,6 @@ import { observable, action, autorun } from 'mobx';
 
 import { DefaultApi as Api } from '../modules/api';
 
-console.log(Api)
-
 class Vacancies {
     @observable isLoading = true;
     @observable limit = 10;
@@ -71,7 +69,6 @@ class FilteredVacancies extends Vacancies {
     @action
     load = async () => {
         this.isLoading = true;
-        console.log('FILTER', this.filter.categories.join(','));
         const response = await Api.fetch({
             url: '/vacancies',
             urlParams: {
