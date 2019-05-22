@@ -1,12 +1,9 @@
-class RError extends Error{
-    constructor(params) {
-        if (!params || !params.message) { throw new Error('message param required!') }
-        super();
-        this.message = params.message;
-        this.code = params.code || 500;
-        this.status = params.status || 'SERVER_ERROR';
-    }
-}
+import RError from '../RError';
+import {
+    SERVER_RESPONSE_INVALID,
+    SERVER_UNAVALIBE,
+    SERVER_UNAVALIBE_RETRY
+} from '../../configs/errors';
 
 class Request {
     constructor(url, params, successCb, errorCb) {
@@ -27,11 +24,11 @@ class Request {
                 this.successCb(data);
             })
             .catch((err) => {
-                console.error(new RError({ message: 'Невозможно подключиться к серверу. Повторяем' }));
+                console.error(new RError(SERVER_UNAVALIBE_RETRY));
                 if (this.refreshCount < this.maxRefreshes) {
                     setTimeout(this.refresh.bind(this), this.refreshTime)
                 } else {
-                    this.errorCb(new RError({ message: 'Сервер недоступен. зайдите позже' }));
+                    this.errorCb(new RError(SERVER_UNAVALIBE));
                 }
             });
     }
@@ -59,34 +56,38 @@ class Api {
         request.fetch();
     }
 
+    getRequestLocation() {
+        return `${this.requestParams.protocol}://${this.requestParams.host}:${this.requestParams.port}`;
+    }
+
+    getUrlencodedParams(urlParams) {
+        const queryString = Object.keys(urlParams).map(key => key + '=' + urlParams[key]).join('&');
+        return `?${queryString}`;
+    }
+
     async fetch({url, method = 'GET', params, urlParams}) {
-        let requestUrl = `${this.requestParams.protocol}://${this.requestParams.host}:${this.requestParams.port}${url}`;
+        let requestUrl = `${this.getRequestLocation()}${url}`;
 
         if (urlParams) {
-            const queryString = Object.keys(urlParams).map(key => key + '=' + urlParams[key]).join('&');
-            requestUrl += `?${queryString}`;
+            requestUrl += this.getUrlencodedParams(urlParams);
         }
 
         return new Promise((resolve, reject) => {
-            console.log(`Запрос по url ${requestUrl} запущен`);
-
             const requestParams = {
                 headers: {
-                    "content-type": "application/json",  // <--Very important!!!
+                    "content-type": "application/json",
                 },
                 mode: 'cors',
                 method
             };
 
             const successCb = async (data) => {
-                console.log(`Сервер ответил со статусом ${data.status}`);
                 data.json()
                     .then(json => resolve(json))
-                    .catch(err => reject(new RError({ message: 'Неверный формат ответа от сервера' })));
+                    .catch(err => reject(new RError(SERVER_RESPONSE_INVALID)));
             };
 
             const errorCb = err => {
-                //Вызываем попап какой нибудь
                 reject(err);
             };
 
