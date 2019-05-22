@@ -8,7 +8,7 @@ const config = {
     updateTime: 15 * 1000,
     api: {
         host: 'localhost',
-        port: 800,
+        port: 1337,
         protocol: 'http'
     }
 };
@@ -121,4 +121,4 @@ async function run() {
     setInterval(async () => await fetchNews(), 60000);
 }
 
-run().catch(console.log);
+run().catch(console.log).then(console.log);

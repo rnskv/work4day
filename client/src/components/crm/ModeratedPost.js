@@ -1,26 +1,43 @@
 import React, { Component } from "react";
 import categories from '../../configs/categories';
+import {observer} from "mobx-react";
 
+import CrmStore from '../../stores/Crm';
+
+@observer
 class ModeratedPost extends Component {
     updateAction = async (e) => {
         const whoNeed = this.refs.whoNeed.value;
-        const whyNeed = this.refs.whyNeed.value;
         const text = this.refs.text.value;
         const categoryId = this.refs.categoryId.value;
         const salary = this.refs.salary.value;
         const description = this.refs.description.value;
         const title = this.refs.title.value;
         const isModerated = 1;
+        const id = this.props.post.id;
 
-        await fetch('http://localhost:800/vacancies/'+this.props.post.id, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                set: {whoNeed, whyNeed, text, categoryId, salary, isModerated, description, title}
-            })
+        CrmStore.vacancies.moderate({
+            id,
+            whoNeed,
+            text,
+            categoryId,
+            salary,
+            description,
+            title,
+            isModerated
         });
+
+        e.preventDefault();
+
+        // await fetch('http://localhost:800/vacancies/'+this.props.post.id, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         set: {whoNeed, whyNeed, text, categoryId, salary, isModerated, description, title}
+        //     })
+        // });
     };
 
     removeAction = id => async (e) => {

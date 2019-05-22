@@ -250,20 +250,21 @@
 }
 
 .vacancies-filter_button {
-    background: none;
-    color: #1f61ab;
+    background: #10519a;
+    color: #ffffff;
     padding: 10px 15px;
-    font-size: 12pt;
+    font-size: 15pt;
     max-width: 150px;
     border: 1px solid #1f61ab;
     cursor: pointer;
-    margin-top: 15px;
     transition: .3s;
+    border-radius: 20px;
+    margin: 15px 40px;
 }
 
 .vacancies-filter_button:hover {
     border-radius: 20px 0;
-    background: #2b76ca0a;
+    /*background: #2b76ca0a;*/
 }
 
 .vacancies-filter_items {

@@ -65,7 +65,7 @@ class Api {
         return `?${queryString}`;
     }
 
-    async fetch({url, method = 'GET', params, urlParams}) {
+    async fetch({url, method = 'GET', params = null, urlParams}) {
         let requestUrl = `${this.getRequestLocation()}${url}`;
 
         if (urlParams) {
@@ -80,6 +80,10 @@ class Api {
                 mode: 'cors',
                 method
             };
+
+            if (params ) {
+                requestParams.body = JSON.stringify(params);
+            }
 
             const successCb = async (data) => {
                 data.json()
