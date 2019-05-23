@@ -7,7 +7,9 @@ import '../../../styles/Vacancies.css';
 
 class FindVacancies extends Component {
     render() {
-        const { filteredVacancies, filter } = this.props;
+        const { store } = this.props;
+        const { filteredVacancies, filter } = store;
+
         return (
             <div className="vacancies vacancies--find">
                 <h1 className="vacancies-title">Поиск работы</h1>

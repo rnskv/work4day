@@ -28,7 +28,7 @@ class Vacancies {
     reload = async () => {
         this.list = [];
         await this.load();
-    }
+    };
 
     @action
     remove = (id) => async () => {

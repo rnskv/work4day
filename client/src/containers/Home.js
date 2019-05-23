@@ -20,16 +20,10 @@ class Home extends Component {
             <React.Fragment>
                 <Header/>
                 <div className="section section--find_vacancies">
-                    <NewVacancies
-                        vacancies={VacanciesStore.newVacancies.list}
-                        next={VacanciesStore.newVacancies.next}
-                    />
+                    <NewVacancies store={VacanciesStore}/>
                 </div>
                 <div className="section section--new_vacancies">
-                    <FindVacancies
-                        filteredVacancies={VacanciesStore.filteredVacancies}
-                        filter={VacanciesStore.filter}
-                    />
+                    <FindVacancies store={VacanciesStore}/>
                 </div>
             </React.Fragment>
         );
