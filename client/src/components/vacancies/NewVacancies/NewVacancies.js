@@ -7,13 +7,13 @@ import '../../../styles/Vacancies.css';
 class NewVacancies extends Component {
     render() {
         const { store } = this.props;
-        const { list, next } = store.newVacancies;
+        const { newVacancies } = store;
 
         return (
             <div className="vacancies vacancies--new">
                 <h1 className="vacancies-title">Свежие подработки</h1>
-                <VacanciesList vacancies={list}/>
-                <button className="vacancies-button" onClick={next}>Показать следующие</button>
+                <VacanciesList newVacancies={newVacancies} />
+                <button className="vacancies-button" onClick={newVacancies.next}>Показать следующие</button>
             </div>
         );
     }

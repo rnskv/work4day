@@ -44,6 +44,8 @@ class Vacancies {
 class NewVacancies extends Vacancies {
     @action
     next = async (params = {}) => {
+        console.log('next')
+
         let loadLength = await this.load(params);
 
         if (loadLength < this.limit) {
