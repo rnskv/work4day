@@ -18,6 +18,10 @@ const groupSchema = new Schema({
         type: String,
         default: 'Unknown',
     },
+    cityId: {
+        type: Number,
+        default: -1
+    },
     screenName: {
         type: String,
         default: 'Unknown'

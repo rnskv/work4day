@@ -8,7 +8,7 @@ class VacanciesRouter extends Router {
     get router() {
         const { executeAction } = this;
 
-        router.get('/groups/:id', executeAction(actions.CreateAction));
+        router.get('/group', executeAction(actions.CreateAction));
         router.get('/groups', executeAction(actions.GetListAction));
         // router.get('/vacancies/:id', executeAction(actions.GetAction));
         // router.delete('/vacancies/:id', executeAction(actions.DeleteAction));

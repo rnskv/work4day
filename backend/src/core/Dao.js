@@ -10,7 +10,7 @@ class Dao extends CC {
 
     async connect() {
         try {
-            await mongoose.connect(configs.db.connectUrl, { useNewUrlParser: true, useCreateIndex: true })
+            await mongoose.connect(configs.db.connectUrl, { useNewUrlParser: true, useCreateIndex: true });
         } catch (err) {
             console.log('Mongoose database can`t connect');
         }

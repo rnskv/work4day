@@ -5,9 +5,10 @@ import configs from '../../configs';
 
 class CreateAction extends Action {
     static async run (req, res, next) {
-        console.log(req.body.date);
+        console.log(req.body);
         const group = new GroupModel({
-            id: req.body.groupId || req.params.id
+            id: req.body.groupId,
+            cityId: req.body.cityId
         });
         await group.save();
 

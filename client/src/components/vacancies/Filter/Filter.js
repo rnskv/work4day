@@ -15,14 +15,15 @@ class Filter extends Component {
         const { filteredVacancies } = VacanciesStore;
         const { changeCity, cities, changeCategory, filteredCategories, filteredCityId } = FilterStore;
 
-        console.log('cities', FilterStore);
         return (
             <div className="vacancies-filter">
                 <h2>Выберите город</h2>
                 <ul className="vacancies-filter_items">
                     {
-                        Object.keys(cities).map((id, index) => {
-                            const city = cities[id];
+                        cities.isLoading ? <div className="loader" /> :
+                        Object.keys(cities.list).map((cityId, index) => {
+                            const city = cities.list[cityId];
+                            console.log({...city})
                             return (
                                 <Item key={index}
                                       onClick={changeCity(city.id)}

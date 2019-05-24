@@ -1,18 +1,30 @@
 import {action, observable} from "mobx";
+import {DefaultApi as Api, DefaultApi} from '../modules/api';
+
+class Cities {
+    @observable isLoading = true;
+    @observable list = [];
+
+    constructor() {
+        this.load().then()
+    }
+
+    @action
+    load = async () => {
+        const response = await Api.fetch({
+            url: '/city'
+        });
+        this.list = response.body;
+        this.isLoading = false;
+
+        return response.body.length
+    }
+}
 
 class FilterStore {
     @observable filteredCategories = [];
-    @observable filteredCityId = 0;
-    @observable cities = [
-        {
-            id: 0,
-            name: "Пенза"
-        },
-        {
-            id: 1,
-            name: 'Таганрог'
-        }
-    ];
+    @observable filteredCityId = 3;
+    @observable cities = new Cities();
 
     @action
     changeCategory = (id) => () => {

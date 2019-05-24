@@ -12,47 +12,22 @@ class GetListAction extends Action {
         const isModerated = query.isModerated === undefined ? true : Boolean(Number(query.isModerated));
 
         const categories = query.categories && query.categories.split(',').map(e => +e) || [];
+        const cityId = Number(query.cityId) || null;
+
         const salary = Number(query.salary) || 0;
-        console.log(categories);
 
         let filters = {
             isModerated,
             salary: { $gte: salary }
         };
-
         categories.length && Object.assign(filters, { categoryId: { $in: categories} });
-        console.log('work 1');
 
-        try {
-            const vacancies = await VacancyModel
-                .aggregate([
-                    { $match :  filters  },
-                    {
-                        $lookup: {
-                            from: 'groups',
-                            localField: 'groupId',
-                            foreignField: 'id',
-                            as: 'group'
-                        }
-                    },
-                    {
-                        $unwind: "$group"
-                    },
-                    {
-                        $sort: {
-                            date: -1
-                        }
-                    }
-                ])
-                .skip(skip)
-                .limit(limit)
-                .exec()
-        } catch (err) {
-            console.log('Ohhh no') //Погуглить как решать ошибки при отстутсвии ответа от сервера
-        }
+        let groupFilter = {};
+        cityId !== null && Object.assign(groupFilter, { 'group.cityId': cityId });
+
         const vacancies = await VacancyModel
             .aggregate([
-                { $match :  filters  },
+                { $match : filters },
                 {
                     $lookup: {
                         from: 'groups',
@@ -68,7 +43,8 @@ class GetListAction extends Action {
                     $sort: {
                         date: -1
                     }
-                }
+                },
+                { $match :  groupFilter  },
             ])
             .skip(skip)
             .limit(limit)
@@ -97,7 +73,8 @@ class GetListAction extends Action {
                     id: vacancy.group.id,
                     name: vacancy.group.name,
                     photo100: vacancy.group.photo100,
-                    screenName: vacancy.group.screenName
+                    screenName: vacancy.group.screenName,
+                    cityId: vacancy.group.cityId
                 },
             })
         });

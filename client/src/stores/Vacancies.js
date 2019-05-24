@@ -30,7 +30,7 @@ class Vacancies {
 
         this.isLoading = false;
 
-        return  response.body.length;
+        return response.body.length;
     };
     
     @action
@@ -56,7 +56,7 @@ class NewVacancies extends Vacancies {
             this.skip += this.limit;
         }
 
-        if (loadLength === 0) {
+        if (loadLength === 0 && this.skip !== 0) {
             this.skip = 0;
             await this.next();
         }
@@ -77,7 +77,8 @@ class FilteredVacancies extends Vacancies {
             urlParams: {
                 limit: this.limit,
                 skip: this.skip,
-                categories: FilterStore.filteredCategories.join(',')
+                categories: FilterStore.filteredCategories.join(','),
+                cityId: FilterStore.filteredCityId
             }
         });
 

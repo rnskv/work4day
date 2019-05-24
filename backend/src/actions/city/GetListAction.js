@@ -8,7 +8,7 @@ class GetListAction extends Action {
         const cities = await CityModel
             .aggregate([
                 { $match: {} },
-                { $project:{ _id: 0, name: 1 } }
+                { $project:{ _id: 0, name: 1, id: 1 } }
                 ])
             .exec();
 
