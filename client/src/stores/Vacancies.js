@@ -2,6 +2,8 @@ import { observable, action, autorun } from 'mobx';
 
 import { DefaultApi as Api } from '../modules/api';
 
+import FilterStore from './Filter';
+
 class Vacancies {
     @observable isLoading = true;
     @observable limit = 10;
@@ -65,7 +67,6 @@ class FilteredVacancies extends Vacancies {
 
     constructor(defaultParams) {
         super(defaultParams);
-        ({ filter: this.filter } = defaultParams);
     }
 
     @action
@@ -76,7 +77,7 @@ class FilteredVacancies extends Vacancies {
             urlParams: {
                 limit: this.limit,
                 skip: this.skip,
-                categories: this.filter.categories.join(',')
+                categories: FilterStore.filteredCategories.join(',')
             }
         });
 
@@ -96,25 +97,7 @@ class FilteredVacancies extends Vacancies {
     }
 }
 
-class Filter {
-    @observable categories = [];
-    @observable city = 0;
-
-    @action
-    changeCategory = (id) => () => {
-        !this.categories.includes(id)
-            ? this.categories.push(id)
-            : this.categories.splice(this.categories.indexOf(id), 1);
-    };
-
-    @action
-    changeCity = (id) => () => {
-        this.city = id;
-    }
-}
-
 class VacanciesStore {
-    @observable filter = new Filter();
     @observable newVacancies = new NewVacancies({
         limit: 4,
         isAppend: false
@@ -122,7 +105,6 @@ class VacanciesStore {
 
     @observable filteredVacancies = new FilteredVacancies({
         skip: 0,
-        filter: this.filter
     });
     constructor() {
         this.newVacancies.next().then().catch();

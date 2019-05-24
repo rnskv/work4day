@@ -6,8 +6,8 @@ import '../../../styles/Vacancies.css';
 
 class NewVacancies extends Component {
     render() {
-        const { store } = this.props;
-        const { newVacancies } = store;
+        const { VacanciesStore } = this.props;
+        const { newVacancies } = VacanciesStore;
 
         return (
             <div className="vacancies vacancies--new">

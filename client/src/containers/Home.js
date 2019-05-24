@@ -12,6 +12,7 @@ import FindVacancies from "../components/vacancies/FindVacancies/FindVacancies";
 import '../styles/Home.css';
 
 import VacanciesStore from "../stores/Vacancies";
+import FilterStore from "../stores/Filter";
 
 @observer
 class Home extends Component {
@@ -20,10 +21,10 @@ class Home extends Component {
             <React.Fragment>
                 <Header/>
                 <div className="section section--find_vacancies">
-                    <NewVacancies store={VacanciesStore}/>
+                    <NewVacancies VacanciesStore={VacanciesStore}/>
                 </div>
                 <div className="section section--new_vacancies">
-                    <FindVacancies store={VacanciesStore}/>
+                    <FindVacancies FilterStore={FilterStore} VacanciesStore={VacanciesStore}/>
                 </div>
             </React.Fragment>
         );

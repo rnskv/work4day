@@ -2,29 +2,32 @@ import React, { Component } from "react";
 import { observer } from 'mobx-react/index';
 
 import categories from '../../../configs/categories';
-import cities from '../../../configs/cities';
 
 import Item from './Item';
+import FilterStore from '../../../stores/Filter';
 
 import '../../../styles/Vacancies.css';
-
-import VacanciesStore from "../../../stores/Vacancies";
 
 @observer
 class Filter extends Component {
     render() {
-        const { filter, filteredVacancies } = VacanciesStore;
+        const { VacanciesStore } = this.props;
+        const { filteredVacancies } = VacanciesStore;
+        const { changeCity, cities, changeCategory, filteredCategories, filteredCityId } = FilterStore;
+
+        console.log('cities', FilterStore);
         return (
             <div className="vacancies-filter">
                 <h2>Выберите город</h2>
                 <ul className="vacancies-filter_items">
                     {
                         Object.keys(cities).map((id, index) => {
+                            const city = cities[id];
                             return (
                                 <Item key={index}
-                                      onClick={filter.changeCity(index)}
-                                      text={cities[id].name}
-                                      isActive={filter.city === (Number(id))}
+                                      onClick={changeCity(city.id)}
+                                      text={city.name}
+                                      isActive={filteredCityId === city.id}
                                 />
                             )
                         })
@@ -33,18 +36,19 @@ class Filter extends Component {
                 <h2>Выберите категории</h2>
                 <ul className="vacancies-filter_items">
                     <li
-                        onClick={filter.changeCategory(-1)}
-                        className={`vacancies-filter_item ${filter.categories.length === 0 ? 'vacancies-filter_item--active' : ''}`}
+                        onClick={changeCategory(-1)}
+                        className={`vacancies-filter_item ${filteredCategories.length === 0 ? 'vacancies-filter_item--active' : ''}`}
                     >
                         Все категории
                     </li>
                     {
                         Object.keys(categories).map((id, index) => {
+                            console.log([...filteredCategories])
                             return (
                                 <Item key={index}
-                                      onClick={filter.changeCategory(index)}
+                                      onClick={changeCategory(index)}
                                       text={categories[id]}
-                                      isActive={filter.categories.includes(Number(id))}
+                                      isActive={filteredCategories.includes(Number(index))}
                                 />
                             )
                         })
@@ -57,7 +61,3 @@ class Filter extends Component {
 }
 
 export default Filter;
-
-
-
-

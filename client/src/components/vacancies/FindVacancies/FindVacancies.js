@@ -7,14 +7,14 @@ import '../../../styles/Vacancies.css';
 
 class FindVacancies extends Component {
     render() {
-        const { store } = this.props;
-        const { filteredVacancies, filter } = store;
+        const { VacanciesStore, FilterStore } = this.props;
+        const { filteredVacancies } = VacanciesStore;
 
         return (
             <div className="vacancies vacancies--find">
                 <h1 className="vacancies-title">Поиск работы</h1>
-                <Filter filter={filter}/>
-                <Posts filteredVacancies={filteredVacancies} filter={filter}/>
+                <Filter VacanciesStore={VacanciesStore}/>
+                <Posts filteredVacancies={filteredVacancies} FilterStore={FilterStore}/>
             </div>
         );
     }
