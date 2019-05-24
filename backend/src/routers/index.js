@@ -3,11 +3,13 @@ import UserRouter from './UserRouter';
 import AuthRouter from './AuthRouter';
 import VacanciesRouter from './VacanciesRouter';
 import GroupsRouter from './GroupsRouter';
+import CitiesRouter from './CitiesRouter';
 
 export default [
     RootRouter,
     UserRouter,
     AuthRouter,
     VacanciesRouter,
-    GroupsRouter
+    GroupsRouter,
+    CitiesRouter
 ]
