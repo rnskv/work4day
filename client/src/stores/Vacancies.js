@@ -43,7 +43,13 @@ class Vacancies {
         this.list = this.isAppend ? [...this.list, ...response.body] : response.body;
         this.isLoading = false;
 
-        return response.body.length;
+        const responseLength = response.body.length;
+
+        if (responseLength === 0) {
+            this.isLoadAll = true;
+        }
+
+        return responseLength;
     };
     
     @action
