@@ -1,5 +1,7 @@
 import Action from '../../core/Action';
 import VacancyModel from '../../models/VacancyModel';
+import CategoryModel from '../../models/CategoryModel';
+
 import VError from '../../core/VError';
 import configs from '../../configs';
 
@@ -53,8 +55,9 @@ class GetListAction extends Action {
         console.log('isModerated', isModerated);
 
         const formattedVacancies = [];
-        console.log('res.json 1')
-
+        console.log('res.json 1');
+        const categoriesList = await CategoryModel.find();
+        console.log(categoriesList)
         vacancies.forEach(vacancy => {
             const date = new Date(vacancy.date.toString());
             formattedVacancies.push({
@@ -64,7 +67,7 @@ class GetListAction extends Action {
                 groupId: vacancy.groupId,
                 postId: vacancy.postId,
                 text: vacancy.text,
-                categoryId: vacancy.categoryId,
+                category: categoriesList.filter(obj => obj.id === vacancy.categoryId)[0] || { name: 'Без категории' },
                 date: `${date.getHours()}:${date.getMinutes()}, ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`,
                 title: vacancy.title,
                 description: vacancy.description,
@@ -79,9 +82,14 @@ class GetListAction extends Action {
             })
         });
 
+        const totalCount = await VacancyModel.find().count();
+
         res.json({
             body: formattedVacancies,
-            meta: { ok: true }
+            meta: {
+                ok: true,
+                totalCount
+            }
         })
     }
 }

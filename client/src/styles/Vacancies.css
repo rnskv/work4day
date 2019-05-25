@@ -39,19 +39,24 @@
     box-shadow: 0 0 17px 0px #1f61ab;
 }
 .vacancies-vacancy__title {
-    margin: 25px 0 0 25px;
-    font-size: 18pt;
+    padding: 15px 15px 10px;
+    font-size: 14pt;
+    background: #ffffff73;
+    color: #000;
 }
 
 .vacancies-vacancy__category {
-    margin: 5px 0 0 25px;
-    font-size: 9pt;
+    padding: 5px 25px;
+    font-size: 10pt;
+    background: #1f61ab;
+    color: #fff;
 }
 
 .vacancies-vacancy__text {
-    margin: 25px;
+    padding: 10px 15px 15px 15px;
     font-size: 10pt;
     height: 80px;
+    background: #c5c5c536;
 }
 
 .vacancies-vacancy__from {
@@ -81,7 +86,7 @@
 
 .vacancies-button {
     padding: 15px 25px;
-    font-size: 17pt;
+    font-size: 14pt;
     background: #f3f3f3;
     border: none;
     outline: none;
@@ -107,7 +112,7 @@
     width: 30%;
 }
 .vacancies--find {
-    width: 1200px;
+    width: 1100px;
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -125,7 +130,7 @@
 
 .vacancies-post {
     background: white;
-    margin: 25px;
+    margin: 25px 50px;
     display: flex;
     justify-content: space-between;
     padding: 25px;

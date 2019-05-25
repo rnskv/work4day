@@ -6,6 +6,7 @@ import configs from '../../configs';
 class GetListAction extends Action {
     static async run (req, res, next) {
         const groups = await GroupModel.find({}).select('id lastPostId photo100 name').exec();
+
         res.json(groups)
     }
 }
