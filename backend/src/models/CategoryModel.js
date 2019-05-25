@@ -3,7 +3,7 @@ import { Schema } from 'mongoose';
 import Model from '../core/Model';
 import plugins from './plugins';
 
-const citySchema = new Schema({
+const categorySchema = new Schema({
     id: {
         type: Number,
         default: -1
@@ -13,8 +13,9 @@ const citySchema = new Schema({
         unique: true
     },
 });
-citySchema.plugin(plugins.AutoIncrement, {inc_field: 'id', id: 'city_model_id_counter'});
 
-const CityModel = new Model('city', citySchema);
+categorySchema.plugin(plugins.AutoIncrement, {inc_field: 'id', id: 'category_model_id_counter'});
 
-export default CityModel;
+const CategoryModel = new Model('category', categorySchema);
+
+export default CategoryModel;

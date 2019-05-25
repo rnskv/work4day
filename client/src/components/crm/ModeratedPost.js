@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import categories from '../../configs/categories';
 import {observer} from "mobx-react";
 
 import CrmStore from '../../stores/Crm';
+import FilterStore from '../../stores/Filter';
 
 @observer
 class ModeratedPost extends Component {
@@ -53,6 +53,7 @@ class ModeratedPost extends Component {
 
     render() {
         const { post } = this.props;
+        const categories = FilterStore.categories.list;
         return (
             <form>
                 <div className="moderated-post">
@@ -80,8 +81,8 @@ class ModeratedPost extends Component {
                         Категория
                         <select ref="categoryId">
                             {
-                                Object.keys(categories).map((categoryId, index) => {
-                                    return <option value={categoryId}>{ categories[categoryId] }</option>
+                                categories.map((category, index) => {
+                                    return <option key={index} value={category.id}>{ category.name }</option>
                                 })
                             }
                         </select>

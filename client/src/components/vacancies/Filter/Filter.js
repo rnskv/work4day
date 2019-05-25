@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { observer } from 'mobx-react/index';
 
-import categories from '../../../configs/categories';
-
 import Item from './Item';
 import FilterStore from '../../../stores/Filter';
 
@@ -13,14 +11,14 @@ class Filter extends Component {
     render() {
         const { VacanciesStore } = this.props;
         const { filteredVacancies } = VacanciesStore;
-        const { changeCity, cities, changeCategory, filteredCategories, filteredCityId } = FilterStore;
+        const { changeCity, cities, categories, changeCategory, filteredCategories, filteredCityId } = FilterStore;
 
         return (
             <div className="vacancies-filter">
                 <h2>Выберите город</h2>
                 <ul className="vacancies-filter_items">
                     {
-                        cities.isLoading ? <div className="loader" /> :
+                        cities.isLoading ? 'Мы загружаем города...' :
                         Object.keys(cities.list).map((cityId, index) => {
                             const city = cities.list[cityId];
                             console.log({...city})
@@ -36,20 +34,16 @@ class Filter extends Component {
                 </ul>
                 <h2>Выберите категории</h2>
                 <ul className="vacancies-filter_items">
-                    <li
-                        onClick={changeCategory(-1)}
-                        className={`vacancies-filter_item ${filteredCategories.length === 0 ? 'vacancies-filter_item--active' : ''}`}
-                    >
-                        Все категории
-                    </li>
                     {
-                        Object.keys(categories).map((id, index) => {
+                        cities.isLoading ? 'Мы загружаем категории...' :
+                        Object.keys(categories.list).map((id, index) => {
                             console.log([...filteredCategories])
+                            const category = categories.list[id];
                             return (
                                 <Item key={index}
-                                      onClick={changeCategory(index)}
-                                      text={categories[id]}
-                                      isActive={filteredCategories.includes(Number(index))}
+                                      onClick={changeCategory(category.id)}
+                                      text={category.name}
+                                      isActive={filteredCategories.includes(category.id)}
                                 />
                             )
                         })

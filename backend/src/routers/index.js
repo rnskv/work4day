@@ -4,6 +4,7 @@ import AuthRouter from './AuthRouter';
 import VacanciesRouter from './VacanciesRouter';
 import GroupsRouter from './GroupsRouter';
 import CitiesRouter from './CitiesRouter';
+import CategoriesRouter from './CategoriesRouter';
 
 export default [
     RootRouter,
@@ -11,5 +12,6 @@ export default [
     AuthRouter,
     VacanciesRouter,
     GroupsRouter,
-    CitiesRouter
+    CitiesRouter,
+    CategoriesRouter
 ]

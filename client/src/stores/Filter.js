@@ -21,10 +21,31 @@ class Cities {
     }
 }
 
+class Categories {
+    @observable isLoading = true;
+    @observable list = [];
+
+    constructor() {
+        this.load().then()
+    }
+
+    @action
+    load = async () => {
+        const response = await Api.fetch({
+            url: '/category'
+        });
+        this.list = response.body;
+        this.isLoading = false;
+
+        return response.body.length
+    }
+}
+
 class FilterStore {
     @observable filteredCategories = [];
     @observable filteredCityId = 3;
     @observable cities = new Cities();
+    @observable categories = new Categories();
 
     @action
     changeCategory = (id) => () => {
