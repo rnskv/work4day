@@ -11,27 +11,38 @@ class Vacancies {
     @observable list = [];
     @observable isLoadAll = false;
     constructor(defaultParams) {
-        ({ limit: this.limit = 10, skip: this.skip = 0, isAppend: this.isAppend = true} = defaultParams);
+        ({
+            limit: this.limit = 10,
+            skip: this.skip = 0,
+            isAppend: this.isAppend = true,
+            withFilter: this.withFilter = false
+        } = defaultParams);
     }
 
     @action
-    load = async (params = {}) => {
+    load = async () => {
         this.isLoading = true;
+        const { limit, skip, withFilter } = this;
+
+        const filters = withFilter
+            ? {
+                categories: FilterStore.filteredCategories.join(','),
+                cityId: FilterStore.filteredCityId
+              }
+            : {};
 
         const response = await Api.fetch({
             url: '/vacancies',
             urlParams: {
-                limit: this.limit,
-                skip: this.skip
+                limit,
+                skip,
+                ...filters
             }
         });
 
         this.list = this.isAppend ? [...this.list, ...response.body] : response.body;
-
         this.isLoading = false;
-        if (response.body.length === 0) {
-            this.isLoadAll = true;
-        }
+
         return response.body.length;
     };
     
@@ -39,7 +50,7 @@ class Vacancies {
     next = async (params = {}) => {
         const loadLength = await this.load(params);
         this.skip += this.limit;
-        console.log('next action',loadLength )
+
         if (loadLength === 0) {
             this.isLoadAll = true;
         }
@@ -49,8 +60,6 @@ class Vacancies {
 class NewVacancies extends Vacancies {
     @action
     next = async (params = {}) => {
-        console.log('next')
-
         let loadLength = await this.load(params);
 
         if (loadLength < this.limit) {
@@ -61,39 +70,12 @@ class NewVacancies extends Vacancies {
 
         if (loadLength === 0 && this.skip !== 0) {
             this.skip = 0;
-            await this.next();
+            await this.next(params);
         }
     };
 }
 
 class FilteredVacancies extends Vacancies {
-
-    constructor(defaultParams) {
-        super(defaultParams);
-    }
-
-    @action
-    load = async () => {
-        this.isLoading = true;
-        const response = await Api.fetch({
-            url: '/vacancies',
-            urlParams: {
-                limit: this.limit,
-                skip: this.skip,
-                categories: FilterStore.filteredCategories.join(','),
-                cityId: FilterStore.filteredCityId
-            }
-        });
-
-        this.list = this.isAppend ? [...this.list, ...response.body] : response.body;
-
-        this.isLoading = false;
-        if (response.body.length === 0) {
-            this.isLoadAll = true;
-        }
-        return  response.body.length;
-    };
-
     @action
     reload = async () => {
         this.list = [];
@@ -111,7 +93,9 @@ class VacanciesStore {
 
     @observable filteredVacancies = new FilteredVacancies({
         skip: 0,
+        withFilter: true
     });
+
     constructor() {
         this.newVacancies.next().then().catch();
         this.filteredVacancies.next().then().catch();
