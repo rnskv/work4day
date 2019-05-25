@@ -29,7 +29,9 @@ class Vacancies {
         this.list = this.isAppend ? [...this.list, ...response.body] : response.body;
 
         this.isLoading = false;
-
+        if (response.body.length === 0) {
+            this.isLoadAll = true;
+        }
         return response.body.length;
     };
     
@@ -37,6 +39,7 @@ class Vacancies {
     next = async (params = {}) => {
         const loadLength = await this.load(params);
         this.skip += this.limit;
+        console.log('next action',loadLength )
         if (loadLength === 0) {
             this.isLoadAll = true;
         }
@@ -85,7 +88,9 @@ class FilteredVacancies extends Vacancies {
         this.list = this.isAppend ? [...this.list, ...response.body] : response.body;
 
         this.isLoading = false;
-
+        if (response.body.length === 0) {
+            this.isLoadAll = true;
+        }
         return  response.body.length;
     };
 
