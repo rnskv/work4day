@@ -1,0 +1,13 @@
+.select {
+    background: red;
+    color: #fff;
+    cursor: pointer;
+}
+.option {
+    background: black;
+    color: #fff;
+}
+.option:hover {
+    background: white;
+    color: #000;
+}

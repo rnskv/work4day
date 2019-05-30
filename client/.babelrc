@@ -4,5 +4,5 @@
     "@babel/preset-react",
     "mobx"
   ],
-  "plugins": ["@babel/plugin-transform-runtime"]
+  "plugins": ["@babel/plugin-transform-runtime", "reshadow/babel"]
 }

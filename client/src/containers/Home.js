@@ -8,6 +8,7 @@ import Header from "../components/page/Header";
 import NewVacancies from "../components/vacancies/NewVacancies/NewVacancies";
 import FindVacancies from "../components/vacancies/FindVacancies/FindVacancies";
 
+import Select from '../components/common/Select';
 
 import '../styles/Home.css';
 
@@ -19,6 +20,41 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
+                <Select
+                    // text={ 'Выберите что нибудь' }
+                    value={1}
+                    onChange={ alert }
+                    options={
+                        [
+                            {
+                                value: 1,
+                                text: 'Первый пункт'
+                            },
+                            {
+                                value: 2,
+                                text: 'Второй пункт'
+                            }
+                        ]
+                    }
+                />
+                <Select
+                    // text={ 'Выберите что нибудь' }
+                    value={1}
+                    text={'Нажми что бы выбрать'}
+                    onChange={ alert }
+                    options={
+                        [
+                            {
+                                value: 1,
+                                text: 'Первый пункт'
+                            },
+                            {
+                                value: 2,
+                                text: 'Второй пункт'
+                            }
+                        ]
+                    }
+                />
                 <Header/>
                 <div className="section section--find_vacancies">
                     <NewVacancies VacanciesStore={VacanciesStore}/>
