@@ -22,72 +22,86 @@ class Components extends Component {
                 background: #b3b3b3;
                 padding: 50px;
             }
+            
+            div {
+                background: white;
+                padding: 50px;
+            }
+            
+            div + div {
+                background: #000000c2;
+            }
+            
         `(
             <content>
-                <Heading size={'l'}>Кнопки</Heading>
+                <div>
+                    <Heading size={'l'}>Кнопки</Heading>
+                    <Button color="blue" size={"m"}>Синяя кнопка</Button>
+                    <Heading size={'l'}>Селекты</Heading>
+                    <Select
+                        id={'firstSelect'}
+                        value={1}
+                        onChange={ (value) => { console.log(value) } }
+                        options={
+                            [
+                                {
+                                    value: 1,
+                                    text: 'Первый пункт'
+                                },
+                                {
+                                    value: 2,
+                                    text: 'Второй пункт'
+                                }
+                            ]
+                        }
+                        fieldSize={'m'}
+                    />
+                    <Select
+                        id={'secondSelect'}
+                        value={1}
+                        text={'Нажми что бы выбрать'}
+                        onChange={ (value) => { console.log(value) } }
+                        options={
+                            [
+                                {
+                                    value: 1,
+                                    text: 'Первый пункт'
+                                },
+                                {
+                                    value: 2,
+                                    text: 'Второй пункт'
+                                }
+                            ]
+                        }
+                        fieldSize={'b'}
+                    />
+                    <Select
+                        id={'thirdSelect'}
+                        value={1}
+                        text={'Нажми что бы выбрать'}
+                        onChange={ (value) => { console.log(value) } }
+                        options={
+                            [
+                                {
+                                    value: 1,
+                                    text: 'Первый пункт'
+                                },
+                                {
+                                    value: 2,
+                                    text: 'Второй пункт'
+                                }
+                            ]
+                        }
+                        fieldSize={'s'}
+                    />
+                </div>
 
-                <Button color="white" size={"s"}>Белая кнопка</Button>
-                <Button color="blue" size={"m"}>Синяя кнопка</Button>
-                <Button color="white" size={"l"}>Белая кнопка</Button>
-
-                <Heading size={'l'}>Селекты</Heading>
-
-                <Select
-                    id={'firstSelect'}
-                    value={1}
-                    onChange={ (value) => { console.log(value) } }
-                    options={
-                        [
-                            {
-                                value: 1,
-                                text: 'Первый пункт'
-                            },
-                            {
-                                value: 2,
-                                text: 'Второй пункт'
-                            }
-                        ]
-                    }
-                    fieldSize={'m'}
-                />
-                <Select
-                    id={'secondSelect'}
-                    value={1}
-                    text={'Нажми что бы выбрать'}
-                    onChange={ (value) => { console.log(value) } }
-                    options={
-                        [
-                            {
-                                value: 1,
-                                text: 'Первый пункт'
-                            },
-                            {
-                                value: 2,
-                                text: 'Второй пункт'
-                            }
-                        ]
-                    }
-                    fieldSize={'b'}
-                />
-                <Select
-                    id={'thirdSelect'}
-                    value={1}
-                    text={'Нажми что бы выбрать'}
-                    onChange={ (value) => { console.log(value) } }
-                    options={
-                        [
-                            {
-                                value: 1,
-                                text: 'Первый пункт'
-                            },
-                            {
-                                value: 2,
-                                text: 'Второй пункт'
-                            }
-                        ]
-                    }
-                    fieldSize={'s'}
-                />
+                <div className="grey">
+                    <Heading size={'l'}>Кнопки</Heading>
+                    <Button color="white" size={"s"}>Белая кнопка</Button>
+                    <Button color="white" size={"l"}>Белая кнопка</Button>
+                    <Heading size={'l'}>Селекты</Heading>
+                </div>
             </content>
         );
     }

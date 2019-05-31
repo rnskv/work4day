@@ -125,7 +125,19 @@ class Select extends Component {
                     onClick={this.handleButtonClick}
                     onChange={this.handleValueChange}
                 >
-                    {this.state.text}
+
+
+                    <span>
+                        { this.state.text }
+                    </span>
+
+
+                    {
+                        this.state.opened
+                            ? <i className={'fas fa-angle-up'}></i>
+                            : <i className={'fas fa-angle-down'}></i>
+                    }
+
                 </button>
 
                 <ul tabIndex="-1" role="listbox">
