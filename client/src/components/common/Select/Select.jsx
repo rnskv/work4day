@@ -57,10 +57,12 @@ class Select extends Component {
 
     setDefaultValue() {
         const option = this.props.options.filter(option => option.value === this.props.value)[0];
+        console.log(option);
         this.selectOption(option)
     }
 
     selectOption(option, callback) {
+        console.log('select', option, this)
         this.setState({
             text: option.text,
             value: option.value

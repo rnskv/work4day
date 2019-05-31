@@ -1,4 +1,5 @@
 const path = require("path");
+const reshadow = require("reshadow");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -12,9 +13,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                },
+                use: ['reshadow/webpack/loader', 'babel-loader']
             },
             {
                 test: /\.css$/,

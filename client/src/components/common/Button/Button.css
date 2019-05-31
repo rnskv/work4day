@@ -1,0 +1,7 @@
+button {
+    background: red;
+}
+
+button[|color='blue'] {
+    background: blue;
+}

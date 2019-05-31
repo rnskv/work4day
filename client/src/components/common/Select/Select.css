@@ -10,6 +10,11 @@
     text-align: center;
 }
 
+.select[size='big'] {
+    width: 400px;
+    height: 48px;
+}
+
 .select:focus {
     border: 5px solid red;
 }

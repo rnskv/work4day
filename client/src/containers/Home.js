@@ -9,6 +9,8 @@ import NewVacancies from "../components/vacancies/NewVacancies/NewVacancies";
 import FindVacancies from "../components/vacancies/FindVacancies/FindVacancies";
 
 import Select from '../components/common/Select';
+import Button from '../components/common/Button';
+
 
 import '../styles/Home.css';
 
@@ -20,6 +22,9 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
+                <Button>Тык сюда</Button>
+                <Button color="blue">Тык сюда</Button>
+
                 <Select
                     // text={ 'Выберите что нибудь' }
                     id={'firstSelect'}
