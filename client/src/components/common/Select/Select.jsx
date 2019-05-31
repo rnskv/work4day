@@ -5,8 +5,9 @@ import Type from 'prop-types';
 
 class Select extends Component {
     static propTypes = {
-        id: Type.number,
+        id: Type.oneOfType([Type.string, Type.number]).isRequired,
         value: Type.oneOfType([Type.string, Type.number]),
+        options: Type.array,
         text: Type.oneOfType([Type.string, Type.number]),
         defaultOption: Type.object,
         onChange: Type.func
@@ -19,19 +20,33 @@ class Select extends Component {
             text: props.text || '',
             opened: false
         };
+        this.root = null;
+        this.windowClickListener = null;
     }
 
     componentWillMount() {
         if (!this.props.text) {
-            //РЕФАКТОР
-            const option = this.props.options.filter(option => option.value === this.props.value)[0];
-            console.log(option);
-            this.selectOption(option)
+            this.setDefaultValue();
         }
+
+        this.windowClickListener = window.addEventListener('click', this.closeOptions)
     }
+
+    componentWillUnmount() {
+        window.removeEventListener(this.windowClickListener, this.closeOptions);
+    }
+
     getValue() {
         return this.state.value
     }
+
+    closeOptions = (event) => {
+        if (event.target !== this.root.childNodes[1]) {
+            this.setState({
+                opened: false
+            })
+        }
+    };
 
     toggleOpened() {
         const newOpenedState = !this.state.opened;
@@ -40,12 +55,16 @@ class Select extends Component {
         })
     }
 
-    selectOption(option) {
-        console.log('select', option, this)
+    setDefaultValue() {
+        const option = this.props.options.filter(option => option.value === this.props.value)[0];
+        this.selectOption(option)
+    }
+
+    selectOption(option, callback) {
         this.setState({
             text: option.text,
             value: option.value
-        })
+        }, callback)
     }
 
     handleButtonClick = () => {
@@ -53,13 +72,18 @@ class Select extends Component {
     };
 
     handleValueChange = () => {
-        this.props.onChange(this.getValue())
+        this.props.onChange(this.getValue());
+
+        if (this.root) {
+            this.root.focus();
+        }
     };
 
     handleOptionClick = (option) => () => {
-        this.selectOption(option);
-        this.handleValueChange();
-        this.toggleOpened();
+        this.selectOption(option, () => {
+            this.handleValueChange();
+            this.toggleOpened();
+        });
     };
 
     renderOptionsList() {
@@ -78,16 +102,19 @@ class Select extends Component {
 
     render() {
         return (
-            <div className="select">
-                <input type="hidden" value={this.state.value} id={ this.props.id } />
-                <div
+            <div className="select" ref={ (root) => { this.root = root }}>
+                <input value={ this.state.value }
+                       id={ this.props.id }
+                       type="hidden"
+                />
+                <div className={'selectText'}
                     onClick={ this.handleButtonClick }
                     onChange={ this.handleValueChange }
                 >
                     { this.state.text }
                 </div>
 
-                <div hidden={ !this.state.opened }>
+                <div className={'selectList'} hidden={ !this.state.opened }>
                     { this.renderOptionsList() }
                 </div>
 

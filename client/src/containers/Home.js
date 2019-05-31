@@ -22,8 +22,9 @@ class Home extends Component {
             <React.Fragment>
                 <Select
                     // text={ 'Выберите что нибудь' }
+                    id={'firstSelect'}
                     value={1}
-                    onChange={ (value) => { alert(value) } }
+                    onChange={ (value) => { console.log(value) } }
                     options={
                         [
                             {
@@ -39,9 +40,10 @@ class Home extends Component {
                 />
                 <Select
                     // text={ 'Выберите что нибудь' }
+                    id={'secondSelect'}
                     value={1}
                     text={'Нажми что бы выбрать'}
-                    onChange={ (value) => { alert(value) } }
+                    onChange={ (value) => { console.log(value) } }
                     options={
                         [
                             {

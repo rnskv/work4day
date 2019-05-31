@@ -1,8 +1,31 @@
 .select {
-    background: red;
-    color: #fff;
+    background: #1f61ab;
+    color: #fbfbfb;
+    width: 200px;
+    height: 48px;
     cursor: pointer;
+    border: 1px solid #0000003d;
+    position: relative;
+    line-height: 48px;
+    text-align: center;
 }
+
+.select:focus {
+    border: 5px solid red;
+}
+
+.selectText {
+    height: 100%;
+    width: 100%;
+}
+
+.selectList {
+    background: grey;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+}
+
 .option {
     background: black;
     color: #fff;
