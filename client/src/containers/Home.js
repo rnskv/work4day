@@ -23,7 +23,7 @@ class Home extends Component {
                 <Select
                     // text={ 'Выберите что нибудь' }
                     value={1}
-                    onChange={ alert }
+                    onChange={ (value) => { alert(value) } }
                     options={
                         [
                             {
@@ -41,7 +41,7 @@ class Home extends Component {
                     // text={ 'Выберите что нибудь' }
                     value={1}
                     text={'Нажми что бы выбрать'}
-                    onChange={ alert }
+                    onChange={ (value) => { alert(value) } }
                     options={
                         [
                             {

@@ -58,6 +58,7 @@ class Select extends Component {
 
     handleOptionClick = (option) => () => {
         this.selectOption(option);
+        this.handleValueChange();
         this.toggleOpened();
     };
 
