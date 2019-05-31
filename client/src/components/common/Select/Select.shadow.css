@@ -1,4 +1,4 @@
-.select {
+container {
     background: #1f61ab;
     color: #fbfbfb;
     width: 200px;
@@ -10,32 +10,42 @@
     text-align: center;
 }
 
-.select[|filedSize='big'] {
+container[|filedSize='big'] {
     width: 400px;
     height: 48px;
 }
 
-.select:focus {
+button {
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+}
+
+button:focus {
     border: 5px solid red;
 }
 
-.selectText {
-    height: 100%;
-    width: 100%;
+button[aria-expanded] + ul {
+    display: block;
 }
 
-.selectList {
+ul {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
     background: grey;
     position: absolute;
     z-index: 100;
     width: 100%;
 }
 
-.option {
+li {
     background: black;
     color: #fff;
 }
-.option:hover {
+li:hover {
     background: white;
     color: #000;
 }

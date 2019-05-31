@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'reshadow';
-import styles from './Button.css';
+import styles from './Button.shadow.css';
 import Type from 'prop-types';
 
 class Button extends Component {
     render() {
+        const {color, ...props} = this.props
+
         return styled(styles)(
-            <button {...this.props} test="red">
+            <button {...props} use:color={color}>
                 <content as="span">{this.props.children}</content>
             </button>,
         )

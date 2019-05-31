@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'reshadow';
-import styles from './Select.css';
+import styles from './Select.shadow.css';
 import Type from 'prop-types';
 
 class Select extends Component {
@@ -90,37 +90,42 @@ class Select extends Component {
 
     renderOptionsList() {
         return this.props.options.map(option => {
-            return (
-                <div
-                    className="option"
+            return styled(styles)(
+                <li
+                    role="option"
                     key={option.value}
                     onClick={ this.handleOptionClick(option) }
                 >
-                    { option.text }
-                </div>
+                    {option.text}
+                </li>
             )
         })
     }
 
     render() {
         return styled(styles)(
-            <div filedSize={this.props.filedSize} className="select" ref={ (root) => { this.root = root }}>
-                <input value={ this.state.value }
-                       id={ this.props.id }
-                       type="hidden"
+            <container
+                use:filedSize={this.props.filedSize}
+                ref={ (root) => { this.root = root }
+            }>
+                <input
+                    value={this.state.value}
+                    id={this.props.id}
+                    type="hidden"
                 />
-                <div className={'selectText'}
-                    onClick={ this.handleButtonClick }
-                    onChange={ this.handleValueChange }
+                <button
+                    aria-haspopup="listbox"
+                    aria-expanded={this.state.opened}
+                    onClick={this.handleButtonClick}
+                    onChange={this.handleValueChange}
                 >
-                    { this.state.text }
-                </div>
+                    {this.state.text}
+                </button>
 
-                <div className={'selectList'} hidden={ !this.state.opened }>
-                    { this.renderOptionsList() }
-                </div>
-
-            </div>
+                <ul tabindex="-1" role="listbox">
+                    {this.renderOptionsList()}
+                </ul>
+            </container>
         )
     }
 }
