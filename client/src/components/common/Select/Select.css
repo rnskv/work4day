@@ -10,7 +10,7 @@
     text-align: center;
 }
 
-.select[size='big'] {
+.select[|filedSize='big'] {
     width: 400px;
     height: 48px;
 }

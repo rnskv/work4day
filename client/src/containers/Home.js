@@ -42,6 +42,7 @@ class Home extends Component {
                             }
                         ]
                     }
+                    filedSize={'big'}
                 />
                 <Select
                     // text={ 'Выберите что нибудь' }

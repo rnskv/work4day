@@ -103,8 +103,8 @@ class Select extends Component {
     }
 
     render() {
-        return (
-            <div className="select" ref={ (root) => { this.root = root }}>
+        return styled(styles)(
+            <div filedSize={this.props.filedSize} className="select" ref={ (root) => { this.root = root }}>
                 <input value={ this.state.value }
                        id={ this.props.id }
                        type="hidden"
@@ -125,6 +125,4 @@ class Select extends Component {
     }
 }
 
-export default (props) => styled(styles)(
-    <Select {...props} />
-);
+export default Select;
