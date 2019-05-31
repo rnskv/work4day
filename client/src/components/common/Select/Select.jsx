@@ -103,9 +103,15 @@ class Select extends Component {
     }
 
     render() {
+        const {
+            fieldSize,
+            className
+        } = this.props;
+
         return styled(styles)(
-            <container
-                use:filedSize={this.props.filedSize}
+            <content
+                className={className}
+                use:fieldSize={fieldSize}
                 ref={ (root) => { this.root = root }
             }>
                 <input
@@ -114,7 +120,7 @@ class Select extends Component {
                     type="hidden"
                 />
                 <button
-                    aria-haspopup="listbox"
+                    aria-haspopup="true"
                     aria-expanded={this.state.opened}
                     onClick={this.handleButtonClick}
                     onChange={this.handleValueChange}
@@ -122,10 +128,10 @@ class Select extends Component {
                     {this.state.text}
                 </button>
 
-                <ul tabindex="-1" role="listbox">
+                <ul tabIndex="-1" role="listbox">
                     {this.renderOptionsList()}
                 </ul>
-            </container>
+            </content>
         )
     }
 }

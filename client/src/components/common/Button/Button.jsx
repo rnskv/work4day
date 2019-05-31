@@ -4,12 +4,18 @@ import styles from './Button.shadow.css';
 import Type from 'prop-types';
 
 class Button extends Component {
+    static propTypes = {
+        color: Type.oneOf(['white', 'blue']),
+        size: Type.oneOf['s', 'm', 'b'],
+        className: Type.string,
+    };
+
     render() {
-        const {color, ...props} = this.props
+        const {color, size, className, children} = this.props;
 
         return styled(styles)(
-            <button {...props} use:color={color}>
-                <content as="span">{this.props.children}</content>
+            <button className={className} use:color={color} use:size={size}>
+                { children }
             </button>,
         )
     }

@@ -1,38 +1,36 @@
 import React, { Component } from "react";
 import { observer } from 'mobx-react';
 import styled from 'reshadow';
-import Menu from "../components/navigation/Menu";
-
-import LazyWrapper from "../components/common/LazyWrapper";
-
-import Header from "../components/page/Header";
-import NewVacancies from "../components/vacancies/NewVacancies/NewVacancies";
-import FindVacancies from "../components/vacancies/FindVacancies/FindVacancies";
 
 import Select from '../components/common/Select';
 import Button from '../components/common/Button';
-
-
-import '../styles/Home.css';
-
-import VacanciesStore from "../stores/Vacancies";
-import FilterStore from "../stores/Filter";
+import Heading from '../components/common/Heading';
 
 @observer
-class Home extends Component {
+class Components extends Component {
     render() {
         return styled`
-            Button {
-                margin: 10px;
-            }
-            
             Select {
                 margin: 10px;
             }
+            
+            Button {
+                margin: 12px;
+            }
+            
+            content {
+                background: #b3b3b3;
+                padding: 50px;
+            }
         `(
             <content>
-                <Button>Тык сюда</Button>
-                <Button color="blue">Тык сюда</Button>
+                <Heading size={'l'}>Кнопки</Heading>
+
+                <Button color="white" size={"s"}>Белая кнопка</Button>
+                <Button color="blue" size={"m"}>Синяя кнопка</Button>
+                <Button color="white" size={"l"}>Белая кнопка</Button>
+
+                <Heading size={'l'}>Селекты</Heading>
 
                 <Select
                     id={'firstSelect'}
@@ -90,16 +88,9 @@ class Home extends Component {
                     }
                     fieldSize={'s'}
                 />
-                <Header/>
-                <div className="section section--find_vacancies">
-                    <NewVacancies VacanciesStore={VacanciesStore}/>
-                </div>
-                <div className="section section--new_vacancies">
-                    <FindVacancies FilterStore={FilterStore} VacanciesStore={VacanciesStore}/>
-                </div>
             </content>
         );
     }
 }
 
-export default Home;
+export default Components;

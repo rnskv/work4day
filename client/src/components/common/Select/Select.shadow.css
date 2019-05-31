@@ -1,4 +1,4 @@
-container {
+content {
     background: #1f61ab;
     color: #fbfbfb;
     width: 200px;
@@ -10,9 +10,16 @@ container {
     text-align: center;
 }
 
-container[|filedSize='big'] {
+content[|fieldSize='b'] {
     width: 400px;
-    height: 48px;
+}
+
+content[|fieldSize='m'] {
+    width: 200px;
+}
+
+content[|fieldSize='s'] {
+    width: 100px;
 }
 
 button {
