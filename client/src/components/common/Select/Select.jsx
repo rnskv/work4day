@@ -102,14 +102,14 @@ class Select extends Component {
 
     render() {
         const {
-            fieldSize,
+            size,
             className
         } = this.props;
 
         return styled(styles)(
             <content
                 className={className}
-                use:fieldSize={fieldSize}
+                use:size={size}
                 ref={ (root) => { this.root = root }
             }>
                 <input

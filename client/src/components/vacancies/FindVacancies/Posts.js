@@ -6,6 +6,7 @@ import Post from './Post';
 import '../../../styles/Vacancies.css';
 
 import VacanciesStore from '../../../stores/Vacancies';
+import Button from '../../common/Button';
 
 @observer
 class Posts extends Component {
@@ -25,7 +26,7 @@ class Posts extends Component {
                     isLoading ? <div className="loader" /> : ''
                 }
                 { !isLoadAll
-                    ? <button className="vacancies-button" onClick={next}>Показать следующие</button>
+                    ? <Button color="blue" size="l" onClick={next}>Показать следующие</Button>
                     : 'Кажется вакансий больше нет, заходите позже :)'
                 }
             </div>

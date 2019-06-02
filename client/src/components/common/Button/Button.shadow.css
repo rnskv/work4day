@@ -1,5 +1,5 @@
 button {
-    height: 48px;
+    height: 38px;
     width: 200px;
     margin: 0;
     padding: 0 16px;
@@ -55,4 +55,5 @@ button[|size='m'] {
 button[|size='l'] {
     width: 280px;
     font-size: 16pt;
+    height: 48px;
 }

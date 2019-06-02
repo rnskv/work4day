@@ -5,14 +5,14 @@ import Type from 'prop-types';
 
 class Button extends Component {
     static propTypes = {
-        color: Type.oneOf(['white', 'blue']),
-        size: Type.oneOf(['s', 'm', 'l']),
+        color: Type.oneOf(['white', 'blue']).isRequired,
+        size: Type.oneOf(['s', 'm', 'l']).isRequired,
         className: Type.string,
         onClick: Type.func
     };
 
-    constructor() {
-        super();
+    constructor(props, context) {
+        super(props, context);
         this.root = null;
     }
 

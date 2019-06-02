@@ -6,6 +6,8 @@ import FilterStore from '../../../stores/Filter';
 
 import '../../../styles/Vacancies.css';
 
+import Button from '../../common/Button';
+
 @observer
 class Filter extends Component {
     render() {
@@ -49,7 +51,7 @@ class Filter extends Component {
                         })
                     }
                 </ul>
-                <button onClick={filteredVacancies.reload} className="vacancies-filter_button">Применить</button>
+                <Button size="m" color={"blue"} onClick={filteredVacancies.reload} >Применить</Button>
             </div>
         );
     }

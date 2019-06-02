@@ -7,15 +7,15 @@ content {
     border: 1px solid var(--grey-color);
 }
 
-content[|fieldSize='b'] {
+content[|size='b'] {
     width: 248px;
 }
 
-content[|fieldSize='m'] {
+content[|size='m'] {
     width: 148px;
 }
 
-content[|fieldSize='s'] {
+content[|size='s'] {
     width: 100px;
 }
 

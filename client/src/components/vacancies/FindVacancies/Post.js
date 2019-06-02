@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from '../../common/Button';
 
 class Post extends Component {
     render() {
@@ -29,9 +30,9 @@ class Post extends Component {
                             <i className="far fa-thumbs-down"></i>
                         </button>
                     </div>
-                    <button className="vacancies-post__group_button" onClick={() => {
+                    <Button onClick={() => {
                         window.location = 'https://vk.com/'+post.group.screenName+'?w=wall-'+post.group.id+'_'+post.postId
-                    }}>Откликнуться</button>
+                    }}>Откликнуться</Button>
                 </div>
             </div>
         );

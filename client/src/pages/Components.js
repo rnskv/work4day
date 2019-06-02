@@ -5,10 +5,34 @@ import styled from 'reshadow';
 import Select from '../components/common/Select';
 import Button from '../components/common/Button';
 import Heading from '../components/common/Heading';
+import Image from '../components/common/Image';
+import Input from '../components/common/Input';
 
 @observer
 class Components extends Component {
     render() {
+
+        const selectProps = {
+            value: 1,
+            onChange: function(value) { console.log(value) },
+            options: [
+                {
+                    value: 1,
+                    text: 'Первый пункт'
+                },
+                {
+                    value: 2,
+                    text: 'Второй пункт'
+                }
+            ],
+            fieldSize: 'm'
+        };
+
+        const photoProps = {
+            src: 'https://pp.userapi.com/c845018/v845018712/c0ed0/KjotTJpUgvw.jpg',
+            alt: 'Photo'
+        };
+
         return styled`
             Select {
                 margin: 10px;
@@ -32,67 +56,47 @@ class Components extends Component {
                 background: #000000c2;
             }
             
+            Image + Image {
+                margin: 0 0 0 12px;
+            }
+            
+            Input {
+                margin: 10px;
+            }
         `(
             <content>
                 <div>
                     <Heading size={'l'} color={'black'}>Кнопки</Heading>
                     <Button color="blue" size={"m"}>Синяя кнопка</Button>
+
                     <Heading size={'l'} color={'black'}>Селекты</Heading>
-                    <Select
-                        id={'firstSelect'}
-                        value={1}
-                        onChange={ (value) => { console.log(value) } }
-                        options={
-                            [
-                                {
-                                    value: 1,
-                                    text: 'Первый пункт'
-                                },
-                                {
-                                    value: 2,
-                                    text: 'Второй пункт'
-                                }
-                            ]
-                        }
-                        fieldSize={'m'}
+                    <Select id={'firstSelect'} {...selectProps} size={"s"} />
+                    <Select id={'secondSelect'}{...selectProps} size={"m"} text={'Placeholder'}/>
+                    <Select id={'thirdSelect'} {...selectProps} size={"l"} />
+
+                    <Heading size={'l'} color={'black'}>Инпуты</Heading>
+                    <Input color={'white'} size={'l'}/>
+                    <Input icon={true} size={'s'}/>
+                    <Input icon={true} size={'m'}/>
+                    <Input icon={true} size={'l'}/>
+
+                    <Heading size={'l'} color={'black'}>Картинки</Heading>
+                    <Image
+                        { ...photoProps }
+                        width={100}
+                        height={300}
+                        cover
                     />
-                    <Select
-                        id={'secondSelect'}
-                        value={1}
-                        text={'Нажми что бы выбрать'}
-                        onChange={ (value) => { console.log(value) } }
-                        options={
-                            [
-                                {
-                                    value: 1,
-                                    text: 'Первый пункт'
-                                },
-                                {
-                                    value: 2,
-                                    text: 'Второй пункт'
-                                }
-                            ]
-                        }
-                        fieldSize={'b'}
+                    <Image
+                        { ...photoProps }
+                        width={270}
+                        height={200}
+                        cover
                     />
-                    <Select
-                        id={'thirdSelect'}
-                        value={1}
-                        text={'Нажми что бы выбрать'}
-                        onChange={ (value) => { console.log(value) } }
-                        options={
-                            [
-                                {
-                                    value: 1,
-                                    text: 'Первый пункт'
-                                },
-                                {
-                                    value: 2,
-                                    text: 'Второй пункт'
-                                }
-                            ]
-                        }
-                        fieldSize={'s'}
+                    <Image
+                        { ...photoProps }
+                        width={100}
+                        height={100}
                     />
                 </div>
 
@@ -102,26 +106,7 @@ class Components extends Component {
                     <Button color="white" size={"l"}>Белая кнопка</Button>
 
                     <Heading size={'l'} color={'white'}>Селекты</Heading>
-
-                    <Select
-                        id={'thirdSelect'}
-                        value={1}
-                        text={'Нажми что бы выбрать'}
-                        onChange={ (value) => { console.log(value) } }
-                        options={
-                            [
-                                {
-                                    value: 1,
-                                    text: 'Первый пункт'
-                                },
-                                {
-                                    value: 2,
-                                    text: 'Второй пункт'
-                                }
-                            ]
-                        }
-                        fieldSize={'l'}
-                    />
+                    <Select id={'fourthSelect'}{...selectProps} size={"m"} />
                 </div>
             </content>
         );

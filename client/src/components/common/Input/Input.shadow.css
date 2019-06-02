@@ -1,0 +1,38 @@
+content {
+    display: flex;
+    width: 200px;
+    height: 38px;
+}
+
+content[|size='s'] {
+    width: 100px;
+}
+
+content[|size='m'] {
+    width: 148px;
+}
+
+content[|size='l'] {
+    width: 200px;
+}
+
+input[|icon='true'] {
+    width: calc(100% - 38px);
+}
+
+input {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 12pt;
+    padding: 0 8px;
+    outline: none;
+    border: 1px solid var(--grey-color);
+    display: block;
+}
+
+input:focus {
+    box-shadow: none;
+    border: 1px solid var(--blue-color);
+}
