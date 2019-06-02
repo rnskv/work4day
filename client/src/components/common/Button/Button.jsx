@@ -8,13 +8,31 @@ class Button extends Component {
         color: Type.oneOf(['white', 'blue']),
         size: Type.oneOf(['s', 'm', 'l']),
         className: Type.string,
+        onClick: Type.func
+    };
+
+    constructor() {
+        super();
+        this.root = null;
+    }
+
+    handleClick = (event) => {
+        const { onClick } = this.props;
+        this.root.blur();
+        onClick && onClick(event);
     };
 
     render() {
-        const {color, size, className, children} = this.props;
-
+        const {color, size, className, children, ...props} = this.props;
         return styled(styles)(
-            <button className={className} use:color={color} use:size={size}>
+            <button
+                ref={ (root) => { this.root = root } }
+                {...props}
+                className={className}
+                use:color={color}
+                use:size={size}
+                onClick={ this.handleClick }
+            >
                 { children }
             </button>,
         )

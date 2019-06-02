@@ -4,7 +4,7 @@ content {
     width: 200px;
     height: 38px;
     position: relative;
-    border: 1px solid var(--grey--color);
+    border: 1px solid var(--grey-color);
 }
 
 content[|fieldSize='b'] {
