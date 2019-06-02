@@ -19,11 +19,15 @@ class Components extends Component {
             options: [
                 {
                     value: 1,
-                    text: 'Первый пункт'
+                    text: 'First option'
                 },
                 {
                     value: 2,
-                    text: 'Второй пункт'
+                    text: 'Second option'
+                },
+                {
+                    value: 3,
+                    text: 'Third option'
                 }
             ],
             fieldSize: 'm'
@@ -71,21 +75,21 @@ class Components extends Component {
         `(
             <content>
                 <div>
-                    <Heading size={'l'} color={'black'}>Икноки</Heading>
+                    <Heading size={'l'} color={'black'}>Icons</Heading>
 
                     <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={90} color={'blue'}/>
                     <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={60} color={'black'}/>
                     <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={40} color={'blue'}/>
 
-                    <Heading size={'l'} color={'black'}>Кнопки</Heading>
-                    <Button color="blue" size={"m"}>Синяя кнопка</Button>
+                    <Heading size={'l'} color={'black'}>Buttons</Heading>
+                    <Button color="blue" size={"m"}>Button</Button>
 
-                    <Heading size={'l'} color={'black'}>Селекты</Heading>
+                    <Heading size={'l'} color={'black'}>Selects</Heading>
                     <Select id={'firstSelect'} {...selectProps} size={"s"} />
                     <Select id={'secondSelect'}{...selectProps} size={"m"} text={'Placeholder'}/>
                     <Select id={'thirdSelect'} {...selectProps} size={"l"} />
 
-                    <Heading size={'l'} color={'black'}>Инпуты</Heading>
+                    <Heading size={'l'} color={'black'}>Inputs</Heading>
                     <Input color={'white'} size={'l'}/>
                     <Input size={'s'}/>
 
@@ -95,7 +99,7 @@ class Components extends Component {
 
                     <Input size={'l'} icon={ <Icon isAwesome={true} awesomeClass={'fas fa-search-location'} size={20} color={'grey'} /> }/>
 
-                    <Heading size={'l'} color={'black'}>Картинки</Heading>
+                    <Heading size={'l'} color={'black'}>Images</Heading>
                     <Image
                         { ...photoProps }
                         width={100}
@@ -116,12 +120,43 @@ class Components extends Component {
                 </div>
 
                 <div className="grey">
-                    <Heading size={'l'} color={'white'}>Кнопки</Heading>
-                    <Button color="white" size={"s"}>Белая кнопка</Button>
-                    <Button color="white" size={"l"}>Белая кнопка</Button>
+                    <Heading size={'l'} color={'white'}>Icons</Heading>
 
-                    <Heading size={'l'} color={'white'}>Селекты</Heading>
+                    <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={90} color={'white'}/>
+                    <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={60} color={'blue'}/>
+                    <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={40} color={'white'}/>
+
+                    <Heading size={'l'} color={'white'}>Buttons</Heading>
+                    <Button color="white" size={"s"}>Button</Button>
+                    <Button color="white" size={"l"}>Button</Button>
+
+                    <Heading size={'l'} color={'white'}>Selects</Heading>
                     <Select id={'fourthSelect'}{...selectProps} size={"m"} />
+
+                    <Heading size={'l'} color={'white'}>Images</Heading>
+                    <Image
+                        { ...photoProps }
+                        width={100}
+                        height={300}
+                        cover
+                    />
+                    <Image
+                        { ...photoProps }
+                        width={270}
+                        height={200}
+                        cover
+                    />
+                    <Image
+                        { ...photoProps }
+                        width={100}
+                        height={100}
+                    />
+
+                    <Heading size={'l'} color={'white'}>Inputs</Heading>
+                    <Input size={'l'}
+                           icon={ <Icon isAwesome={true} awesomeClass={'fas fa-search'} size={16} color={'white'} /> }
+                    />
+
                 </div>
             </content>
         );

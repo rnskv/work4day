@@ -9,3 +9,7 @@ i[|color="black"] {
 i[|color="grey"] {
     color: var(--grey-color)
 }
+
+i[|color="white"] {
+    color: var(--white-color)
+}
