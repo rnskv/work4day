@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import styled from 'reshadow';
 import Menu from "../components/navigation/Menu";
 
-import LazyWrapper from "../components/common/LazyWrapper";
+import LazyWrapper from "../components/common/_Legacy/LazyWrapper";
 
 import Header from "../components/page/Header";
 import NewVacancies from "../components/vacancies/NewVacancies/NewVacancies";

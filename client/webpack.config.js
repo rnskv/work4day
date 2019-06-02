@@ -13,7 +13,9 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: ['reshadow/webpack/loader', 'babel-loader']
+                use: [
+                    'babel-loader'
+                ]
             },
             {
                 test: /\.css$/,

@@ -1,10 +1,10 @@
 content {
-    background: #fff;
-    color: #000;
+    background: var(--white-color);
+    color: var(--black-color);
     width: 200px;
     height: 38px;
     position: relative;
-    border: 1px solid #cbd1d4;
+    border: 1px solid var(--grey--color);
 }
 
 content[|fieldSize='b'] {
@@ -39,7 +39,7 @@ button {
 }
 
 button:focus {
-    outline: 1px solid #0f8fee;
+    outline: 1px solid var(--blue-color);
 }
 
 button[aria-expanded] + ul {
@@ -50,12 +50,11 @@ ul {
     display: none;
     list-style: none;
     padding: 0;
-    background: grey;
     position: absolute;
     z-index: 100;
     width: 100%;
     margin-top: 8px;
-    border: 1px solid #ececec;
+    border: 1px solid var(--grey-glow--color);
 }
 
 ul:focus {
@@ -63,8 +62,8 @@ ul:focus {
 }
 
 li {
-    background: #fff;
-    color: #000;
+    background: var(--white-color);
+    color: var(--black-color);
     height: 38px;
     line-height: 38px;
     cursor: pointer;
@@ -76,11 +75,11 @@ li {
 }
 
 li + li {
-    border-top: 1px solid #ececec;
+    border-top: 1px solid var(--grey-glow--color);
 }
 
 li:hover {
-    background: #f5f5f5;
+    background: var(--grey-active-color);
 }
 
 .fas {

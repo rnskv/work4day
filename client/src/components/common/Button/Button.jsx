@@ -6,7 +6,7 @@ import Type from 'prop-types';
 class Button extends Component {
     static propTypes = {
         color: Type.oneOf(['white', 'blue']),
-        size: Type.oneOf['s', 'm', 'b'],
+        size: Type.oneOf(['s', 'm', 'l']),
         className: Type.string,
     };
 

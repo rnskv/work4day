@@ -11,36 +11,36 @@ button {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: #fff;
+    color: var(--white-color);
     display: block;
     transition: .3s;
 }
 
 button[|color='blue'] {
-    background-color: #0f8fee;
+    background-color: var(--blue-color);
 }
 
 button[|color='blue']:hover {
-    background-color: #0b77c7;
+    background-color: var(--blue-active-color);
 }
 
 button[|color='blue']:focus {
-    background-color: #36a9ff;
+    background-color: var(--blue-glow-color);
 }
 
 button[|color='white'] {
     background: none;
-    border: 1px solid #fff;
+    border: 1px solid var(--white-color);
 }
 
 button[|color='white']:hover {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--white-color);
+    color:  var(--black-color);
 }
 
 button[|color='white']:focus {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--white-color);
+    color: var(--black-color);
 }
 
 button[|size='s'] {

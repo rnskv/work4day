@@ -4,7 +4,7 @@ import styles from './Heading.shadow.css';
 import Type from 'prop-types';
 
 class Heading extends Component {
-    static PropTypes = {
+    static propTypes = {
         id: Type.number,
         size: Type.oneOf(['xs', 's', 'm', 'l', 'xl'])
     };
