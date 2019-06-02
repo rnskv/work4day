@@ -41,7 +41,8 @@ class Select extends Component {
     }
 
     closeOptions = (event) => {
-        if (event.target !== this.root.childNodes[1]) {
+        console.log(this.root, event.target.parentNode)
+        if (event.target.parentNode !== this.root) {
             this.setState({
                 opened: false
             })
@@ -57,12 +58,10 @@ class Select extends Component {
 
     setDefaultValue() {
         const option = this.props.options.filter(option => option.value === this.props.value)[0];
-        console.log(option);
         this.selectOption(option)
     }
 
     selectOption(option, callback) {
-        console.log('select', option, this)
         this.setState({
             text: option.text,
             value: option.value
@@ -119,6 +118,7 @@ class Select extends Component {
                     id={this.props.id}
                     type="hidden"
                 />
+
                 <button
                     aria-haspopup="true"
                     aria-expanded={this.state.opened}
@@ -126,18 +126,16 @@ class Select extends Component {
                     onChange={this.handleValueChange}
                 >
 
-
                     <span>
-                        { this.state.text }
+                        <a>
+                            { this.state.text }
+                        </a>
+                        {
+                            this.state.opened
+                                ? <i className={'fas fa-angle-up'}></i>
+                                : <i className={'fas fa-angle-down'}></i>
+                        }
                     </span>
-
-
-                    {
-                        this.state.opened
-                            ? <i className={'fas fa-angle-up'}></i>
-                            : <i className={'fas fa-angle-down'}></i>
-                    }
-
                 </button>
 
                 <ul tabIndex="-1" role="listbox">

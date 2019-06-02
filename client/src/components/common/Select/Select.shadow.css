@@ -20,6 +20,14 @@ content[|fieldSize='s'] {
 }
 
 span {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: inherit;
+}
+
+a {
+    color: var(--black-color);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -33,9 +41,6 @@ button {
     border: none;
     font-size: 10pt;
     cursor: pointer;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }
 
 button:focus {
