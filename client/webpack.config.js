@@ -20,6 +20,10 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ["css-hot-loader", "style-loader", "css-loader"]
+            },
+            {
+                test: /\.shadow.css$/,
+                use: ["css-hot-loader", "style-loader", "css-loader"]
             }
         ]
     },

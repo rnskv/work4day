@@ -9,7 +9,7 @@ class Input extends Component {
     static propTypes = {
         size: Type.oneOf(['s', 'm', 'l']).isRequired,
         className: Type.string,
-        icon: Type.bool
+        icon: Type.any
     };
 
     constructor(props, context) {
@@ -18,16 +18,14 @@ class Input extends Component {
     }
 
     render() {
+        const {size, icon, children, ...props } = this.props;
 
-        const { size, icon, children, ...props } = this.props;
         return styled(styles)(
             <content {...props} use:size={size}>
                 <input
                     ref={ root => { this.root = root }}
                 />
-                {
-                    icon && <Image width={38} height={38} cover src={'https://pp.userapi.com/c845018/v845018712/c0eda/uYum5AGdw3k.jpg?ava=1'} alt={'icon'} />
-                }
+                { icon }
             </content>
         )
     }

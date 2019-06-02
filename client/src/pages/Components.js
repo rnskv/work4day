@@ -7,6 +7,7 @@ import Button from '../components/common/Button';
 import Heading from '../components/common/Heading';
 import Image from '../components/common/Image';
 import Input from '../components/common/Input';
+import Icon from '../components/common/Icon';
 
 @observer
 class Components extends Component {
@@ -60,12 +61,22 @@ class Components extends Component {
                 margin: 0 0 0 12px;
             }
             
+            Icon {
+                margin: 10px;
+            }
+            
             Input {
                 margin: 10px;
             }
         `(
             <content>
                 <div>
+                    <Heading size={'l'} color={'black'}>Икноки</Heading>
+
+                    <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={90} color={'blue'}/>
+                    <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={60} color={'black'}/>
+                    <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={40} color={'blue'}/>
+
                     <Heading size={'l'} color={'black'}>Кнопки</Heading>
                     <Button color="blue" size={"m"}>Синяя кнопка</Button>
 
@@ -76,9 +87,13 @@ class Components extends Component {
 
                     <Heading size={'l'} color={'black'}>Инпуты</Heading>
                     <Input color={'white'} size={'l'}/>
-                    <Input icon={true} size={'s'}/>
-                    <Input icon={true} size={'m'}/>
-                    <Input icon={true} size={'l'}/>
+                    <Input size={'s'}/>
+
+                    <Input size={'m'}
+                           icon={ <Icon isAwesome={true} awesomeClass={'fas fa-search'} size={16} color={'blue'} /> }
+                    />
+
+                    <Input size={'l'} icon={ <Icon isAwesome={true} awesomeClass={'fas fa-search-location'} size={20} color={'grey'} /> }/>
 
                     <Heading size={'l'} color={'black'}>Картинки</Heading>
                     <Image

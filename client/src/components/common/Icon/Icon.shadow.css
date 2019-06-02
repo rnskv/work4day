@@ -1,0 +1,11 @@
+i[|color="blue"] {
+    color: var(--blue-color)
+}
+
+i[|color="black"] {
+    color: var(--black-color)
+}
+
+i[|color="grey"] {
+    color: var(--grey-color)
+}
