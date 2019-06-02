@@ -35,9 +35,9 @@ class Components extends Component {
         `(
             <content>
                 <div>
-                    <Heading size={'l'}>Кнопки</Heading>
+                    <Heading size={'l'} color={'black'}>Кнопки</Heading>
                     <Button color="blue" size={"m"}>Синяя кнопка</Button>
-                    <Heading size={'l'}>Селекты</Heading>
+                    <Heading size={'l'} color={'black'}>Селекты</Heading>
                     <Select
                         id={'firstSelect'}
                         value={1}
@@ -97,10 +97,31 @@ class Components extends Component {
                 </div>
 
                 <div className="grey">
-                    <Heading size={'l'}>Кнопки</Heading>
+                    <Heading size={'l'} color={'white'}>Кнопки</Heading>
                     <Button color="white" size={"s"}>Белая кнопка</Button>
                     <Button color="white" size={"l"}>Белая кнопка</Button>
-                    <Heading size={'l'}>Селекты</Heading>
+
+                    <Heading size={'l'} color={'white'}>Селекты</Heading>
+
+                    <Select
+                        id={'thirdSelect'}
+                        value={1}
+                        text={'Нажми что бы выбрать'}
+                        onChange={ (value) => { console.log(value) } }
+                        options={
+                            [
+                                {
+                                    value: 1,
+                                    text: 'Первый пункт'
+                                },
+                                {
+                                    value: 2,
+                                    text: 'Второй пункт'
+                                }
+                            ]
+                        }
+                        fieldSize={'l'}
+                    />
                 </div>
             </content>
         );

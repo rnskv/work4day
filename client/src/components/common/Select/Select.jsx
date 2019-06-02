@@ -41,7 +41,6 @@ class Select extends Component {
     }
 
     closeOptions = (event) => {
-        console.log(this.root, event.target.parentNode)
         if (event.target.parentNode !== this.root) {
             this.setState({
                 opened: false
@@ -118,7 +117,6 @@ class Select extends Component {
                     id={this.props.id}
                     type="hidden"
                 />
-
                 <button
                     aria-haspopup="true"
                     aria-expanded={this.state.opened}

@@ -1,0 +1,76 @@
+h1, h2, h3, h4, h5, h6 {
+
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+
+h1[|color='white'] {
+    color: var(--white-color)
+}
+
+h2[|color='white'] {
+    color: var(--white-color)
+}
+
+h3[|color='white'] {
+    color: var(--white-color)
+}
+
+h4[|color='white'] {
+    color: var(--white-color)
+}
+
+h5[|color='white'] {
+    color: var(--white-color)
+}
+
+h6[|color='white'] {
+    color: var(--white-color)
+}
+
+h1[|color='black'] {
+    color: var(--black-color)
+}
+
+h2[|color='black'] {
+    color: var(--black-color)
+}
+
+h3[|color='black'] {
+    color: var(--black-color)
+}
+
+h4[|color='black'] {
+    color: var(--black-color)
+}
+
+h5[|color='black'] {
+    color: var(--black-color)
+}
+
+h6[|color='black'] {
+    color: var(--black-color)
+}
