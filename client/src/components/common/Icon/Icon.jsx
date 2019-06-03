@@ -8,7 +8,7 @@ class Heading extends Component {
         isAwesome: Type.bool,
         awesomeClass: Type.string,
         size: Type.number,
-        color: Type.string.isRequired
+        color: Type.string
     };
 
     static defaultProps = {
@@ -19,6 +19,7 @@ class Heading extends Component {
 
     render() {
         const { color, size, isAwesome, awesomeClass, className, ...props } = this.props;
+        console.log(awesomeClass);
         return styled(styles)(
             isAwesome && <i
                 use:color={color}
