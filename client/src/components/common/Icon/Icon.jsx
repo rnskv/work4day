@@ -19,7 +19,7 @@ class Heading extends Component {
 
     render() {
         const { color, size, isAwesome, awesomeClass, className, ...props } = this.props;
-        console.log(awesomeClass);
+
         return styled(styles)(
             isAwesome && <i
                 use:color={color}

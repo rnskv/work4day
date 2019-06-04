@@ -8,7 +8,22 @@ class Button extends Component {
         color: Type.oneOf(['white', 'blue']).isRequired,
         size: Type.oneOf(['s', 'm', 'l']).isRequired,
         className: Type.string,
-        onClick: Type.func
+        onClick: Type.func,
+        onMouseDown: Type.func,
+        onMouseUp: Type.func,
+        onMouseOver: Type.func,
+        onMouseOut: Type.func,
+        onMouseMove: Type.func,
+    };
+
+    static defaultProps = {
+        className: '',
+        onClick: () => {},
+        onMouseDown: () => {},
+        onMouseUp: () => {},
+        onMouseOver: () => {},
+        onMouseOut: () => {},
+        onMouseMove: () => {},
     };
 
     constructor(props, context) {
@@ -19,19 +34,53 @@ class Button extends Component {
     handleClick = (event) => {
         const { onClick } = this.props;
         this.root.blur();
-        onClick && onClick(event);
+        onClick(event);
+    };
+
+    handleMouseDown = () => {
+        const { onMouseDown } = this.props;
+        onMouseDown();
+    };
+
+    handleMouseUp = () => {
+        const { onMouseUp } = this.props;
+        onMouseUp();
+    };
+
+    handleMouseOver = () => {
+        const { onMouseOver } = this.props;
+        onMouseOver();
+    };
+
+    handleMouseOut = () => {
+        const { onMouseOut } = this.props;
+        onMouseOut();
+    };
+
+    handleMouseMove = () => {
+        const { onMouseMove } = this.props;
+        onMouseMove();
     };
 
     render() {
-        const {color, size, className, children, ...props} = this.props;
+        const { color, size, className, children, ...props } = this.props;
+        const buttonProps = {
+            ref: root => { this.root = root },
+            className,
+            ...props,
+            onClick: this.handleClick,
+            onMouseDown: this.handleMouseDown,
+            onMouseUp: this.handleMouseUp,
+            onMouseOver: this.handleMouseOver,
+            onMouseOut: this.handleMouseOut,
+            onMouseMove: this.handleMouseMove
+        };
+
         return styled(styles)(
             <button
-                ref={ (root) => { this.root = root } }
-                {...props}
-                className={className}
                 use:color={color}
                 use:size={size}
-                onClick={ this.handleClick }
+                { ...buttonProps }
             >
                 { children }
             </button>,

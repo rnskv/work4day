@@ -34,7 +34,7 @@ class Components extends Component {
         };
 
         const photoProps = {
-            src: 'https://pp.userapi.com/c845018/v845018712/c0ed0/KjotTJpUgvw.jpg',
+            src: 'https://cdn.vedomosti.ru/image/2017/7n/111re1/mobile_high-1c0j.jpg',
             alt: 'Photo'
         };
 

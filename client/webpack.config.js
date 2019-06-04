@@ -1,5 +1,4 @@
 const path = require("path");
-const reshadow = require("reshadow");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
