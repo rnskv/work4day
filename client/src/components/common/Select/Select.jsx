@@ -3,6 +3,8 @@ import styled from 'reshadow';
 import styles from './Select.shadow.css';
 import Type from 'prop-types';
 
+import Icon from '../Icon';
+
 class Select extends Component {
     static propTypes = {
         id: Type.oneOfType([Type.string, Type.number]).isRequired,
@@ -130,8 +132,8 @@ class Select extends Component {
                         </a>
                         {
                             this.state.opened
-                                ? <i className={'fas fa-angle-up'}></i>
-                                : <i className={'fas fa-angle-down'}></i>
+                                ? <Icon color={'black'} awesomeClass={'fas fa-angle-up'} isAwesome />
+                                : <Icon color={'black'} awesomeClass={'fas fa-angle-down'} isAwesome={true} />
                         }
                     </span>
                 </button>
