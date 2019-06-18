@@ -7,6 +7,10 @@ content {
     border: 1px solid var(--grey-color);
 }
 
+content:focus {
+    outline: none;
+}
+
 content[|size='b'] {
     width: 248px;
 }

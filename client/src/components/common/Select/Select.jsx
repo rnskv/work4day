@@ -23,39 +23,29 @@ class Select extends Component {
             opened: false
         };
         this.root = null;
-        this.windowClickListener = null;
     }
 
     componentWillMount() {
         if (!this.props.text) {
             this.setDefaultValue();
         }
-
-        this.windowClickListener = window.addEventListener('click', this.closeOptions)
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener(this.windowClickListener, this.closeOptions);
     }
 
     getValue() {
         return this.state.value
     }
 
-    closeOptions = (event) => {
-        if (event.target.parentNode !== this.root) {
-            this.setState({
-                opened: false
-            })
-        }
+    expand = () => {
+        this.setState({
+            opened: true
+        })
     };
 
-    toggleOpened() {
-        const newOpenedState = !this.state.opened;
+    collapse = () => {
         this.setState({
-            opened: newOpenedState
+            opened: false
         })
-    }
+    };
 
     setDefaultValue() {
         const option = this.props.options.filter(option => option.value === this.props.value)[0];
@@ -69,22 +59,14 @@ class Select extends Component {
         }, callback)
     }
 
-    handleButtonClick = () => {
-        this.toggleOpened();
-    };
-
     handleValueChange = () => {
         this.props.onChange(this.getValue());
-
-        if (this.root) {
-            this.root.focus();
-        }
     };
 
     handleOptionClick = (option) => () => {
         this.selectOption(option, () => {
             this.handleValueChange();
-            this.toggleOpened();
+            this.collapse();
         });
     };
 
@@ -110,10 +92,14 @@ class Select extends Component {
 
         return styled(styles)(
             <content
+                role="select"
                 className={className}
                 use:size={size}
-                ref={ (root) => { this.root = root }
-            }>
+                ref={ (root) => { this.root = root } }
+                tabIndex={ 0 }
+                onBlur={ this.collapse }
+                onFocus={ this.expand }
+            >
                 <input
                     value={this.state.value}
                     id={this.props.id}
@@ -122,8 +108,6 @@ class Select extends Component {
                 <button
                     aria-haspopup="true"
                     aria-expanded={this.state.opened}
-                    onClick={this.handleButtonClick}
-                    onChange={this.handleValueChange}
                 >
 
                     <span>
@@ -133,12 +117,12 @@ class Select extends Component {
                         {
                             this.state.opened
                                 ? <Icon color={'black'} awesomeClass={'fas fa-angle-up'} isAwesome />
-                                : <Icon color={'black'} awesomeClass={'fas fa-angle-down'} isAwesome={true} />
+                                : <Icon color={'black'} awesomeClass={'fas fa-angle-down'} isAwesome />
                         }
                     </span>
                 </button>
 
-                <ul tabIndex="-1" role="listbox">
+                <ul role="listbox">
                     {this.renderOptionsList()}
                 </ul>
             </content>
