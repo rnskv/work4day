@@ -6,6 +6,7 @@ import Type from 'prop-types';
 import Image from '../Image/index';
 
 import Node from './Node.jsx';
+import List from './List.jsx';
 
 class ToggledList extends Component {
     static propTypes = {
@@ -53,29 +54,11 @@ class ToggledList extends Component {
 
     }
 
-    handleOnClick = (event) => {
-        const childList = event.currentTarget.querySelector('ul');
-    };
-
-    renderList = (list) => {
-        return (
-            <ul>
-                {
-                    list.map((node, index) => {
-                        return (
-                            <Node key={`node_${index}`} renderList={this.renderList} name={node.name} list={node.list}/>
-                        )
-                    })
-                }
-            </ul>
-        )
-    }
-
     render() {
         const { ...props } = this.props;
 
         return styled(styles)(
-            this.renderList(this.mock)
+            <List list={this.mock}/>
         )
     }
 }
