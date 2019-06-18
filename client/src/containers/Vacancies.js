@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { observer } from 'mobx-react';
-import Menu from "../components/navigation/Menu";
+import Menu from "../_LegacyComponents/navigation/Menu";
 
 import LazyWrapper from "../components/common/_Legacy/LazyWrapper";
 
-import VacanciesList from "../components/vacancies/legacy/VacanciesList";
+import VacanciesList from "../_LegacyComponents/vacancies/legacy/VacanciesList";
 
 import '../styles/Vacancies.css';
 

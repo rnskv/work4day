@@ -3,10 +3,10 @@ import { observer } from 'mobx-react';
 
 import Post from './Post';
 
-import '../../../styles/Vacancies.css';
+import 'src/styles/Vacancies.css';
 
 import VacanciesStore from '../../../stores/Vacancies';
-import Button from '../../common/Button';
+import Button from 'src/components/common/Button';
 
 @observer
 class Posts extends Component {

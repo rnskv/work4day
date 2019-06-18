@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { observer } from 'mobx-react';
 import styled from 'reshadow';
-import Menu from "../components/navigation/Menu";
+import Menu from "../_LegacyComponents/navigation/Menu";
 
 import LazyWrapper from "../components/common/_Legacy/LazyWrapper";
 
-import Header from "../components/page/Header";
-import NewVacancies from "../components/vacancies/NewVacancies/NewVacancies";
-import FindVacancies from "../components/vacancies/FindVacancies/FindVacancies";
+import Header from "../_LegacyComponents/page/Header";
+import NewVacancies from "../_LegacyComponents/vacancies/NewVacancies/NewVacancies";
+import FindVacancies from "../_LegacyComponents/vacancies/FindVacancies/FindVacancies";
 
 import Select from '../components/common/Select';
 import Button from '../components/common/Button';

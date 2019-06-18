@@ -6,7 +6,7 @@ import FilterStore from '../../../stores/Filter';
 
 import '../../../styles/Vacancies.css';
 
-import Button from '../../common/Button';
+import Button from 'src/components/common/Button';
 
 @observer
 class Filter extends Component {

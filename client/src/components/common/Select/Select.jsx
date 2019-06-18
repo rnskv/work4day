@@ -3,7 +3,7 @@ import styled from 'reshadow';
 import styles from './Select.shadow.css';
 import Type from 'prop-types';
 
-import Icon from '../Icon';
+import Icon from '../Icon/index';
 
 class Select extends Component {
     static propTypes = {

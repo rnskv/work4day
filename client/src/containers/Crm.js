@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { observer } from 'mobx-react';
-import Menu from "../components/navigation/Menu";
+import Menu from "../_LegacyComponents/navigation/Menu";
 
 import LazyWrapper from "../components/common/_Legacy/LazyWrapper";
 
-import Header from "../components/page/Header";
-import NewVacancies from "../components/vacancies/NewVacancies/NewVacancies";
-import ModeratedPosts from "../components/crm/ModeratedPosts";
+import Header from "../_LegacyComponents/page/Header";
+import NewVacancies from "../_LegacyComponents/vacancies/NewVacancies/NewVacancies";
+import ModeratedPosts from "../_LegacyComponents/crm/ModeratedPosts";
 
 
 import '../styles/Crm.css';
