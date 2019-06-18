@@ -3,6 +3,11 @@ li[|hasList] > span {
     background: grey;
 }
 
+ul {
+    margin: 10px;
+    padding: 10px;
+}
+
 .my-node-enter {
     opacity: 0;
 }

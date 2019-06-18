@@ -9,15 +9,23 @@ import List from './List.jsx';
 const duration = 300;
 
 const defaultStyle = {
-    transition: `opacity ${duration}ms ease-in-out`,
-    opacity: 0,
+    transition: `${duration}ms`,
+    position: 'relative'
 };
 
 const transitionStyles = {
-    entering: { opacity: 0 },
-    entered:  { opacity: 1 },
-    exiting:  { opacity: 0 },
-    exited:  { opacity: 0 },
+    entering: {
+        left: -10,
+        opacity: 0
+    },
+    entered:  {
+        left: 0,
+        opacity: 1
+    },
+    exiting:  {
+        left: -10,
+        opacity: 0
+    },
 };
 
 class Node extends Component {
@@ -59,7 +67,7 @@ class Node extends Component {
                         { list.length }
                      </span>
                     <Transition
-                        in={opened} timeout={{ enter: 0, exit: 500}} appear={false} unmountOnExit
+                        in={opened} timeout={{ enter: 0, exit: duration}} appear={false} unmountOnExit
                     >
                         { state => <List list={list} style={{
                             ...defaultStyle,
