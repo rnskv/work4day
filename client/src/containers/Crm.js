@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { observer } from 'mobx-react';
 import Menu from "../_LegacyComponents/navigation/Menu";
 
-import LazyWrapper from "../components/common/_Legacy/LazyWrapper";
+import LazyWrapper from "../_LegacyComponents/_Legacy/LazyWrapper";
 
 import Header from "../_LegacyComponents/page/Header";
 import NewVacancies from "../_LegacyComponents/vacancies/NewVacancies/NewVacancies";
