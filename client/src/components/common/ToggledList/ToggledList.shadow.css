@@ -1,0 +1,4 @@
+li[|hasList] > span {
+    cursor: pointer;
+    background: grey;
+}

@@ -3,7 +3,10 @@ module.exports = {
     'browser': true,
     'es6': true
   },
-  'extends': 'standard',
+  'extends': [
+      "eslint:recommended",
+      "plugin:react/recommended"
+  ],
   'globals': {
     'Atomics': 'readonly',
     'SharedArrayBuffer': 'readonly'
@@ -20,5 +23,7 @@ module.exports = {
     'jsx-a11y'
   ],
   'rules': {
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error"
   }
 };

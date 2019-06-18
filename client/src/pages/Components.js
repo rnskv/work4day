@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { observer } from 'mobx-react';
 import styled from 'reshadow';
 
-import Select from '../components/common/Select';
-import Button from '../components/common/Button';
-import Heading from '../components/common/Heading';
-import Image from '../components/common/Image';
-import Input from '../components/common/Input';
-import Icon from '../components/common/Icon';
+import Select from 'src/components/common/Select';
+import Button from 'src/components/common/Button';
+import Heading from 'src/components/common/Heading';
+import Image from 'src/components/common/Image';
+import Input from 'src/components/common/Input';
+import Icon from 'src/components/common/Icon';
+import ToggledList from 'src/components/common/ToggledList';
+
 
 @observer
 class Components extends Component {
@@ -75,6 +77,8 @@ class Components extends Component {
         `(
             <content>
                 <div>
+                    <Heading size={'l'} color={'black'}>Toggles Lists</Heading>
+                    <ToggledList/>
                     <Heading size={'l'} color={'black'}>Icons</Heading>
 
                     <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={90} color={'blue'}/>
