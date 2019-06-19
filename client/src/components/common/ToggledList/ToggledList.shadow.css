@@ -1,28 +1,23 @@
-li[|hasList] > span {
-    cursor: pointer;
-    background: grey;
-}
-
 ul {
-    margin: 10px;
-    padding: 10px;
+    padding: 0;
+    margin: 0 0 0 12px;
+    background: var(--grey-active-color);
 }
 
-.my-node-enter {
-    opacity: 0;
-}
-.my-node-enter-active {
-    opacity: 1;
-    transition: opacity 200ms;
-}
-.my-node-exit {
-    opacity: 1;
-}
-.my-node-exit-active {
-    opacity: 0;
-    transition: opacity 200ms;
+li[|hasList] {
+    cursor: pointer;
+    background: var(--grey-glow--color)
 }
 
-.my-node-enter-done {
-    background :red;
+li[|hasList] > span:hover {
+    background: var(--grey-color);
+}
+
+li {
+    list-style: none;
+}
+
+span {
+    display: block;
+    padding: 4px 8px;
 }

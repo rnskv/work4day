@@ -53,6 +53,21 @@ class Node extends Component {
         this.toggleList()
     };
 
+    renderAnimatedList(list) {
+        const { opened } = this.state;
+
+        return (
+            <Transition
+                in={opened} timeout={{ enter: 0, exit: duration}} appear={false} unmountOnExit
+            >
+                { state => <List list={list} style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                }}/> }
+            </Transition>
+        )
+    }
+
     render() {
         const { name, list, renderList, ...props } = this.props;
         const { opened } = this.state;
@@ -61,19 +76,13 @@ class Node extends Component {
                 <li
                     use:hasList={ list.length !== 0 }
                 >
-                    <span onClick={this.handleNameClick} >
+                    <span onClick={this.handleNameClick}>
                         { name }
-                        -
-                        { list.length }
                      </span>
-                    <Transition
-                        in={opened} timeout={{ enter: 0, exit: duration}} appear={false} unmountOnExit
-                    >
-                        { state => <List list={list} style={{
-                            ...defaultStyle,
-                            ...transitionStyles[state]
-                        }}/> }
-                    </Transition>
+                    {
+
+                        list.length ? this.renderAnimatedList(list) : null
+                    }
                 </li>
         )
     }

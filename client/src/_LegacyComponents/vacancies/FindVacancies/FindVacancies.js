@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import Filter from '../Filter/Filter'
 import Posts from './Posts'
 
-import 'src/styles/Vacancies.css'
 
 class FindVacancies extends Component {
   render () {
