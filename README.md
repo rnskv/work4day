@@ -10,3 +10,6 @@ At the moment, the project is at the stage of active development and I hope it w
 </p>
 <hr/>
 <p>Also in this project i am try using technologies as can help me build simple disign system. Design system's components can be found into folder /src/components/common/*folder with component name*</p>
+
+
+<b>Public Trello's desk - https://trello.com/b/t0TmueF3/work4day</b>
