@@ -11,16 +11,14 @@ import Icon from 'src/components/common/Icon';
 class Node extends Component {
     static propTypes = {
         name: Type.string.isRequired,
-        onElementClick: Type.func,
+        setActiveElementInCategory: Type.func.isRequired,
+        activeElements: Type.object.isRequired,
         list: Type.array,
-        selectElement: Type.func,
         category: Type.string
     };
 
     static defaultProps = {
         list: [],
-        onElementClick: () => {},
-        selectElement: () => {},
         category: ''
     };
 
@@ -68,28 +66,31 @@ class Node extends Component {
     handleNameClick = (name, category, value, isFinalElement) => () => {
         this.toggleList();
         if (isFinalElement) {
-            this.props.onElementClick(category, value);
-            this.props.selectElement(value);
+            const { setActiveElementInCategory } = this.props;
+            setActiveElementInCategory(category, value)
         }
      };
 
     renderAnimatedList(list) {
         const { opened } = this.state;
-        const { onElementClick } = this.props;
+        const { setActiveElementInCategory, activeElements } = this.props;
         const { defaultStyle, transitionStyles } = this.listAnimationProperties;
+
         return (
             <Transition
                 in={opened} timeout={{ enter: 0, exit: this.animationDuration}} appear={false}
             >
                 {
                     state =>
-                    <List list={list}
-                          onElementClick={onElementClick}
-                          style={{
-                            ...defaultStyle,
-                            ...transitionStyles[state]
-                          }}
-                          category={this.props.category}
+                    <List
+                        list={list}
+                        style={{
+                          ...defaultStyle,
+                          ...transitionStyles[state]
+                        }}
+                        category={this.props.category}
+                        setActiveElementInCategory={setActiveElementInCategory}
+                        activeElements={activeElements}
                     />
                 }
             </Transition>
@@ -102,9 +103,9 @@ class Node extends Component {
     }
 
     render() {
-        const { category, value, isActive, name, list, renderList, ...props } = this.props;
-        const { opened } = this.state;
+        const { activeElements, category, value, name, list } = this.props;
         const isFinalElement = !list.length;
+        const isActive = activeElements[category] === value;
 
         return styled(styles)(
                 <li

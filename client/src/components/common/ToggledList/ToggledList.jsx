@@ -3,12 +3,9 @@ import styled from 'reshadow';
 import styles from './ToggledList.shadow.css';
 import Type from 'prop-types';
 
-import Image from '../Image/index';
-
-import Node from './Node.jsx';
 import List from './List.jsx';
+
 import Heading from 'src/components/common/Heading';
-import Header from "../../../_LegacyComponents/page/Header";
 
 class ToggledList extends Component {
     static propTypes = {
@@ -27,13 +24,45 @@ class ToggledList extends Component {
         this.root = null;
     }
 
+    state = {
+        activeElements: {}
+    };
+
+    setActiveElementInCategory = (category, value) => {
+        const { onElementClick } = this.props;
+        const { activeElements } = this.state;
+
+        const activeElementValue = activeElements[category] === value ? null : value;
+
+        const newActiveElements = {
+            ...activeElements,
+            [category]: activeElementValue
+        };
+
+        this.setState({
+            activeElements: newActiveElements
+        });
+
+        onElementClick(category, activeElementValue);
+
+    };
+
     render() {
-        const { title, list, onElementClick, ...props } = this.props;
+        const { title, list } = this.props;
+        const { activeElements } = this.state;
 
         return styled(styles)(
-            <content ref={(root) => this.root = root} {...props}>
-                { title ? <Heading color='black' size='s'> { title } </Heading> : null }
-                <List list={list} onElementClick={onElementClick}/>
+            <content ref={(root) => this.root = root}>
+                {
+                    title
+                        ? <Heading color='black' size='s'> { title }</Heading>
+                        : null
+                }
+                <List
+                    list={list}
+                    activeElements={activeElements}
+                    setActiveElementInCategory={this.setActiveElementInCategory}
+                />
             </content>
         )
     }

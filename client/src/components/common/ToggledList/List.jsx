@@ -11,30 +11,18 @@ import Node from './Node.jsx';
 class List extends Component {
     static propTypes = {
         list: Type.array.isRequired,
-        onElementClick: Type.func,
+        setActiveElementInCategory: Type.func.isRequired,
+        activeElements: Type.object.isRequired,
         value: Type.oneOfType([Type.string, Type.number]),
-        category: Type.string
+        category: Type.string,
     };
 
     static defaultProps = {
-        onElementClick: () => {},
         category: ''
     };
 
-    state = {
-        selectedElement: null,
-    };
-
-    selectElement = (value) => {
-        const { selectedElement } = this.state;
-        this.setState({
-            selectedElement: selectedElement === value ? null : value
-        });
-    };
-
     render() {
-        const { category, onElementClick, list, ...props }  = this.props;
-        const { selectedElement } = this.state;
+        const { activeElements, setActiveElementInCategory, category, list, ...props }  = this.props;
 
         return styled(styles)(
             <ul {...props} >
@@ -42,7 +30,16 @@ class List extends Component {
                     list.map((node, index) => {
 
                         const nodeValue = node.value || index;
-                        const isActive = selectedElement === nodeValue
+
+                        const isAutoCategory = category.indexOf('auto_category') !== -1;
+                        const isFirstAutoCategory = !node.category && !category;
+
+
+                        const nodeCategory = isFirstAutoCategory
+                            ? `auto_category_${nodeValue}`
+                            : isAutoCategory
+                                ? `${category}_${nodeValue}`
+                                : node.category || category;
 
                         return (
                             <Node
@@ -50,10 +47,9 @@ class List extends Component {
                                 value={nodeValue}
                                 name={node.name}
                                 list={node.list}
-                                onElementClick={onElementClick}
-                                selectElement = {this.selectElement}
-                                isActive = {isActive}
-                                category={node.category || category}
+                                category={nodeCategory}
+                                setActiveElementInCategory={setActiveElementInCategory}
+                                activeElements={activeElements}
                             />
                         )
                     })
