@@ -243,7 +243,7 @@ class Components extends Component {
                         list={mockMenuToggle}
                         selectable={true}
                     />
-
+                    <Button color="blue" size={"m"}>Show results</Button>
                     <Heading size={'l'} color={'black'}>Icons</Heading>
 
                     <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={90} color={'blue'}/>
