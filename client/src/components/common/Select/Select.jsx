@@ -76,8 +76,9 @@ class Select extends Component {
                 <li
                     role="option"
                     key={option.value}
+                    onClick={ this.handleOptionClick(option) }
                 >
-                    <a href={'/'} onClick={ this.handleOptionClick(option) } tabIndex={-1}>Click!</a>
+                    {option.text}
                 </li>
             )
         })
@@ -107,6 +108,7 @@ class Select extends Component {
                 <button
                     aria-haspopup="true"
                     aria-expanded={this.state.opened}
+                    tabIndex={-1}
                 >
 
                     <span>
