@@ -1,23 +1,50 @@
+Heading {
+    margin: 0 0 12px 0;
+}
+
 ul {
     padding: 0;
-    margin: 0 0 0 12px;
-    background: var(--grey-active-color);
+    margin: 0;
+}
+
+li[|isActive] {
+    color: var(--blue-color);
 }
 
 li[|hasList] {
     cursor: pointer;
-    background: var(--grey-glow--color)
+    font-weight: 700;
+    color: var(--black-color);
 }
 
 li[|hasList] > span:hover {
-    background: var(--grey-color);
+    background: var(--grey-glow--color);
 }
 
 li {
     list-style: none;
+    color: var(--grey-text-color);
+    font-size: 14px;
 }
 
 span {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 4px 8px;
+}
+
+content {
+    width: 300px;
+    padding: 16px 12px;
+    background: var(--grey-active-color);
+}
+
+ul {
+    border-left: 1px dashed var(--grey-color);
+    margin: 4px 0 8px 12px;
+}
+
+content > ul {
+    border-left:  none;
 }

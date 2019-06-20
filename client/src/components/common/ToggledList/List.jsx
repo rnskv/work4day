@@ -10,17 +10,51 @@ import Node from './Node.jsx';
 
 class List extends Component {
     static propTypes = {
-        list: Type.array.isRequired
+        list: Type.array.isRequired,
+        onElementClick: Type.func,
+        value: Type.oneOfType([Type.string, Type.number]),
+        category: Type.string
+    };
+
+    static defaultProps = {
+        onElementClick: () => {},
+        category: ''
+    };
+
+    state = {
+        selectedElement: null,
+    };
+
+    selectElement = (value) => {
+        const { selectedElement } = this.state;
+        this.setState({
+            selectedElement: selectedElement === value ? null : value
+        });
     };
 
     render() {
-        const { list, ...props }  = this.props;
+        const { category, onElementClick, list, ...props }  = this.props;
+        const { selectedElement } = this.state;
+
         return styled(styles)(
             <ul {...props} >
                 {
                     list.map((node, index) => {
+
+                        const nodeValue = node.value || index;
+                        const isActive = selectedElement === nodeValue
+
                         return (
-                            <Node key={`node_${index}`} name={node.name} list={node.list}/>
+                            <Node
+                                key={`node_${index}`}
+                                value={nodeValue}
+                                name={node.name}
+                                list={node.list}
+                                onElementClick={onElementClick}
+                                selectElement = {this.selectElement}
+                                isActive = {isActive}
+                                category={node.category || category}
+                            />
                         )
                     })
                 }

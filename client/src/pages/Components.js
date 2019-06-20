@@ -35,6 +35,154 @@ class Components extends Component {
             fieldSize: 'm'
         };
 
+        const mockTL = [
+            {
+                name: 'Пункт 1',
+                list: [
+                    {
+                        name: 'Подпункт 1',
+                        list: [
+                            {
+                                name: 'Подподпункт 1'
+                            },
+                            {
+                                name: 'Подподпункт 2',
+                                list: [
+                                    {
+                                        name: 'Подподподпункт 1'
+                                    },
+                                    {
+                                        name: 'Кек',
+                                        list: [
+                                            {
+                                                name: 'Подподподпункт 1',
+                                                list: [
+                                                    {
+                                                        name: 'Ей нужна скорость',
+                                                        list: [
+                                                            {
+                                                                name: 'Подподподпункт 1'
+                                                            },
+                                                            {
+                                                                name: 'Что то еще',
+                                                                list: [
+                                                                    {
+                                                                        name: 'Подподподпункт 1',
+                                                                        list: [
+                                                                            {
+                                                                                name: 'Ей нужна скорость',
+
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        name: 'Подподпункт 2',
+                                                        list: [
+                                                            {
+                                                                name: 'Подподподпункт 1'
+                                                            },
+                                                            {
+                                                                name: 'Что то еще',
+                                                                list: [
+                                                                    {
+                                                                        name: 'Подподподпункт 1',
+                                                                        list: [
+                                                                            {
+                                                                                name: 'Ей нужна скорость',
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Подпункт 2',
+                    }
+                ]
+            },
+            {
+                name: 'Пункт 1',
+                list: [
+                    {
+                        name: 'Подпункт 1',
+                    }
+                ]
+            }
+        ];
+
+        const mockMenuToggle = [
+            {
+                name: 'Регион',
+                category: 'region',
+                list: [
+                    {
+                        name: 'Санкт-Петербург',
+                        value: 131,
+                    },
+                    {
+                        name: 'Москва',
+                        value: 777,
+                    },
+                    {
+                        name: 'Пенза',
+                        value: 58,
+                    },
+                    {
+                        name: 'Минск',
+                        value: 983,
+                    }
+                ]
+            },
+            {
+                name: 'Профобласть',
+                category: 'profession',
+                list: [
+                    {
+                        name: 'Продажи',
+                        value: 'sales',
+                    },
+                    {
+                        name: 'IT, телеком',
+                        value: 'it',
+                    },
+                    {
+                        name: 'Производство',
+                        value: 'craft',
+                    },
+                    {
+                        name: 'Админ, персонал',
+                        value: 'admin',
+                    },
+                    {
+                        name: 'Авто',
+                        list: [
+                            { name: 'Легковые', value: 'leg_car' },
+                            { name: 'Грузовые', value: 'mid_car' },
+                            { name: 'Фуры', value: 'b_car'  }
+                        ]
+
+                    },
+                    {
+                        name: 'Бухгалтерия',
+                        value: 'money'
+                    }
+                ]
+            }
+        ];
+
         const photoProps = {
             src: 'https://cdn.vedomosti.ru/image/2017/7n/111re1/mobile_high-1c0j.jpg',
             alt: 'Photo'
@@ -74,11 +222,23 @@ class Components extends Component {
             Input {
                 margin: 10px;
             }
+            
+            ToggledList {
+                margin: 10px;
+            }
         `(
             <content>
                 <div>
                     <Heading size={'l'} color={'black'}>Toggles Lists</Heading>
-                    <ToggledList/>
+                    <ToggledList list={mockTL}/>
+                    <ToggledList
+                        onElementClick={
+                            (category, value) => { console.log('В категории ', category, 'выбрано свойство ', value) }
+                        }
+                        title={'Фильтр'}
+                        list={mockMenuToggle}
+                    />
+
                     <Heading size={'l'} color={'black'}>Icons</Heading>
 
                     <Icon isAwesome={true} awesomeClass={'fas fa-ad'} size={90} color={'blue'}/>

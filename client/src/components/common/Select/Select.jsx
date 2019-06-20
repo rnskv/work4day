@@ -76,9 +76,8 @@ class Select extends Component {
                 <li
                     role="option"
                     key={option.value}
-                    onClick={ this.handleOptionClick(option) }
                 >
-                    {option.text}
+                    <a href={'/'} onClick={ this.handleOptionClick(option) } tabIndex={-1}>Click!</a>
                 </li>
             )
         })
