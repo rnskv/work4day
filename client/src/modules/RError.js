@@ -6,4 +6,4 @@ export default class RError extends Error {
     this.code = params.code || 500
     this.status = params.status || 'SERVER_ERROR'
   }
-};
+}
