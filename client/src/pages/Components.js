@@ -38,6 +38,7 @@ class Components extends Component {
         const mockTL = [
             {
                 name: 'Пункт 1',
+                category: '1',
                 list: [
                     {
                         name: 'Подпункт 1',
@@ -171,7 +172,10 @@ class Components extends Component {
                         list: [
                             { name: 'Легковые', value: 'leg_car' },
                             { name: 'Грузовые', value: 'mid_car' },
-                            { name: 'Фуры', value: 'b_car'  }
+                            { name: 'Фуры', list: [
+                                { name: 'С прицепом', value: 'with_pricep' },
+                                { name: 'Без прицепа', value: 'withot_pricep' },
+                            ]}
                         ]
 
                     },
@@ -237,6 +241,7 @@ class Components extends Component {
                         }
                         title={'Фильтр'}
                         list={mockMenuToggle}
+                        selectable={true}
                     />
 
                     <Heading size={'l'} color={'black'}>Icons</Heading>

@@ -28,12 +28,10 @@ class List extends Component {
             <ul {...props} >
                 {
                     list.map((node, index) => {
-
-                        const nodeValue = node.value || index;
-
                         const isAutoCategory = category.indexOf('auto_category') !== -1;
                         const isFirstAutoCategory = !node.category && !category;
 
+                        const nodeValue = node.value || index;
 
                         const nodeCategory = isFirstAutoCategory
                             ? `auto_category_${nodeValue}`

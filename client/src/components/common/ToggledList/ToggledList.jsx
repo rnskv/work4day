@@ -10,12 +10,14 @@ import Heading from 'src/components/common/Heading';
 class ToggledList extends Component {
     static propTypes = {
         list: Type.array.isRequired,
+        selectable: Type.bool, //Необходмо что бы у кажого элемента списка было уникальное  value!.
         title: Type.string,
         onElementClick: Type.func
     };
 
     static defaultProps = {
         title: '',
+        selectable: false,
         onElementClick: () => {}
     };
 
@@ -29,30 +31,31 @@ class ToggledList extends Component {
     };
 
     setActiveElementInCategory = (category, value) => {
-        const { onElementClick } = this.props;
+        const { onElementClick, selectable, className } = this.props;
         const { activeElements } = this.state;
 
         const activeElementValue = activeElements[category] === value ? null : value;
 
-        const newActiveElements = {
-            ...activeElements,
-            [category]: activeElementValue
-        };
+        if (selectable) {
+            const newActiveElements = {
+                ...activeElements,
+                [category]: activeElementValue
+            };
 
-        this.setState({
-            activeElements: newActiveElements
-        });
+            this.setState({
+                activeElements: newActiveElements
+            });
 
-        onElementClick(category, activeElementValue);
-
+            onElementClick(category, activeElementValue);
+        }
     };
 
     render() {
-        const { title, list } = this.props;
+        const { title, list, className } = this.props;
         const { activeElements } = this.state;
 
         return styled(styles)(
-            <content ref={(root) => this.root = root}>
+            <content ref={(root) => this.root = root} className={className}>
                 {
                     title
                         ? <Heading color='black' size='s'> { title }</Heading>
