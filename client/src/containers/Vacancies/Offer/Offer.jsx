@@ -28,8 +28,9 @@ class Offer extends Component {
                 <Heading hasMargin={false} size={'m'} color={'black'}>{ data.title }</Heading>
                 <Description color={'grey'} size={'m'}>{ data.group.title }</Description>
                 <Description color={'grey'} size={'m'}>{ data.location.city } - { data.location.area }</Description>
-                <p> { data.text } </p>
+                <p>{ data.text }</p>
                 <Button style={'link'} size={'m'}>Откликнуться</Button>
+                <Button style={'link'} size={'m'}>Показать контакты</Button>
             </content>
         )
     }
