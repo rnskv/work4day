@@ -1,5 +1,5 @@
-import Home from 'src/containers/Home'
-import Crm from 'src/containers/Crm'
+import Home from 'src/containers/_Legacy/Home'
+import Crm from 'src/containers/_Legacy/Crm'
 import ComponentsPage from 'src/pages/Components'
 
 export default {

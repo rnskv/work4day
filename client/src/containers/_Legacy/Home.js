@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 import { observer } from 'mobx-react';
 import styled from 'reshadow';
-import Menu from "../_LegacyComponents/navigation/Menu";
+import Menu from "../../_LegacyComponents/navigation/Menu";
 
-import LazyWrapper from "../_LegacyComponents/_Legacy/LazyWrapper";
+import LazyWrapper from "../../_LegacyComponents/_Legacy/LazyWrapper";
 
-import Header from "../_LegacyComponents/page/Header";
-import NewVacancies from "../_LegacyComponents/vacancies/NewVacancies/NewVacancies";
-import FindVacancies from "../_LegacyComponents/vacancies/FindVacancies/FindVacancies";
+import Header from "../../_LegacyComponents/page/Header";
+import NewVacancies from "../../_LegacyComponents/vacancies/NewVacancies/NewVacancies";
+import FindVacancies from "../../_LegacyComponents/vacancies/FindVacancies/FindVacancies";
 
-import Select from '../components/common/Select';
-import Button from '../components/common/Button';
+import Select from '../../components/common/Select/index';
+import Button from '../../components/common/Button/index';
 
 
-import '../styles/Home.css';
+import '../../styles/Home.css';
 
-import VacanciesStore from "../stores/Vacancies";
-import FilterStore from "../stores/Filter";
+import VacanciesStore from "src/stores/Vacancies";
+import FilterStore from "src/stores/Filter";
 
 @observer
 class Home extends Component {

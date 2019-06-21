@@ -41,7 +41,7 @@ class Button extends Component {
     };
 
     render() {
-        const { color, size, className, children, ...props } = this.props;
+        const { style, color, size, className, children, ...props } = this.props;
         const buttonProps = {
             ref: root => { this.root = root },
             className,
@@ -58,6 +58,7 @@ class Button extends Component {
             <button
                 use:color={color}
                 use:size={size}
+                use:style={style}
                 { ...buttonProps }
             >
                 { children }
@@ -67,6 +68,9 @@ class Button extends Component {
 
     static defaultProps = {
         className: '',
+        style: 'default',
+        color: 'blue',
+        size: 's',
         onClick: () => {},
         onMouseDown: () => {},
         onMouseUp: () => {},
@@ -76,8 +80,9 @@ class Button extends Component {
     };
 
     static propTypes = {
-        color: Type.oneOf(['white', 'blue']).isRequired,
-        size: Type.oneOf(['s', 'm', 'l']).isRequired,
+        color: Type.oneOf(['white', 'blue']),
+        size: Type.oneOf(['s', 'm', 'l', 'auto']),
+        style: Type.oneOf(['link', 'default']),
         className: Type.string,
         onClick: Type.func,
         onMouseDown: Type.func,
