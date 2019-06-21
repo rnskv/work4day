@@ -57,3 +57,26 @@ button[|size='l'] {
     font-size: 16pt;
     height: 48px;
 }
+
+button[|size='auto'] {
+    width: 100%;
+}
+
+button[|style='link'] {
+    background: none;
+    color: var(--blue-color);
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+}
+
+button[|style='link']:hover {
+    background: none;
+    color: var(--blue-active-color);
+}
+
+button[|style='link']:focus {
+    background: none;
+    color: var(--blue-glow-color);
+}

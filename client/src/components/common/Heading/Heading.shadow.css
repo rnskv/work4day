@@ -74,3 +74,47 @@ h5[|color='black'] {
 h6[|color='black'] {
     color: var(--black-color)
 }
+
+h2[|color='white'] {
+    color: var(--white-color)
+}
+
+h3[|color='white'] {
+    color: var(--white-color)
+}
+
+h4[|color='white'] {
+    color: var(--white-color)
+}
+
+h5[|color='white'] {
+    color: var(--white-color)
+}
+
+h6[|color='white'] {
+    color: var(--white-color)
+}
+
+h1[|hasMargin='false'] {
+    margin: 0;
+}
+
+h2[|hasMargin='false'] {
+    margin: 0;
+}
+
+h3[|hasMargin='false'] {
+    margin: 0;
+}
+
+h4[|hasMargin='false'] {
+    margin: 0;
+}
+
+h5[|hasMargin='false'] {
+    margin: 0;
+}
+
+h6[|hasMargin='false'] {
+    margin: 0;
+}

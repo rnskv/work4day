@@ -10,6 +10,8 @@ import Input from 'src/components/common/Input';
 import Icon from 'src/components/common/Icon';
 import ToggledList from 'src/components/common/ToggledList';
 
+import Vacancies from 'src/containers/Vacancies';
+
 
 @observer
 class Components extends Component {
@@ -192,6 +194,7 @@ class Components extends Component {
             alt: 'Photo'
         };
 
+        console.log(Vacancies);
         return styled`
             Select {
                 margin: 10px;
@@ -233,6 +236,10 @@ class Components extends Component {
         `(
             <content>
                 <div>
+                    <Heading size={'l'} color={'black'}>Containers</Heading>
+
+                    <Vacancies />
+
                     <Heading size={'l'} color={'black'}>Toggles Lists</Heading>
                     <ToggledList list={mockTL}/>
                     <ToggledList

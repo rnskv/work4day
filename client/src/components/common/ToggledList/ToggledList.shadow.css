@@ -35,9 +35,9 @@ span {
 }
 
 content {
-    width: 300px;
     padding: 16px 12px;
     background: var(--grey-active-color);
+    min-width: 248px;
 }
 
 ul {

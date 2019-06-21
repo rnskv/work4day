@@ -1,0 +1,20 @@
+content {
+    background: var(--white-color);
+    border-top: 1px solid var(--grey-color);
+    border-left: 1px solid var(--grey-color);
+    border-bottom: none;
+    border-right: 1px solid var(--grey-color);
+    padding: 24px;
+}
+
+content:nth-last-child(1) {
+    border-bottom: 1px solid var(--grey-color);
+}
+
+Heading {
+    padding: 0;
+}
+
+ToggledList {
+    width: 400px;
+}
