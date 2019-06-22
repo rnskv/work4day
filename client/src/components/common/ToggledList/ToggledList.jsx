@@ -51,7 +51,7 @@ class ToggledList extends Component {
     };
 
     render() {
-        const { title, list, className } = this.props;
+        const { title, list, selectable, className } = this.props;
         const { activeElements } = this.state;
 
         return styled(styles)(
@@ -63,6 +63,7 @@ class ToggledList extends Component {
                 }
                 <List
                     list={list}
+                    selectable={selectable}
                     activeElements={activeElements}
                     setActiveElementInCategory={this.setActiveElementInCategory}
                 />

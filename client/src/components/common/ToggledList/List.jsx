@@ -12,6 +12,7 @@ class List extends Component {
     static propTypes = {
         list: Type.array.isRequired,
         setActiveElementInCategory: Type.func.isRequired,
+        selectable: Type.func.isRequired,
         activeElements: Type.object.isRequired,
         value: Type.oneOfType([Type.string, Type.number]),
         category: Type.string,
@@ -22,7 +23,7 @@ class List extends Component {
     };
 
     render() {
-        const { activeElements, setActiveElementInCategory, category, list, ...props }  = this.props;
+        const { activeElements, setActiveElementInCategory, category, list, selectable, ...props }  = this.props;
 
         return styled(styles)(
             <ul {...props} >
@@ -48,6 +49,7 @@ class List extends Component {
                                 category={nodeCategory}
                                 setActiveElementInCategory={setActiveElementInCategory}
                                 activeElements={activeElements}
+                                selectable={selectable}
                             />
                         )
                     })

@@ -11,7 +11,16 @@ li[|isActive] {
     color: var(--blue-color);
 }
 
-li[|hasList] {
+
+li[|selectable] > span {
+    cursor: pointer;
+}
+
+li[|selectable] > span:hover {
+    color: var(--blue-glow-color);
+}
+
+li[|hasList] > span {
     cursor: pointer;
     font-weight: 700;
     color: var(--black-color);
@@ -20,6 +29,7 @@ li[|hasList] {
 li[|hasList] > span:hover {
     background: var(--grey-glow--color);
 }
+
 
 li {
     list-style: none;

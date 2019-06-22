@@ -13,6 +13,7 @@ class Node extends Component {
         name: Type.string.isRequired,
         setActiveElementInCategory: Type.func.isRequired,
         activeElements: Type.object.isRequired,
+        selectable: Type.bool.isRequired,
         list: Type.array,
         category: Type.string
     };
@@ -73,7 +74,7 @@ class Node extends Component {
 
     renderAnimatedList(list) {
         const { opened } = this.state;
-        const { setActiveElementInCategory, activeElements } = this.props;
+        const { setActiveElementInCategory, activeElements, selectable } = this.props;
         const { defaultStyle, transitionStyles } = this.listAnimationProperties;
 
         return (
@@ -91,6 +92,7 @@ class Node extends Component {
                         category={this.props.category}
                         setActiveElementInCategory={setActiveElementInCategory}
                         activeElements={activeElements}
+                        selectable={selectable}
                     />
                 }
             </Transition>
@@ -103,14 +105,16 @@ class Node extends Component {
     }
 
     render() {
-        const { activeElements, category, value, name, list } = this.props;
+        const { activeElements, category, value, name, list, selectable } = this.props;
         const isFinalElement = !list.length;
         const isActive = activeElements[category] === value;
+        const hasList = list.length > 0;
 
         return styled(styles)(
                 <li
-                    use:hasList={ list.length !== 0 }
+                    use:hasList={ hasList }
                     use:isActive={ isActive }
+                    use:selectable={ selectable && !hasList && !isActive }
                 >
                     <span onClick={this.handleNameClick(name, category, value, isFinalElement) }>
                         { name }
