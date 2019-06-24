@@ -6,29 +6,31 @@ import Type from 'prop-types';
 import Image from '../Image/index';
 
 class Input extends Component {
-    static propTypes = {
-        size: Type.oneOf(['s', 'm', 'l']).isRequired,
-        className: Type.string,
-        icon: Type.any
-    };
+  static propTypes = {
+    size: Type.oneOf(['s', 'm', 'l']).isRequired,
+    className: Type.string,
+    icon: Type.any,
+  };
 
-    constructor(props, context) {
-        super(props, context);
-        this.root = null;
-    }
+  constructor(props, context) {
+    super(props, context);
+    this.root = null;
+  }
 
-    render() {
-        const {size, icon, children, ...props } = this.props;
+  render() {
+    const { size, icon, children, ...props } = this.props;
 
-        return styled(styles)(
-            <content {...props} use:size={size}>
-                <input
-                    ref={ root => { this.root = root }}
-                />
-                { icon }
-            </content>
-        )
-    }
+    return styled(styles)(
+      <content {...props} use:size={size}>
+        <input
+          ref={root => {
+            this.root = root;
+          }}
+        />
+        {icon}
+      </content>,
+    );
+  }
 }
 
 export default Input;

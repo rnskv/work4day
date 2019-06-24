@@ -1,16 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import Loader from './Loader'
+import Loader from './Loader';
 
 class LazyWrapper extends Component {
-  render () {
-    const { children, isLoading } = this.props
-    return (
-      isLoading
-        ? <Loader />
-        : children
-    )
+  render() {
+    const { children, isLoading } = this.props;
+    return isLoading ? <Loader /> : children;
   }
 }
 
-export default LazyWrapper
+export default LazyWrapper;
