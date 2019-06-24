@@ -1,27 +1,25 @@
-import React, { Component } from 'react'
-import Button from '../../../components/common/Button/index'
+import React, { Component } from 'react';
+import Button from '../../../components/common/Button/index';
 
 class Post extends Component {
-  render () {
-    const { post } = this.props
+  render() {
+    const { post } = this.props;
     return (
       <div className="vacancies-post">
-        <img src={ post.group.photo100 } className="vacancies-post__photo"/>
+        <img src={post.group.photo100} className="vacancies-post__photo" />
         <div className="vacancies-post__information">
-          <div className="vacancies-post__information_title">
-            { post.title || 'Заголовок который потерялся :/' }
-          </div>
+          <div className="vacancies-post__information_title">{post.title || 'Заголовок который потерялся :/'}</div>
           <div className="vacancies-post__information_description">
-            { post.description || 'Тут было описание, но его украли' }
+            {post.description || 'Тут было описание, но его украли'}
           </div>
           <div className="vacancies-post__information_text">
-            { post.text || 'Пустой пост, думаю мы уволим модератора' }
+            {post.text || 'Пустой пост, думаю мы уволим модератора'}
           </div>
         </div>
         <div className="vacancies-post__group">
           <div className="vacancies-post__group_title">Найдено в группе</div>
-          <img src={ post.group.photo100 } className="vacancies-post__group_photo"/>
-          <div className="vacancies-post__group_name">{ post.group.name }</div>
+          <img src={post.group.photo100} className="vacancies-post__group_photo" />
+          <div className="vacancies-post__group_name">{post.group.name}</div>
           <div className="vacancies-post__group_raite">
             <button className="vacancies-post__group_like">
               <i className="far fa-thumbs-up"></i>
@@ -30,13 +28,18 @@ class Post extends Component {
               <i className="far fa-thumbs-down"></i>
             </button>
           </div>
-          <Button onClick={() => {
-            window.location = 'https://vk.com/' + post.group.screenName + '?w=wall-' + post.group.id + '_' + post.postId
-          }}>Откликнуться</Button>
+          <Button
+            onClick={() => {
+              window.location =
+                'https://vk.com/' + post.group.screenName + '?w=wall-' + post.group.id + '_' + post.postId;
+            }}
+          >
+            Откликнуться
+          </Button>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Post
+export default Post;

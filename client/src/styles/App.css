@@ -1,7 +1,8 @@
-body, html {
-    padding: 0;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 /*#root {*/
 /*    display: flex;*/
@@ -11,67 +12,69 @@ body, html {
 /*}*/
 
 a {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
-h2, h1 {
-    font-weight: 400;
-    color: #263035;
-    width: 100%;
+h2,
+h1 {
+  font-weight: 400;
+  color: #263035;
+  width: 100%;
 }
 
-@keyframes bounceIn{
-    0%{
-        opacity: 0;
-        transform: scale(0.3) translate3d(0,0,0);
-    }
-    50%{
-        opacity: 0.9;
-        transform: scale(1.1);
-    }
-    80%{
-        opacity: 1;
-        transform: scale(0.89);
-    }
-    100%{
-        opacity: 1;
-        transform: scale(1) translate3d(0,0,0);
-    }
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
 }
 
 .section {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .section--new_vacancies {
-    background: #efefef;
+  background: #efefef;
 }
 .section--find_vacancies {
-    background: #e2e2e2;
+  background: #e2e2e2;
 }
 
 .loader {
-    border-left: 30px solid white;
-    border-right: 30px solid #1f61ab;
-    border-top: 30px solid #1f61ab;
-    border-bottom: 30px solid white;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    margin: 50px;
-    animation: spin;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-duration: .5s;
+  border-left: 30px solid white;
+  border-right: 30px solid #1f61ab;
+  border-top: 30px solid #1f61ab;
+  border-bottom: 30px solid white;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  margin: 50px;
+  animation: spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
 }
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    } to {
-          transform: rotate(360deg);
-      }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

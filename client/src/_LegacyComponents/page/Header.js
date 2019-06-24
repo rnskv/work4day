@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import '../../styles/Header.css'
+import '../../styles/Header.css';
 
 class Header extends Component {
-  render () {
+  render() {
     return (
       <div className="header">
         <div className="header-left">
@@ -29,35 +29,23 @@ class Header extends Component {
 
         <div className="header-stats">
           <div className="header-stat">
-            <div className="header-stat__top">
-                            2923 человека
-            </div>
-            <div className="header-stat__bottom">
-                            ищут исполнителя
-            </div>
+            <div className="header-stat__top">2923 человека</div>
+            <div className="header-stat__bottom">ищут исполнителя</div>
           </div>
 
           <div className="header-stat">
-            <div className="header-stat__top">
-                            356 заказов
-            </div>
-            <div className="header-stat__bottom">
-                            за сегодня
-            </div>
+            <div className="header-stat__top">356 заказов</div>
+            <div className="header-stat__bottom">за сегодня</div>
           </div>
 
           <div className="header-stat">
-            <div className="header-stat__top">
-                            12 групп
-            </div>
-            <div className="header-stat__bottom">
-                            в вашем городе
-            </div>
+            <div className="header-stat__top">12 групп</div>
+            <div className="header-stat__bottom">в вашем городе</div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Header
+export default Header;

@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import Link from './Link'
+import React, { Component } from 'react';
+import Link from './Link';
 
 class Menu extends Component {
-  render () {
+  render() {
     return (
       <ul>
         <Link to={'/'}>Главная</Link>
@@ -10,8 +10,8 @@ class Menu extends Component {
         <Link to={'/test1'}>Test 1</Link>
         <Link to={'/test2'}>Test 2</Link>
       </ul>
-    )
+    );
   }
 }
 
-export default Menu
+export default Menu;

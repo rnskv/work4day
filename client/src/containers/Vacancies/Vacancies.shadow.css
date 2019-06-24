@@ -1,7 +1,7 @@
 content {
-    min-width: 900px;
+  min-width: 900px;
 }
 div {
-    display: flex;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
 }

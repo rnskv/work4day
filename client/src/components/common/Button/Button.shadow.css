@@ -1,80 +1,80 @@
 button {
-    height: 38px;
-    width: 200px;
-    margin: 0;
-    padding: 0 16px;
-    font-size: 12pt;
-    border: none;
-    background: none;
-    outline: none;
-    cursor: pointer;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: var(--white-color);
-    display: block;
-    transition: .3s;
+  height: 38px;
+  width: 200px;
+  margin: 0;
+  padding: 0 16px;
+  font-size: 12pt;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--white-color);
+  display: block;
+  transition: 0.3s;
 }
 
 button[|color='blue'] {
-    background-color: var(--blue-color);
+  background-color: var(--blue-color);
 }
 
 button[|color='blue']:hover {
-    background-color: var(--blue-active-color);
+  background-color: var(--blue-active-color);
 }
 
 button[|color='blue']:focus {
-    background-color: var(--blue-glow-color);
+  background-color: var(--blue-glow-color);
 }
 
 button[|color='white'] {
-    background: none;
-    border: 1px solid var(--white-color);
+  background: none;
+  border: 1px solid var(--white-color);
 }
 
 button[|color='white']:hover {
-    background-color: var(--white-color);
-    color:  var(--black-color);
+  background-color: var(--white-color);
+  color: var(--black-color);
 }
 
 button[|color='white']:focus {
-    background-color: var(--grey-color);
-    color: var(--black-color);
+  background-color: var(--grey-color);
+  color: var(--black-color);
 }
 
 button[|size='s'] {
-    width: 100px;
-    font-size: 10pt;
+  width: 100px;
+  font-size: 10pt;
 }
 
 button[|size='m'] {
-    width: 164px;
+  width: 164px;
 }
 
 button[|size='l'] {
-    width: 280px;
-    font-size: 16pt;
-    height: 48px;
+  width: 280px;
+  font-size: 16pt;
+  height: 48px;
 }
 
 button[|size='auto'] {
-    width: 100%;
+  width: 100%;
 }
 
 button[|style='link'] {
-    background: none;
-    color: var(--blue-color);
-    width: auto;
-    height: auto;
+  background: none;
+  color: var(--blue-color);
+  width: auto;
+  height: auto;
 }
 
 button[|style='link']:hover {
-    background: none;
-    color: var(--blue-active-color);
+  background: none;
+  color: var(--blue-active-color);
 }
 
 button[|style='link']:focus {
-    background: none;
-    color: var(--blue-glow-color);
+  background: none;
+  color: var(--blue-glow-color);
 }

@@ -1,2 +1,2 @@
-import OffersList from './OffersList.jsx'
-export default OffersList
+import OffersList from './OffersList.jsx';
+export default OffersList;

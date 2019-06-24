@@ -1,3 +1,3 @@
-export const getRandomInt() {
+export const getRandomInt = () => {
 
-}
+};

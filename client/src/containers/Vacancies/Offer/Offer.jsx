@@ -8,32 +8,40 @@ import Description from 'src/components/common/Description';
 import Button from 'src/components/common/Button';
 
 class Offer extends Component {
-    static propTypes = {
-        data: Type.object.isRequired
-    };
+  static propTypes = {
+    data: Type.object.isRequired,
+  };
 
-    static defaultProps = {
+  static defaultProps = {};
 
-    };
+  constructor() {
+    super();
+  }
 
-    constructor() {
-        super();
-    }
-
-    render() {
-        const { data } = this.props;
-        console.log(data);
-        return styled(styles)(
-            <content>
-                <Heading hasMargin={false} size={'m'} color={'black'}>{ data.title }</Heading>
-                <Description color={'grey'} size={'m'}>{ data.group.title }</Description>
-                <Description color={'grey'} size={'m'}>{ data.location.city } - { data.location.area }</Description>
-                <p>{ data.text }</p>
-                <Button style={'link'} size={'m'}>Откликнуться</Button>
-                <Button style={'link'} size={'m'}>Показать контакты</Button>
-            </content>
-        )
-    }
+  render() {
+    const { data } = this.props;
+    console.log(data);
+    return styled(styles)(
+      <content>
+        <Heading hasMargin={false} size={'m'} color={'black'}>
+          {data.title}
+        </Heading>
+        <Description color={'grey'} size={'m'}>
+          {data.group.title}
+        </Description>
+        <Description color={'grey'} size={'m'}>
+          {data.location.city} - {data.location.area}
+        </Description>
+        <p>{data.text}</p>
+        <Button style={'link'} size={'m'}>
+          Откликнуться
+        </Button>
+        <Button style={'link'} size={'m'}>
+          Показать контакты
+        </Button>
+      </content>,
+    );
+  }
 }
 
 export default Offer;

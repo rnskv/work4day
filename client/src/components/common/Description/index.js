@@ -1,2 +1,2 @@
-import Descriprion from './Descriprion.jsx'
-export default Descriprion
+import Descriprion from './Descriprion.jsx';
+export default Descriprion;

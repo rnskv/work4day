@@ -1,97 +1,97 @@
 content {
-    background: var(--white-color);
-    color: var(--black-color);
-    width: 200px;
-    height: 38px;
-    position: relative;
-    border: 1px solid var(--grey-color);
+  background: var(--white-color);
+  color: var(--black-color);
+  width: 200px;
+  height: 38px;
+  position: relative;
+  border: 1px solid var(--grey-color);
 }
 
 content:focus {
-    outline: none;
+  outline: none;
 }
 
 content[|size='b'] {
-    width: 248px;
+  width: 248px;
 }
 
 content[|size='m'] {
-    width: 148px;
+  width: 148px;
 }
 
 content[|size='s'] {
-    width: 100px;
+  width: 100px;
 }
 
 span {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    box-sizing: inherit;
-    pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: inherit;
+  pointer-events: none;
 }
 
 a {
-    color: var(--black-color);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    pointer-events: none;
+  color: var(--black-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 button {
-    height: 100%;
-    width: 100%;
-    background: none;
-    border: none;
-    font-size: 10pt;
-    cursor: pointer;
+  height: 100%;
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 10pt;
+  cursor: pointer;
 }
 
 button:focus {
-    outline: 1px solid var(--blue-color);
+  outline: 1px solid var(--blue-color);
 }
 
 button[aria-expanded] + ul {
-    display: block;
+  display: block;
 }
 
 ul {
-    display: none;
-    list-style: none;
-    padding: 0;
-    position: absolute;
-    z-index: 100;
-    width: 100%;
-    margin-top: 8px;
-    border: 1px solid var(--grey-glow--color);
+  display: none;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid var(--grey-glow--color);
 }
 
 ul:focus {
-    outline: none;
+  outline: none;
 }
 
 li {
-    background: var(--white-color);
-    color: var(--black-color);
-    height: 38px;
-    line-height: 38px;
-    cursor: pointer;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding: 0 8px;
-    font-size: 8pt;
+  background: var(--white-color);
+  color: var(--black-color);
+  height: 38px;
+  line-height: 38px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 8px;
+  font-size: 8pt;
 }
 
 li + li {
-    border-top: 1px solid var(--grey-glow--color);
+  border-top: 1px solid var(--grey-glow--color);
 }
 
 li:hover {
-    background: var(--grey-active-color);
+  background: var(--grey-active-color);
 }
 
 .fas {
-    pointer-events: none;
+  pointer-events: none;
 }

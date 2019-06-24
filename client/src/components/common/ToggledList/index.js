@@ -1,2 +1,2 @@
-import ToggledList from './ToggledList.jsx'
-export default ToggledList
+import ToggledList from './ToggledList.jsx';
+export default ToggledList;

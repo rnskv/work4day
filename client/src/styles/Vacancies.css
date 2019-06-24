@@ -1,295 +1,294 @@
 .vacancies {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
 }
 
 .vacancies-title {
-    margin: 50px 0;
-    font-size: 29pt;
-    width: 100%;
-    font-weight: bold;
-    color: #3c3c3c;
+  margin: 50px 0;
+  font-size: 29pt;
+  width: 100%;
+  font-weight: bold;
+  color: #3c3c3c;
 }
 
 .vacancies-list {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    justify-content: center;
-    align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .vacancies-vacancy {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    background: url(https://pp.userapi.com/c845120/v845120819/1fa1aa/vczEA18ESpU.jpg);
-    background-size: 100%;
-    margin: 0 25px 50px 25px;
-    border-radius: 10px;
-    min-width: 250px;
-    max-width: 320px;
-    box-shadow: 0 0 8px 0 #00000017;
-    transition: .4s cubic-bezier(0.49, -0.55, 0.46, 1.62)
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: url(https://pp.userapi.com/c845120/v845120819/1fa1aa/vczEA18ESpU.jpg);
+  background-size: 100%;
+  margin: 0 25px 50px 25px;
+  border-radius: 10px;
+  min-width: 250px;
+  max-width: 320px;
+  box-shadow: 0 0 8px 0 #00000017;
+  transition: 0.4s cubic-bezier(0.49, -0.55, 0.46, 1.62);
 }
 
 .vacancies-vacancy:hover {
-    cursor: pointer;
-    box-shadow: 0 0 17px 0px #1f61ab;
+  cursor: pointer;
+  box-shadow: 0 0 17px 0px #1f61ab;
 }
 .vacancies-vacancy__title {
-    padding: 15px 15px 10px;
-    font-size: 14pt;
-    background: #ffffff73;
-    color: #000;
+  padding: 15px 15px 10px;
+  font-size: 14pt;
+  background: #ffffff73;
+  color: #000;
 }
 
 .vacancies-vacancy__category {
-    padding: 5px 25px;
-    font-size: 10pt;
-    background: #1f61ab;
-    color: #fff;
+  padding: 5px 25px;
+  font-size: 10pt;
+  background: #1f61ab;
+  color: #fff;
 }
 
 .vacancies-vacancy__text {
-    padding: 10px 15px 15px 15px;
-    font-size: 10pt;
-    height: 80px;
-    background: #c5c5c536;
+  padding: 10px 15px 15px 15px;
+  font-size: 10pt;
+  height: 80px;
+  background: #c5c5c536;
 }
 
 .vacancies-vacancy__from {
-    display: flex;
-    align-items: center;
-    background: #1f61ab;
-    color: #fff;
-    /*flex: auto;*/
-    height: 75px;
+  display: flex;
+  align-items: center;
+  background: #1f61ab;
+  color: #fff;
+  /*flex: auto;*/
+  height: 75px;
 }
 
 .vacancies-vacancy__group {
-    margin: 20px;
-    font-size: 9pt;
-    width: 60%;
-    text-align: center;
-    display: flex;
-    align-items: center;
+  margin: 20px;
+  font-size: 9pt;
+  width: 60%;
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .vacancies-vacancy__photo {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    flex-grow: 1
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  flex-grow: 1;
 }
 
 .vacancies-button {
-    padding: 15px 25px;
-    font-size: 14pt;
-    background: #f3f3f3;
-    border: none;
-    outline: none;
-    border-radius: 43px;
-    color: #1f61ab;
-    transition: .3s linear;
-    cursor: pointer;
-    margin: 0 0 50px 0;
-    box-shadow: 0 0 8px 0 #00000017;
+  padding: 15px 25px;
+  font-size: 14pt;
+  background: #f3f3f3;
+  border: none;
+  outline: none;
+  border-radius: 43px;
+  color: #1f61ab;
+  transition: 0.3s linear;
+  cursor: pointer;
+  margin: 0 0 50px 0;
+  box-shadow: 0 0 8px 0 #00000017;
 }
 
 .vacancies-button:hover {
-    box-shadow: 0 0 11px 0px #1f61ab;
+  box-shadow: 0 0 11px 0px #1f61ab;
 }
 
 .vacancies-vacancy__groupname {
-    margin: 20px;
-    font-size: 10pt;
-    text-align: center;
+  margin: 20px;
+  font-size: 10pt;
+  text-align: center;
 }
 
 .vacancies-filter {
-    width: 30%;
+  width: 30%;
 }
 .vacancies--find {
-    width: 1100px;
-    flex-direction: row;
-    flex-wrap: wrap;
+  width: 1100px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .vacancies--new {
-    align-items: center;
+  align-items: center;
 }
 
 .vacancies-posts {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .vacancies-post {
-    background: white;
-    margin: 25px 50px;
-    display: flex;
-    justify-content: space-between;
-    padding: 25px;
-    border-radius: 5px;
-    box-shadow: 0 0 8px 0 #00000017;
-    align-items: flex-start;
+  background: white;
+  margin: 25px 50px;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px 0 #00000017;
+  align-items: flex-start;
 }
 
 .vacancies-post__photo {
-    border-radius: 10%;
-    width: 50px;
-    height: 50px;
-    flex-grow: 1
+  border-radius: 10%;
+  width: 50px;
+  height: 50px;
+  flex-grow: 1;
 }
 
 .vacancies-post__information {
-    width: calc(70% - 70px)
+  width: calc(70% - 70px);
 }
 
 .vacancies-post__group {
-    background: url('https://psv4.userapi.com/c848432/u182906685/docs/d10/dd92d66a501f/Untitled-1.png?extra=KMC-VozVi4SFmStM9ikpE2o35kBMwZ_IB5yaDGQCncyU985XgiHrW8MzgdvhHzm1ReDjZOBzB6FipEuzo9vfUwL3TdBjX2eC1Htx-zoiizexVsj7ngz4CSvZZOUgNBMhf0CGy0sLN5ZT7NiwkzhY');
-    background-color: #1468c5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 5px;
-    margin: 0 0 0 25px;
-    min-width: 40%;
-    overflow: hidden;
+  background: url('https://psv4.userapi.com/c848432/u182906685/docs/d10/dd92d66a501f/Untitled-1.png?extra=KMC-VozVi4SFmStM9ikpE2o35kBMwZ_IB5yaDGQCncyU985XgiHrW8MzgdvhHzm1ReDjZOBzB6FipEuzo9vfUwL3TdBjX2eC1Htx-zoiizexVsj7ngz4CSvZZOUgNBMhf0CGy0sLN5ZT7NiwkzhY');
+  background-color: #1468c5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  margin: 0 0 0 25px;
+  min-width: 40%;
+  overflow: hidden;
 }
 
 .vacancies-post__group_title {
-    margin: 0 0 15px;
-    font-size: 16pt;
-    text-align: center;
-    width: 100%;
-    padding: 15px 0;
-    color: #fff;
-    background: #235298a6;
+  margin: 0 0 15px;
+  font-size: 16pt;
+  text-align: center;
+  width: 100%;
+  padding: 15px 0;
+  color: #fff;
+  background: #235298a6;
 }
 
 .vacancies-post__group_name {
-    margin: 15px;
-    background: white;
-    padding: 10px;
-    border-radius: 4px;
-    color: black;
-    font-size: 15px;
-    text-align: center;
-    width: 55%;
+  margin: 15px;
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  color: black;
+  font-size: 15px;
+  text-align: center;
+  width: 55%;
 }
 
 .vacancies-post__group_photo {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 
 .vacancies-post__group_button {
-    margin: 15px;
-    padding: 10px 15px;
-    background: #00000038;
-    cursor: pointer;
-    font-size: 12pt;
-    border: none;
-    color: #fff;
-    border-radius: 22px;
+  margin: 15px;
+  padding: 10px 15px;
+  background: #00000038;
+  cursor: pointer;
+  font-size: 12pt;
+  border: none;
+  color: #fff;
+  border-radius: 22px;
 }
 
 .vacancies-post__information_title {
-    margin: 0px 0 0 20px;
-    font-size: 20pt
+  margin: 0px 0 0 20px;
+  font-size: 20pt;
 }
 
 .vacancies-post__information_description {
-    margin: 10px 0 0 20px;
-    font-size: 9pt;
-    color: #235298;
+  margin: 10px 0 0 20px;
+  font-size: 9pt;
+  color: #235298;
 }
 
 .vacancies-post__information_text {
-    margin: 20px;
-    font-size: 10pt;
+  margin: 20px;
+  font-size: 10pt;
 }
 
 .vacancies-post__group_raite {
-    background: #214384b5;
-    border-radius: 7px;
+  background: #214384b5;
+  border-radius: 7px;
 }
 
 .vacancies-post__group_like {
-    color: #00ff00;
-    margin: 10px;
-    background: none;
-    border: none;
-    font-size: 17pt;
-    cursor: pointer;
+  color: #00ff00;
+  margin: 10px;
+  background: none;
+  border: none;
+  font-size: 17pt;
+  cursor: pointer;
 }
 
 .vacancies-post__group_dislike {
-    color: red;
-    margin: 10px;
-    background: none;
-    border: none;
-    font-size: 17pt;
-    cursor: pointer;
+  color: red;
+  margin: 10px;
+  background: none;
+  border: none;
+  font-size: 17pt;
+  cursor: pointer;
 }
 
 .vacancies-post__group_like:focus {
-    animation-name: bounceIn;
-    animation-duration: 450ms;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    outline: none;
+  animation-name: bounceIn;
+  animation-duration: 450ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  outline: none;
 }
 .vacancies-post__group_dislike:focus {
-    animation-name: bounceIn;
-    animation-duration: 450ms;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    outline: none;
+  animation-name: bounceIn;
+  animation-duration: 450ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  outline: none;
 }
 
 .vacancies-filter_button {
-    background: #10519a;
-    color: #ffffff;
-    padding: 10px 15px;
-    font-size: 15pt;
-    max-width: 150px;
-    border: 1px solid #1f61ab;
-    cursor: pointer;
-    transition: .3s;
-    border-radius: 20px;
-    margin: 15px 40px;
+  background: #10519a;
+  color: #ffffff;
+  padding: 10px 15px;
+  font-size: 15pt;
+  max-width: 150px;
+  border: 1px solid #1f61ab;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 20px;
+  margin: 15px 40px;
 }
 
 .vacancies-filter_button:hover {
-    border-radius: 20px 0;
-    /*background: #2b76ca0a;*/
+  border-radius: 20px 0;
+  /*background: #2b76ca0a;*/
 }
 
 .vacancies-filter_items {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .vacancies-filter_item {
-    display: flex;
-    font-size: 14pt;
-    color: #484848;
-    margin: 5px 0;
-    cursor: pointer;
+  display: flex;
+  font-size: 14pt;
+  color: #484848;
+  margin: 5px 0;
+  cursor: pointer;
 }
 
 .vacancies-filter_item:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .vacancies-filter_item--active {
-    text-decoration: underline;
-    color: #000;
-
+  text-decoration: underline;
+  color: #000;
 }

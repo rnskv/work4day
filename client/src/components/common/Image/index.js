@@ -1,2 +1,2 @@
-import Image from './Image.jsx'
-export default Image
+import Image from './Image.jsx';
+export default Image;
