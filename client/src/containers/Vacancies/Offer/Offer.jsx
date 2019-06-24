@@ -20,7 +20,7 @@ class Offer extends Component {
 
   render() {
     const { data } = this.props;
-    console.log(data);
+
     return styled(styles)(
       <content>
         <Heading hasMargin={false} size={'m'} color={'black'}>

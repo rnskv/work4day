@@ -116,8 +116,7 @@ class ModeratedPost extends Component {
           </button>
           <button
             className="moderated-post__button moderated-post__button--remove"
-            onClick={this.removeAction(post.id)}
-          >
+            onClick={this.removeAction(post.id)}>
             Удалить
           </button>
         </div>

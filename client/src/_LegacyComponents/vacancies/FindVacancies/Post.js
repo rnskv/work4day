@@ -22,18 +22,17 @@ class Post extends Component {
           <div className="vacancies-post__group_name">{post.group.name}</div>
           <div className="vacancies-post__group_raite">
             <button className="vacancies-post__group_like">
-              <i className="far fa-thumbs-up"></i>
+              <i className="far fa-thumbs-up" />
             </button>
             <button className="vacancies-post__group_dislike">
-              <i className="far fa-thumbs-down"></i>
+              <i className="far fa-thumbs-down" />
             </button>
           </div>
           <Button
             onClick={() => {
               window.location =
                 'https://vk.com/' + post.group.screenName + '?w=wall-' + post.group.id + '_' + post.postId;
-            }}
-          >
+            }}>
             Откликнуться
           </Button>
         </div>

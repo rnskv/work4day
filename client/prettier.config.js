@@ -3,7 +3,8 @@ module.exports = {
   singleQuote: true,
   trailingComma: 'all',
   bracketSpacing: true,
-  jsxBracketSameLine: false,
+  jsxBracketSameLine: true,
   tabWidth: 2,
   semi: true,
+  plugins: ['reshadow/prettier']
 };
