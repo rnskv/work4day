@@ -28,10 +28,11 @@ Button {
 
 ComponentsGroup[type='buttons'] {
   display: inline-block;
-  width: 80%;
+  width: 70%;
 }
 
-div {
+Date {
   display: inline-block;
-  width: 20%;
+  text-align: right;
+  width: 30%;
 }
