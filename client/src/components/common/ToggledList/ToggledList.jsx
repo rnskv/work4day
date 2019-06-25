@@ -33,7 +33,6 @@ class ToggledList extends Component {
   setActiveElementInCategory = (category, value) => {
     const { onElementClick, selectable, className } = this.props;
     const { activeElements } = this.state;
-
     const activeElementValue = activeElements[category] === value ? null : value;
 
     if (selectable) {
@@ -53,7 +52,6 @@ class ToggledList extends Component {
   render() {
     const { title, list, selectable, className } = this.props;
     const { activeElements } = this.state;
-
     return styled(styles)(
       <content ref={root => (this.root = root)} className={className}>
         {title ? (

@@ -8,10 +8,7 @@ class VacanciesList extends Component {
       <div className="vacancies-vacancy">
         <div className="vacancies-vacancy__title">{vacancy.whoNeed || 'Названия нет, но вы держитесь'}</div>
 
-        <div className="vacancies-vacancy__category">
-          {console.log('1', vacancy.category.name)}
-          {vacancy.category.name}
-        </div>
+        <div className="vacancies-vacancy__category">{vacancy.category.name}</div>
 
         <div className="vacancies-vacancy__text">{vacancy.text.slice(0, 190)}...</div>
 

@@ -8,3 +8,4 @@ module.exports = {
   semi: true,
   plugins: ['reshadow/prettier']
 };
+

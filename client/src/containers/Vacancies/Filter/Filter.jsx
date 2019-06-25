@@ -28,7 +28,7 @@ class Filter extends Component {
           onElementClick={(category, value) => {
             console.log('В категории ', category, 'выбрано свойство ', value);
           }}
-          selectable
+          selectable={true}
         />
         <Button color={'blue'} size={'auto'}>
           Применить
