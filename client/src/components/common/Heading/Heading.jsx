@@ -30,12 +30,11 @@ class Heading extends Component {
 
     const headingProps = {
       id,
-      className,
       key: level,
     };
 
     return styled(styles)(
-      <content>
+      <content className={className}>
         {level === 1 && (
           <h1 {...headingProps} use:color={color} use:size={size} use:hasMargin={String(hasMargin)}>
             {' '}

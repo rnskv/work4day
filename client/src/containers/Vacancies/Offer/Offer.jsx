@@ -6,6 +6,7 @@ import Type from 'prop-types';
 import Heading from 'src/components/common/Heading';
 import Description from 'src/components/common/Description';
 import Button from 'src/components/common/Button';
+import ComponentsGroup from 'src/components/common/ComponentsGroup';
 
 class Offer extends Component {
   static propTypes = {
@@ -33,12 +34,15 @@ class Offer extends Component {
           {data.location.city} - {data.location.area}
         </Description>
         <p>{data.text}</p>
-        <Button style={'link'} size={'m'}>
-          Откликнуться
-        </Button>
-        <Button style={'link'} size={'m'}>
-          Показать контакты
-        </Button>
+        <ComponentsGroup type={'buttons'}>
+          <Button style={'link'} size={'m'}>
+            Откликнуться
+          </Button>
+          <Button style={'link'} size={'m'}>
+            Показать контакты
+          </Button>
+        </ComponentsGroup>
+        <div>01.31.3333</div>
       </content>,
     );
   }

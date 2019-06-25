@@ -1,11 +1,16 @@
 :root {
   --black-color: #000;
+
   --white-color: #fff;
+
   --blue-color: #0f8fee;
   --blue-active-color: #0b77c7;
   --blue-glow-color: #36a9ff;
+
   --grey-color: #cbd1d4;
   --grey-active-color: #f5f5f5;
   --grey-glow--color: #ececec;
   --grey-text-color: #666;
+
+  --red-text-color: #c00;
 }
