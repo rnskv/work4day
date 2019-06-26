@@ -3,7 +3,7 @@ import styled from 'reshadow';
 import styles from './Icon.shadow.css';
 import Type from 'prop-types';
 
-class Heading extends Component {
+class Icon extends Component {
   static propTypes = {
     isAwesome: Type.bool,
     awesomeClass: Type.string,
@@ -28,4 +28,4 @@ class Heading extends Component {
   }
 }
 
-export default Heading;
+export default Icon;
