@@ -6,6 +6,7 @@ import Type from 'prop-types';
 import Heading from 'src/components/common/Heading';
 import Description from 'src/components/common/Description';
 import Button from 'src/components/common/Button';
+import Date from 'src/components/common/Date';
 import ComponentsGroup from 'src/components/common/ComponentsGroup';
 
 class Offer extends Component {
@@ -42,7 +43,7 @@ class Offer extends Component {
             Показать контакты
           </Button>
         </ComponentsGroup>
-        <div>01.31.3333</div>
+        <Date time={window.Date.now()} />
       </content>,
     );
   }
