@@ -194,44 +194,44 @@ class Components extends Component {
 
     console.log(Vacancies);
     return styled`
-            Select {
-                margin: 10px;
-            }
-            
-            Button {
-                margin: 12px;
-            }
-            
-            content {
-                background: #b3b3b3;
-                padding: 50px;
-            }
-            
-            div {
-                background: white;
-                padding: 50px;
-            }
-            
-            div + div {
-                background: #000000c2;
-            }
-            
-            Image + Image {
-                margin: 0 0 0 12px;
-            }
-            
-            Icon {
-                margin: 10px;
-            }
-            
-            Input {
-                margin: 10px;
-            }
-            
-            ToggledList {
-                margin: 10px;
-            }
-        `(
+      Select {
+        margin: 10px;
+      }
+
+      Button {
+        margin: 12px;
+      }
+
+      content {
+        background: #b3b3b3;
+        padding: 50px;
+      }
+
+      div {
+        background: white;
+        padding: 50px;
+      }
+
+      div + div {
+        background: #000000c2;
+      }
+
+      Image + Image {
+        margin: 0 0 0 12px;
+      }
+
+      Icon {
+        margin: 10px;
+      }
+
+      Input {
+        margin: 10px;
+      }
+
+      ToggledList {
+        margin: 10px;
+      }
+    `(
       <content>
         <div>
           <Heading size={'l'} color={'black'}>

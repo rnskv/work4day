@@ -30,40 +30,34 @@ class Heading extends Component {
 
     const headingProps = {
       id,
-      className,
       key: level,
     };
 
     return styled(styles)(
-      <content>
+      <content className={className}>
         {level === 1 && (
           <h1 {...headingProps} use:color={color} use:size={size} use:hasMargin={String(hasMargin)}>
-            {' '}
-            {children}{' '}
+            {children}
           </h1>
         )}
         {level === 2 && (
           <h2 {...headingProps} use:color={color} use:size={size} use:hasMargin={String(hasMargin)}>
-            {' '}
-            {children}{' '}
+            {children}
           </h2>
         )}
         {level === 3 && (
           <h3 {...headingProps} use:color={color} use:size={size} use:hasMargin={String(hasMargin)}>
-            {' '}
-            {children}{' '}
+            {children}
           </h3>
         )}
         {level === 4 && (
           <h4 {...headingProps} use:color={color} use:size={size} use:hasMargin={String(hasMargin)}>
-            {' '}
-            {children}{' '}
+            {children}
           </h4>
         )}
         {level === 5 && (
           <h5 {...headingProps} use:color={color} use:size={size} use:hasMargin={String(hasMargin)}>
-            {' '}
-            {children}{' '}
+            {children}
           </h5>
         )}
       </content>,

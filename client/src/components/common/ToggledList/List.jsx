@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
+import Type from 'prop-types';
 import styled from 'reshadow';
 import styles from './ToggledList.shadow.css';
-import Type from 'prop-types';
-import { Transition } from 'react-transition-group';
-
-import Image from '../Image/index';
 import Node from './Node.jsx';
 
 class List extends Component {
   static propTypes = {
     list: Type.array.isRequired,
     setActiveElementInCategory: Type.func.isRequired,
-    selectable: Type.func.isRequired,
+    selectable: Type.bool.isRequired,
     activeElements: Type.object.isRequired,
     value: Type.oneOfType([Type.string, Type.number]),
     category: Type.string,

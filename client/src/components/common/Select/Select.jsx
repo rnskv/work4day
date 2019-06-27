@@ -96,8 +96,7 @@ class Select extends Component {
         }}
         tabIndex={0}
         onBlur={this.collapse}
-        onFocus={this.expand}
-      >
+        onFocus={this.expand}>
         <input value={this.state.value} id={this.props.id} type="hidden" />
         <button aria-haspopup="true" aria-expanded={this.state.opened} tabIndex={-1}>
           <span>

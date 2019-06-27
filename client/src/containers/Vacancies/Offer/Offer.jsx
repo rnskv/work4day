@@ -6,6 +6,8 @@ import Type from 'prop-types';
 import Heading from 'src/components/common/Heading';
 import Description from 'src/components/common/Description';
 import Button from 'src/components/common/Button';
+import Date from 'src/components/common/Date';
+import ComponentsGroup from 'src/components/common/ComponentsGroup';
 
 class Offer extends Component {
   static propTypes = {
@@ -20,7 +22,7 @@ class Offer extends Component {
 
   render() {
     const { data } = this.props;
-    console.log(data);
+
     return styled(styles)(
       <content>
         <Heading hasMargin={false} size={'m'} color={'black'}>
@@ -33,12 +35,15 @@ class Offer extends Component {
           {data.location.city} - {data.location.area}
         </Description>
         <p>{data.text}</p>
-        <Button style={'link'} size={'m'}>
-          Откликнуться
-        </Button>
-        <Button style={'link'} size={'m'}>
-          Показать контакты
-        </Button>
+        <ComponentsGroup type={'buttons'}>
+          <Button style={'link'} size={'m'}>
+            Откликнуться
+          </Button>
+          <Button style={'link'} size={'m'}>
+            Показать контакты
+          </Button>
+        </ComponentsGroup>
+        <Date time={window.Date.now()} />
       </content>,
     );
   }

@@ -13,14 +13,26 @@ content:nth-last-child(1) {
 
 Heading {
   padding: 0;
+  margin: 0 0 12px 0;
 }
 
 ToggledList {
   width: 400px;
 }
 
-button {
-  display: inline-block;
-  margin-right: 12px;
+Button {
+  margin: 12px 12px 0 0;
   padding: 0;
+  display: inline-block;
+}
+
+ComponentsGroup[type='buttons'] {
+  display: inline-block;
+  width: 70%;
+}
+
+Date {
+  display: inline-block;
+  text-align: right;
+  width: 30%;
 }
