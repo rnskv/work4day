@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import RouterView from '../modules/router';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'mobx-react';
+import routes from 'src/configs/routes';
+import RouterView from 'src/modules/router';
+import stores from 'src/stores';
 
-import routes from '../configs/routes';
-
-import '../styles/App.css';
+import 'src/styles/App.css';
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <RouterView routes={routes} />
-      </Router>
+      <Provider {...stores}>
+        <Router>
+          <RouterView routes={routes} />
+        </Router>
+      </Provider>
     );
   }
 }

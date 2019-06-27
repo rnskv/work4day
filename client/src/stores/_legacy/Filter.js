@@ -1,5 +1,5 @@
 import { action, observable } from 'mobx';
-import { DefaultApi as Api, DefaultApi } from '../modules/api';
+import { DefaultApi as Api, DefaultApi } from '../../modules/api/index';
 
 class Cities {
   @observable isLoading = true;

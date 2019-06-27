@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
-import CrmStore from '../../stores/Crm';
-import FilterStore from '../../stores/Filter';
+import CrmStore from '../../stores/_legacy/Crm';
+import FilterStore from '../../stores/_legacy/Filter';
 
 @observer
 class ModeratedPost extends Component {

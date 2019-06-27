@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 
 import Post from './Post';
 
-import VacanciesStore from '../../../stores/Vacancies';
+import VacanciesStore from '../../../stores/_legacy/Vacancies';
 import Button from 'src/components/common/Button';
 
 @observer

@@ -1,6 +1,6 @@
 import { observable, action, autorun } from 'mobx';
 
-import { DefaultApi as Api } from '../modules/api';
+import { DefaultApi as Api } from '../../modules/api/index';
 
 class Vacancies {
   @observable

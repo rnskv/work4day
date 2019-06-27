@@ -14,8 +14,8 @@ import Button from '../../components/common/Button/index';
 
 import '../../styles/Home.css';
 
-import VacanciesStore from 'src/stores/Vacancies';
-import FilterStore from 'src/stores/Filter';
+import VacanciesStore from 'src/stores/_legacy/Vacancies';
+import FilterStore from 'src/stores/_legacy/Filter';
 
 @observer
 class Home extends Component {
