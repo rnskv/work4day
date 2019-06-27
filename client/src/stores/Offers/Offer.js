@@ -5,13 +5,13 @@ export default class Offer {
   @observable group;
   @observable location;
   @observable text;
-  @observable date;
+  @observable time;
 
-  constructor({ title, group, location, text, date }) {
+  constructor({ title, group, location, text, time }) {
     this.title = title;
     this.group = group;
     this.location = location;
     this.text = text;
-    this.date = date;
+    this.time = time;
   }
 }
