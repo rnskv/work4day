@@ -1,9 +1,12 @@
 import { observable, action } from 'mobx';
 import Offer from './Offer';
+import Filter from './Filter';
+
 import { DefaultApi as Api } from '../../modules/api/index';
 
 export default class OfferList {
   @observable offers = [];
+  @observable filter = new Filter();
 
   constructor() {
     this.getOffers();
