@@ -1,0 +1,8 @@
+Vacancies {
+  max-width: 1200px;
+}
+
+content {
+  display: flex;
+  justify-content: center;
+}
