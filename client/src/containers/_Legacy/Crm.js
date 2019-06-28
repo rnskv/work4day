@@ -10,7 +10,7 @@ import ModeratedPosts from '../../_LegacyComponents/crm/ModeratedPosts';
 
 import '../../styles/Crm.css';
 
-import CrmStore from 'src/stores/Crm';
+import CrmStore from 'src/stores/_legacy/Crm';
 
 @observer
 class Crm extends Component {

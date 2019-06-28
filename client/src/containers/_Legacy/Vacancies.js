@@ -8,7 +8,7 @@ import VacanciesList from "../../_LegacyComponents/vacancies/legacy/VacanciesLis
 
 import '../../styles/Vacancies.css';
 
-import VacanciesStore from "../stores/Vacancies";
+import VacanciesStore from "../stores/_legacy/Vacancies";
 
 @observer
 class Home extends Component {

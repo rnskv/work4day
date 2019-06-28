@@ -43,7 +43,7 @@ class Offer extends Component {
             Показать контакты
           </Button>
         </ComponentsGroup>
-        <Date time={window.Date.now()} />
+        <Date time={data.time} format={'dd.mm.yy, HH:MM'} />
       </content>,
     );
   }

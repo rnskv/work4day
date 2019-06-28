@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react/index';
 
 import Item from './Item';
-import FilterStore from '../../../stores/Filter';
+import FilterStore from '../../../stores/_legacy/Filter';
 
 import '../../../styles/Vacancies.css';
 
