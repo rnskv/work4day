@@ -16,7 +16,6 @@ class Search extends Component {
   render() {
     return styled(styles)(
       <content>
-        Search Page
         <Vacancies />
       </content>,
     );
