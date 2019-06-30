@@ -10,6 +10,7 @@ export default class OfferList {
 
   constructor() {
     this.getOffers();
+    window.OffersTest = this;
   }
 
   @action

@@ -17,6 +17,10 @@ content[|size='l'] {
   width: 200px;
 }
 
+content[|size='xl'] {
+  width: 400px;
+}
+
 input[|icon='true'] {
   width: calc(100% - 38px);
 }
