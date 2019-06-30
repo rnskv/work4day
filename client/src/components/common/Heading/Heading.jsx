@@ -8,12 +8,9 @@ class Heading extends Component {
     id: Type.number,
     size: Type.oneOf(['xs', 's', 'm', 'l', 'xl']).isRequired,
     color: Type.oneOf(['white', 'black']).isRequired,
-    hasMargin: Type.bool,
   };
 
-  static defaultProps = {
-    hasMargin: true,
-  };
+  static defaultProps = {};
 
   render() {
     const { id, className, color, size, children, hasMargin } = this.props;
@@ -36,27 +33,27 @@ class Heading extends Component {
     return styled(styles)(
       <content className={className}>
         {level === 1 && (
-          <h1 {...headingProps} use:color={color} use:size={size} use:hasMargin={String(hasMargin)}>
+          <h1 {...headingProps} use:color={color} use:size={size}>
             {children}
           </h1>
         )}
         {level === 2 && (
-          <h2 {...headingProps} use:color={color} use:size={size} use:hasMargin={String(hasMargin)}>
+          <h2 {...headingProps} use:color={color} use:size={size}>
             {children}
           </h2>
         )}
         {level === 3 && (
-          <h3 {...headingProps} use:color={color} use:size={size} use:hasMargin={String(hasMargin)}>
+          <h3 {...headingProps} use:color={color} use:size={size}>
             {children}
           </h3>
         )}
         {level === 4 && (
-          <h4 {...headingProps} use:color={color} use:size={size} use:hasMargin={String(hasMargin)}>
+          <h4 {...headingProps} use:color={color} use:size={size}>
             {children}
           </h4>
         )}
         {level === 5 && (
-          <h5 {...headingProps} use:color={color} use:size={size} use:hasMargin={String(hasMargin)}>
+          <h5 {...headingProps} use:color={color} use:size={size}>
             {children}
           </h5>
         )}

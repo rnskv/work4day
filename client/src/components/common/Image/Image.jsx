@@ -7,15 +7,25 @@ class Image extends Component {
   static propTypes = {
     src: Type.string.isRequired,
     alt: Type.string.isRequired,
-    width: Type.number,
-    height: Type.number,
+    width: Type.oneOfType([Type.number, Type.oneOf(['auto'])]),
+    height: Type.oneOfType([Type.number, Type.oneOf(['auto'])]),
     cover: Type.bool,
+    onError: Type.func,
   };
 
-  render() {
-    const { cover, ...props } = this.props;
+  static defaultProps = {
+    onError: () => {},
+  };
 
-    return styled(styles)(<img {...props} use:cover={cover} />);
+  constructor() {
+    super();
+    this.root = null;
+  }
+
+  render() {
+    const { onError, cover, ...props } = this.props;
+
+    return styled(styles)(<img ref={root => (this.root = root)} {...props} use:cover={cover} onError={onError} />);
   }
 }
 

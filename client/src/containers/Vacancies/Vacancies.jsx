@@ -85,9 +85,9 @@ class Vacancies extends Component {
   }
 
   render() {
-    const { OffersStore } = this.props;
+    const { OffersStore, className } = this.props;
     return styled(styles)(
-      <content>
+      <content className={className}>
         <Heading size={'l'} color={'black'}>
           Вакансии
         </Heading>

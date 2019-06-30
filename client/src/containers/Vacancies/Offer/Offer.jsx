@@ -8,6 +8,7 @@ import Description from 'src/components/common/Description';
 import Button from 'src/components/common/Button';
 import Date from 'src/components/common/Date';
 import ComponentsGroup from 'src/components/common/ComponentsGroup';
+import Image from 'src/components/common/Image';
 
 class Offer extends Component {
   static propTypes = {
@@ -25,15 +26,18 @@ class Offer extends Component {
 
     return styled(styles)(
       <content>
-        <Heading hasMargin={false} size={'m'} color={'black'}>
-          {data.title}
-        </Heading>
-        <Description color={'grey'} size={'m'}>
-          {data.group.title}
-        </Description>
-        <Description color={'grey'} size={'m'}>
-          {data.location.city} - {data.location.area}
-        </Description>
+        <Image src={data.group.image} width={55} height={55} alt={'Group`s logo'} />
+        <ComponentsGroup type={'header'}>
+          <Heading hasMargin={false} size={'m'} color={'black'}>
+            {data.title}
+          </Heading>
+          <Description color={'grey'} size={'m'}>
+            {data.group.title}
+          </Description>
+          <Description color={'grey'} size={'m'}>
+            {data.location.city}
+          </Description>
+        </ComponentsGroup>
         <p>{data.text}</p>
         <ComponentsGroup type={'buttons'}>
           <Button style={'link'} size={'m'}>

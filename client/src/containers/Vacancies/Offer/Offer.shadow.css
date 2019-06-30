@@ -31,8 +31,24 @@ ComponentsGroup[type='buttons'] {
   width: 70%;
 }
 
+ComponentsGroup[type='header'] {
+  display: inline-block;
+}
+
 Date {
   display: inline-block;
   text-align: right;
   width: 30%;
+}
+
+Image {
+  display: inline-block;
+  margin: 0 12px 12px 0;
+  border-radius: 50%;
+}
+
+Date {
+  color: var(--grey-text-color);
+  font-size: 11pt;
+  font-weight: 300;
 }

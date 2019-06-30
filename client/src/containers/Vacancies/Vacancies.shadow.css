@@ -5,3 +5,7 @@ div {
   display: flex;
   align-items: flex-start;
 }
+
+Heading {
+  margin: 24px 0;
+}
