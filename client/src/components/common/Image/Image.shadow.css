@@ -2,7 +2,12 @@ img[|cover] {
   object-fit: cover;
 }
 
-img {
+img[|height='auto'] {
   height: 100%;
   width: auto;
+}
+
+img[|width='auto'] {
+  height: auto;
+  width: 100%;
 }
