@@ -6,6 +6,11 @@ input[|isValid='false'] {
   border-color: var(--red-error-color);
 }
 
+ul {
+  font-size: 10pt;
+  color: var(--red-text-color);
+}
+
 ComponentsGroup[type='inputView'] {
   width: 100%;
   height: 38px;
@@ -13,15 +18,15 @@ ComponentsGroup[type='inputView'] {
 }
 
 content[|size='s'] {
-  width: 100px;
+  width: 200px;
 }
 
 content[|size='m'] {
-  width: 148px;
+  width: 248px;
 }
 
 content[|size='l'] {
-  width: 200px;
+  width: 300px;
 }
 
 content[|size='xl'] {

@@ -5,6 +5,7 @@ import Type from 'prop-types';
 import validator from 'src/modules/validator';
 
 import ComponentsGroup from 'src/components/common/ComponentsGroup';
+import ErrorsList from './ErrorsList.jsx';
 
 class Input extends Component {
   static propTypes = {
@@ -23,25 +24,29 @@ class Input extends Component {
     this.root = null;
     this.state = {
       isValid: true,
+      errors: [],
     };
   }
 
   runValidator(value, validations) {
-    const isValid = validator.validate(value, validations);
+    const { isValid, errors } = validator.validate(value, validations);
+
+    console.log(isValid, errors);
     this.setState({
       isValid,
+      errors,
     });
   }
 
   handleChange = e => {
     const { onChange } = this.props;
-    this.runValidator(e.target.value, ['required']);
+    this.runValidator(e.target.value, ['required', 'email']);
     onChange(e);
   };
 
   render() {
     const { onChange, size, icon, children, ...props } = this.props;
-    const { isValid } = this.state;
+    const { isValid, errors } = this.state;
 
     return styled(styles)(
       <content {...props} use:size={size} use:isValid={isValid ? 'true' : 'false'}>
@@ -55,7 +60,7 @@ class Input extends Component {
           />
           {icon}
         </ComponentsGroup>
-        {!isValid ? <div>Валидация - true</div> : null}
+        <ErrorsList errors={errors} />
       </content>,
     );
   }
