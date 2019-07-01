@@ -29,9 +29,8 @@ class Input extends Component {
   runValidator(value, validations) {
     const isValid = validator.validate(value, validations);
     this.setState({
-      isValid: !isValid,
+      isValid,
     });
-    console.log('input is valid:', isValid);
   }
 
   handleChange = e => {
@@ -45,17 +44,18 @@ class Input extends Component {
     const { isValid } = this.state;
 
     return styled(styles)(
-      <content {...props} use:size={size} use:isInvalid={!isValid}>
+      <content {...props} use:size={size} use:isValid={isValid ? 'true' : 'false'}>
         <ComponentsGroup type="inputView">
           <input
             ref={root => {
               this.root = root;
             }}
+            use:isValid={isValid ? 'true' : 'false'}
             onChange={this.handleChange}
           />
           {icon}
         </ComponentsGroup>
-        <div>Валидация - true</div>
+        {!isValid ? <div>Валидация - true</div> : null}
       </content>,
     );
   }
