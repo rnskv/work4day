@@ -36,7 +36,8 @@ class Button extends Component {
     let isValid = true;
     this.validatedComponent.forEach(component => {
       if (component.runValidator) {
-        isValid = isValid && component.runValidator(component.state.value, component.props.validations);
+        const result = component.runValidator(component.state.value, component.props.validations);
+        isValid = isValid && result;
       }
     });
     return isValid;
