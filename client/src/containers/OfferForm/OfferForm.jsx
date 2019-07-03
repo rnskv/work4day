@@ -71,7 +71,7 @@ class OfferForm extends Component {
               <tr>
                 <td>Заголовок*</td>
                 <td>
-                  <Input size={'xl'} />
+                  <Input validations={['required']} size={'xl'} />
                 </td>
               </tr>
               <tr>

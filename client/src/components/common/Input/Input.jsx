@@ -13,10 +13,12 @@ class Input extends Component {
     className: Type.string,
     icon: Type.any,
     onChange: Type.func,
+    validations: [],
   };
 
   static defaultProps = {
     onChange: () => {},
+    validations: [],
   };
 
   constructor(props, context) {
@@ -39,8 +41,8 @@ class Input extends Component {
   }
 
   handleChange = e => {
-    const { onChange } = this.props;
-    this.runValidator(e.target.value, ['required', 'email']);
+    const { onChange, validations } = this.props;
+    this.runValidator(e.target.value, validations);
     onChange(e);
   };
 
