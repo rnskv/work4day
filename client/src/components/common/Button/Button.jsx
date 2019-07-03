@@ -4,6 +4,34 @@ import styles from './Button.shadow.css';
 import Type from 'prop-types';
 
 class Button extends Component {
+  static propTypes = {
+    color: Type.oneOf(['white', 'blue']),
+    size: Type.oneOf(['s', 'm', 'l', 'auto']),
+    style: Type.oneOf(['link', 'default']),
+    className: Type.string,
+    type: Type.oneOf(['button', 'submit', 'reset']),
+    onClick: Type.func,
+    onMouseDown: Type.func,
+    onMouseUp: Type.func,
+    onMouseOver: Type.func,
+    onMouseOut: Type.func,
+    onMouseMove: Type.func,
+  };
+
+  static defaultProps = {
+    className: '',
+    style: 'default',
+    color: 'blue',
+    size: 's',
+    type: 'button',
+    onClick: () => {},
+    onMouseDown: () => {},
+    onMouseUp: () => {},
+    onMouseOver: () => {},
+    onMouseOut: () => {},
+    onMouseMove: () => {},
+  };
+
   constructor(props, context) {
     super(props, context);
     this.root = null;
@@ -62,32 +90,6 @@ class Button extends Component {
       </button>,
     );
   }
-
-  static defaultProps = {
-    className: '',
-    style: 'default',
-    color: 'blue',
-    size: 's',
-    onClick: () => {},
-    onMouseDown: () => {},
-    onMouseUp: () => {},
-    onMouseOver: () => {},
-    onMouseOut: () => {},
-    onMouseMove: () => {},
-  };
-
-  static propTypes = {
-    color: Type.oneOf(['white', 'blue']),
-    size: Type.oneOf(['s', 'm', 'l', 'auto']),
-    style: Type.oneOf(['link', 'default']),
-    className: Type.string,
-    onClick: Type.func,
-    onMouseDown: Type.func,
-    onMouseUp: Type.func,
-    onMouseOver: Type.func,
-    onMouseOut: Type.func,
-    onMouseMove: Type.func,
-  };
 }
 
 export default Button;

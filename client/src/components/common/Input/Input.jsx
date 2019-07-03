@@ -6,14 +6,17 @@ import validator from 'src/modules/validator';
 
 import ComponentsGroup from 'src/components/common/ComponentsGroup';
 import ErrorsList from './ErrorsList.jsx';
+import FormContext from 'src/components/contexts/FormContext';
 
 class Input extends Component {
+  static contextType = FormContext;
+
   static propTypes = {
     size: Type.oneOf(['s', 'm', 'l', 'xl']).isRequired,
     className: Type.string,
     icon: Type.any,
     onChange: Type.func,
-    validations: [],
+    validations: Type.array,
   };
 
   static defaultProps = {
@@ -27,21 +30,37 @@ class Input extends Component {
     this.state = {
       isValid: true,
       errors: [],
+      value: '',
     };
+    console.log(context);
+  }
+
+  componentDidMount() {
+    if (this.context.attachToForm) {
+      this.context.attachToForm(this);
+    }
   }
 
   runValidator(value, validations) {
     const { isValid, errors } = validator.validate(value, validations);
 
     console.log(isValid, errors);
+
     this.setState({
       isValid,
       errors,
     });
+
+    return isValid;
   }
 
   handleChange = e => {
     const { onChange, validations } = this.props;
+
+    this.setState({
+      value: e.target.value,
+    });
+
     this.runValidator(e.target.value, validations);
     onChange(e);
   };
@@ -49,7 +68,6 @@ class Input extends Component {
   render() {
     const { onChange, size, icon, children, ...props } = this.props;
     const { isValid, errors } = this.state;
-
     return styled(styles)(
       <content {...props} use:size={size} use:isValid={isValid ? 'true' : 'false'}>
         <ComponentsGroup type="inputView">
@@ -67,5 +85,4 @@ class Input extends Component {
     );
   }
 }
-
 export default Input;
