@@ -83,7 +83,25 @@ class OfferForm extends Component {
               <tr>
                 <td>Месторасположение*</td>
                 <td>
-                  <Input validations={['required', 'email']} size={'xl'} />
+                  <Input validations={['required']} size={'xl'} />
+                </td>
+              </tr>
+              <tr>
+                <td>Категория*</td>
+                <td>
+                  <Input validations={['required']} size={'xl'} />
+                </td>
+              </tr>
+              <tr>
+                <td>ID поста*</td>
+                <td>
+                  <Input validations={['required']} size={'s'} />
+                </td>
+              </tr>
+              <tr>
+                <td>Дата публикации</td>
+                <td>
+                  <Input type={'date'} size={'s'} />
                 </td>
               </tr>
               <tr>
