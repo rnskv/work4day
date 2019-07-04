@@ -8,8 +8,9 @@ import Type from 'prop-types';
 import Heading from 'src/components/common/Heading';
 import Input from 'src/components/common/Input';
 import TextArea from 'src/components/common/TextArea';
-import Button from 'src/components/common/TextArea';
+import Button from 'src/components/common/Button';
 import Image from 'src/components/common/Image';
+import Form from 'src/components/common/Form';
 
 // @observable title;
 // @observable group;
@@ -53,6 +54,11 @@ class OfferForm extends Component {
     this.setDefaultGroupImageSrc();
   };
 
+  handleOfferButtonClick = e => {
+    // e.preventDefault();
+    // debugger;
+  };
+
   render() {
     const { className, OffersStore } = this.props;
     const { groupImageSrc } = this.state;
@@ -62,7 +68,7 @@ class OfferForm extends Component {
           Создание оффера
         </Heading>
 
-        <form>
+        <Form>
           <Heading isBold={true} color={'black'} size={'m'}>
             Основная информция
           </Heading>
@@ -71,13 +77,13 @@ class OfferForm extends Component {
               <tr>
                 <td>Заголовок*</td>
                 <td>
-                  <Input size={'xl'} />
+                  <Input validations={['required']} size={'xl'} />
                 </td>
               </tr>
               <tr>
                 <td>Месторасположение*</td>
                 <td>
-                  <Input size={'xl'} />
+                  <Input validations={['required', 'email']} size={'xl'} />
                 </td>
               </tr>
               <tr>
@@ -119,7 +125,10 @@ class OfferForm extends Component {
               </tr>
             </tbody>
           </table>
-        </form>
+          <Button type="submit" size={'m'} onClick={this.handleOfferButtonClick}>
+            Создать оффер
+          </Button>
+        </Form>
       </content>,
     );
   }
