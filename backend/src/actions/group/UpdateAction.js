@@ -12,8 +12,6 @@ class UpdateAction extends Action {
         GroupModel.updateOne({ id }, { $set: set })
             .then(() => { res.send({text: 'update action'}) })
             .catch(e => { res.send(e)});
-
-        res.json({status: 'ok'})
     }
 }
 

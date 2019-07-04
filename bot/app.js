@@ -70,7 +70,7 @@ function fetchAPI(body) {
   request(
     {
       method: "POST",
-      url: `${config.api.protocol}://${config.api.host}:${config.api.port}/vacancies`,
+      url: `${config.api.protocol}://${config.api.host}:${config.api.port}/offers`,
       headers: {
         "content-type": "application/json" // <--Very important!!!
       },
