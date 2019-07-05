@@ -23,19 +23,19 @@ class Offer extends Component {
 
   render() {
     const { data } = this.props;
-
+    console.log(data);
     return styled(styles)(
       <content>
-        <Image src={data.group.image} width={55} height={55} alt={'Group`s logo'} />
+        <Image src={data.group.photo100} width={55} height={55} alt={'Group`s logo'} />
         <ComponentsGroup type={'header'}>
           <Heading hasMargin={false} size={'m'} color={'black'}>
-            {data.title}
+            {data.title || 'Не промодерирован'}
           </Heading>
           <Description color={'grey'} size={'m'}>
-            {data.group.title}
+            {data.group.name}
           </Description>
           <Description color={'grey'} size={'m'}>
-            {data.location.city}
+            {data.location.name || 'undefined'}
           </Description>
         </ComponentsGroup>
         <p>{data.text}</p>
@@ -47,7 +47,7 @@ class Offer extends Component {
             Показать контакты
           </Button>
         </ComponentsGroup>
-        <Date time={data.time} format={'dd.mm.yy, HH:MM'} />
+        <Date time={data.date} format={'dd.mm.yy, HH:MM'} />
       </content>,
     );
   }

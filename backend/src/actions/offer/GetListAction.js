@@ -26,11 +26,11 @@ class GetListAction extends Action {
         },
         {
           $lookup: {
-              from: 'categories',
-              localField: 'categoryId',
-              foreignField: 'id',
-              as: 'category',
-            }
+            from: 'categories',
+            localField: 'categoryId',
+            foreignField: 'id',
+            as: 'category',
+          }
         },
         {
           $lookup: {
@@ -38,6 +38,14 @@ class GetListAction extends Action {
             localField: 'groupId',
             foreignField: 'id',
             as: 'group',
+          }
+        },
+        {
+          $lookup: {
+            from: 'cities',
+            localField: 'group.cityId',
+            foreignField: 'id',
+            as: 'location',
           }
         },
         {
@@ -52,6 +60,8 @@ class GetListAction extends Action {
             'group.photo100': 1,
             'group.name': 1,
             'group.screenName': 1,
+            'location.id': 1,
+            'location.name': 1,
           }
         },
         {
@@ -59,6 +69,9 @@ class GetListAction extends Action {
         },
         {
           $unwind: '$group'
+        },
+        {
+          $unwind: '$location'
         }
       ]).exec();
 
