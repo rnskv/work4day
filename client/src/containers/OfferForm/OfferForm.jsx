@@ -11,6 +11,7 @@ import TextArea from 'src/components/common/TextArea';
 import Button from 'src/components/common/Button';
 import Image from 'src/components/common/Image';
 import Form from 'src/components/common/Form';
+import Select from 'src/components/common/Select';
 
 // @observable title;
 // @observable group;
@@ -69,80 +70,44 @@ class OfferForm extends Component {
         </Heading>
 
         <Form>
-          <Heading isBold={true} color={'black'} size={'m'}>
-            Основная информция
+          <Heading color={'black'} size={'xs'}>
+            Текст
           </Heading>
-          <table>
-            <tbody>
-              <tr>
-                <td>Заголовок*</td>
-                <td>
-                  <Input validations={['required']} size={'xl'} />
-                </td>
-              </tr>
-              <tr>
-                <td>Месторасположение*</td>
-                <td>
-                  <Input validations={['required']} size={'xl'} />
-                </td>
-              </tr>
-              <tr>
-                <td>Категория*</td>
-                <td>
-                  <Input validations={['required']} size={'xl'} />
-                </td>
-              </tr>
-              <tr>
-                <td>ID поста*</td>
-                <td>
-                  <Input validations={['required']} size={'s'} />
-                </td>
-              </tr>
-              <tr>
-                <td>Дата публикации</td>
-                <td>
-                  <Input type={'date'} size={'s'} />
-                </td>
-              </tr>
-              <tr>
-                <td>Текст предложения*</td>
-                <td>
-                  <TextArea size={'xl'} />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <Heading isBold={true} color={'black'} size={'m'}>
-            Информация о группе
+          <TextArea validations={['required']} size={'xl'} />
+
+          <Heading color={'black'} size={'xs'}>
+            Заголовок
           </Heading>
-          <table>
-            <tbody>
-              <tr>
-                <td>Название*</td>
-                <td>
-                  <Input size={'xl'} />
-                </td>
-              </tr>
-              <tr>
-                <td>Изображение</td>
-                <td>
-                  <Input
-                    ref={'GroupImageSrc'}
-                    size={'xl'}
-                    onChange={this.changeGroupImageSrc}
-                    icon={
-                      <Image
-                        src={groupImageSrc}
-                        alt={'Group image'}
-                        height={'auto'}
-                        onError={this.onLoadErrorGroupImage}
-                      />
-                    }
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <Input validations={['required']} size={'xl'} />
+
+          <Heading color={'black'} size={'xs'}>
+            ID Поста на стене ВКонтакте
+          </Heading>
+          <Input validations={['required']} size={'xl'} />
+
+          <Heading color={'black'} size={'xs'}>
+            Категория
+          </Heading>
+
+          <Select
+            id={'categorySelect'}
+            options={[
+              {
+                value: 1,
+                text: 'First option',
+              },
+              {
+                value: 2,
+                text: 'Second option',
+              },
+              {
+                value: 3,
+                text: 'Third option',
+              },
+            ]}
+            size={'xl'}
+          />
+
           <Button type="submit" size={'m'} onClick={this.handleOfferButtonClick}>
             Создать оффер
           </Button>

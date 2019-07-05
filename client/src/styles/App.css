@@ -4,12 +4,10 @@ html {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
-/*#root {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    background: #eaeaea;*/
-/*}*/
+#root {
+  min-width: 100vw;
+  min-height: 100vh;
+}
 
 a {
   color: #fff;
