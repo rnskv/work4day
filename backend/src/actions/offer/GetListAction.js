@@ -48,6 +48,7 @@ class GetListAction extends Action {
             'postId': 1,
             'date': 1,
             'category.id': 1,
+            'category.name': 1,
             'group.photo100': 1,
             'group.name': 1,
             'group.screenName': 1,
