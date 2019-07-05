@@ -15,6 +15,10 @@ class Select extends Component {
     onChange: Type.func,
   };
 
+  static defaultProps = {
+    value: 0,
+  };
+
   constructor(props) {
     super();
     this.state = {
@@ -48,7 +52,10 @@ class Select extends Component {
   };
 
   setDefaultValue() {
-    const option = this.props.options.filter(option => option.value === this.props.value)[0];
+    let option = this.props.options.filter(option => option.value === this.props.value)[0];
+    if (!option) {
+      option = this.props.options[0];
+    }
     this.selectOption(option);
   }
 
@@ -63,7 +70,10 @@ class Select extends Component {
   }
 
   handleValueChange = () => {
-    this.props.onChange(this.getValue());
+    const { onChange } = this.props;
+    if (onChange) {
+      onChange(this.getValue());
+    }
   };
 
   handleOptionClick = option => () => {

@@ -1,4 +1,4 @@
-tbody {
-  display: block;
-  margin: 12px;
+content {
+  background: var(--grey-bg-color);
+  min-height: 100vh;
 }

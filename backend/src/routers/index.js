@@ -5,6 +5,7 @@ import VacanciesRouter from './VacanciesRouter';
 import GroupsRouter from './GroupsRouter';
 import CitiesRouter from './CitiesRouter';
 import CategoriesRouter from './CategoriesRouter';
+import OffersRouter from './OffersRouter';
 
 export default [
     RootRouter,
@@ -13,5 +14,6 @@ export default [
     VacanciesRouter,
     GroupsRouter,
     CitiesRouter,
-    CategoriesRouter
+    CategoriesRouter,
+    OffersRouter
 ]

@@ -1,5 +1,5 @@
 import Action from '../../core/Action';
-import GroupModel from '../../models/GroupModel';
+import VacancyModel from '../../models/VacancyModel';
 import VError from '../../core/VError';
 
 class UpdateAction extends Action {
@@ -7,11 +7,13 @@ class UpdateAction extends Action {
         const { set } = req.body;
         const { id } = req.params;
 
-        console.log('update action', id, set);
-
-        GroupModel.updateOne({ id }, { $set: set })
+        console.log('update action', id,  set);
+        //
+        VacancyModel.updateOne({ _id: id }, { $set: set })
             .then(() => { res.send({text: 'update action'}) })
             .catch(e => { res.send(e)});
+
+        // res.json({hello: 'world'})
     }
 }
 
