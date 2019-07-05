@@ -8,6 +8,6 @@ export default {
     CreateAction,
     // DeleteAction,
     // GetAction,
-    // GetListAction,
+    GetListAction,
     // UpdateAction
 }
