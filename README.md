@@ -20,6 +20,4 @@ At the moment, the project is at the stage of active development and I hope it w
 
 <img src="https://pp.userapi.com/c848632/v848632468/1c6c17/-7t0N_o7kqg.jpg" width=300/>
 <img src="https://pp.userapi.com/c848632/v848632468/1c6c63/JkkmWbkKUWI.jpg" width=300/>
-<img src="https://pp.userapi.com/c848632/v848632468/1c6c20/kv-RAeKgjRs.jpg" width=300/>
-<img src="https://pp.userapi.com/c848632/v848632468/1c6c34/XzVXVoj_Cvk.jpg" width=600/>
 <img src="https://pp.userapi.com/c848632/v848632468/1c6c04/2Eb7sn1GhtE.jpg" />
