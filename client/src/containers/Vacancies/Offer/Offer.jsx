@@ -23,7 +23,7 @@ class Offer extends Component {
 
   render() {
     const { data } = this.props;
-    console.log(data);
+
     return styled(styles)(
       <content>
         <Image src={data.group.photo100} width={55} height={55} alt={'Group`s logo'} />
@@ -47,7 +47,7 @@ class Offer extends Component {
             Показать контакты
           </Button>
         </ComponentsGroup>
-        <Date time={data.date} format={'dd.mm.yy, HH:MM'} />
+        <Date date={data.date} format={'dd.mm.yy, HH:MM'} />
       </content>,
     );
   }

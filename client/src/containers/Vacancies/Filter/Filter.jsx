@@ -26,6 +26,11 @@ class Filter extends Component {
     changeParams(category, value);
   }
 
+  handleButtonClick = async () => {
+    const { OffersStore } = this.props;
+    await OffersStore.getOffers();
+  };
+
   render() {
     const { list, OffersStore } = this.props;
 
@@ -40,7 +45,7 @@ class Filter extends Component {
           }}
           selectable={true}
         />
-        <Button color={'blue'} size={'auto'}>
+        <Button color={'blue'} size={'auto'} onClick={this.handleButtonClick}>
           Применить
         </Button>
       </content>,

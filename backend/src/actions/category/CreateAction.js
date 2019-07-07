@@ -5,7 +5,6 @@ import configs from '../../configs';
 
 class CreateAction extends Action {
     static async run (req, res, next) {
-        console.log('create category', req.body);
         const { name = '' } = req.body;
 
         const category = new CategoryModel({

@@ -20,6 +20,7 @@ export default class OfferList {
 
   @action
   setOffers(offers) {
+    this.offers = [];
     offers.forEach(offer => {
       this.addOffer(offer);
     });
@@ -29,11 +30,12 @@ export default class OfferList {
 
   @action
   async getOffers() {
+    console.log(this.filter.params);
     const offersData = await DefaultApi.fetch({
       url: '/offers',
       urlParams: {
         isModerated: 0,
-        limit: 10,
+        ...this.filter.params,
       },
     });
 

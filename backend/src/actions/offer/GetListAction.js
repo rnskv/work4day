@@ -1,6 +1,6 @@
 import Action from '../../core/Action';
 import OfferModel from '../../models/OfferModel';
-import { removeUndefinedFromObject, toNum } from '../../helpers/global';
+import { removeEmptyValuesFromObject, toNum } from '../../helpers/global';
 import CategoryModel from '../../models/CategoryModel';
 
 import VError from '../../core/VError';
@@ -16,13 +16,6 @@ class GetListAction extends Action {
         },
         {
           $skip: toNum(skip)
-        },
-        {
-          $match: removeUndefinedFromObject({
-            categoryId: toNum(categoryId),
-            groupId: toNum(groupId),
-            cityId: toNum(cityId)
-          })
         },
         {
           $lookup: {
@@ -47,6 +40,12 @@ class GetListAction extends Action {
             foreignField: 'id',
             as: 'location',
           }
+        },
+        {
+          $match: removeEmptyValuesFromObject({
+            'categoryId': toNum(categoryId),
+            'group.cityId': toNum(cityId)
+          })
         },
         {
           $project: {

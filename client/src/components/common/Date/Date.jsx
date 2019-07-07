@@ -6,7 +6,7 @@ import DateFormat from 'dateformat';
 
 class Date extends Component {
   static propTypes = {
-    time: Type.number.isRequired,
+    date: Type.string.isRequired,
     format: Type.string,
   };
 
@@ -14,16 +14,16 @@ class Date extends Component {
     format: 'dd-mm-yyyy HH:MM',
   };
 
-  getFormatDate(time, format) {
-    const date = new window.Date(time);
-    return DateFormat(date, format);
+  getFormatDate(date, format) {
+    const dateObject = new window.Date(date);
+    return DateFormat(dateObject, format);
   }
 
   render() {
-    const { className, time, format } = this.props;
+    const { className, date, format } = this.props;
     const { getFormatDate } = this;
 
-    return styled(styles)(<content className={className}>{getFormatDate(time, format)}</content>);
+    return styled(styles)(<content className={className}>{getFormatDate(date, format)}</content>);
   }
 }
 
