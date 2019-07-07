@@ -86,6 +86,7 @@ class Vacancies extends Component {
 
   render() {
     const { OffersStore, className } = this.props;
+    console.log(OffersStore);
     return styled(styles)(
       <content className={className}>
         <Heading size={'l'} color={'black'}>
@@ -94,6 +95,7 @@ class Vacancies extends Component {
         <div>
           <Filter list={this.filterList} />
           <OffersList list={OffersStore.offers} />
+          {OffersStore.isLoading ? 'Наш робот ищет предложения для вас :)' : null}
         </div>
       </content>,
     );

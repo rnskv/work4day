@@ -12,10 +12,10 @@ class GetListAction extends Action {
 
       const offers = await OfferModel.aggregate([
         {
-          $limit: limit
+          $limit: toNum(limit)
         },
         {
-          $skip: skip
+          $skip: toNum(skip)
         },
         {
           $match: removeUndefinedFromObject({
@@ -76,9 +76,7 @@ class GetListAction extends Action {
       ]).exec();
 
       res.json({
-        body: {
-          offers
-        },
+        body: offers,
         meta: {
           count: await OfferModel.count()
         }
