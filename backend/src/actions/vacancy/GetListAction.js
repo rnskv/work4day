@@ -51,13 +51,10 @@ class GetListAction extends Action {
             .skip(skip)
             .limit(limit)
             .exec()
-        console.log(2);
-        console.log('isModerated', isModerated);
 
         const formattedVacancies = [];
         console.log('res.json 1');
         const categoriesList = await CategoryModel.find();
-        console.log(categoriesList)
         vacancies.forEach(vacancy => {
             const date = new Date(vacancy.date.toString());
             formattedVacancies.push({

@@ -7,8 +7,6 @@ class DeleteAction extends Action {
         const { set } = req.body;
         const { id } = req.params;
 
-        console.log('delete action', id,  set);
-
         VacancyModel.remove({ _id: id })
             .then(() => { res.json({text: 'remove action'}) })
             .catch(e => { res.json(e)});

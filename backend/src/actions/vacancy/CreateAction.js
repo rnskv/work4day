@@ -5,7 +5,6 @@ import configs from '../../configs';
 
 class CreateAction extends Action {
     static async run (req, res, next) {
-        console.log(req.body.date);
         const vacancy = new VacancyModel({
             groupId: req.body.groupId,
             postId: req.body.postId,

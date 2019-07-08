@@ -24,60 +24,49 @@ class Vacancies extends Component {
     this.filterList = [
       {
         name: 'Регион',
-        category: 'region',
+        category: 'cityId',
         list: [
           {
-            name: 'Санкт-Петербург',
-            value: 131,
+            name: 'Пенза',
+            value: 3,
           },
           {
             name: 'Москва',
-            value: 777,
+            value: 4,
           },
           {
-            name: 'Пенза',
-            value: 58,
-          },
-          {
-            name: 'Минск',
-            value: 983,
+            name: 'Санкт-Петербург',
+            value: 5,
           },
         ],
       },
       {
-        name: 'Профобласть',
-        category: 'profession',
+        name: 'Категория',
+        category: 'categoryId',
         list: [
           {
+            name: 'Информационные технологии',
+            value: 0,
+          },
+          {
+            name: 'Дизайн',
+            value: 2,
+          },
+          {
+            name: 'Доставка',
+            value: 3,
+          },
+          {
             name: 'Продажи',
-            value: 'sales',
+            value: 4,
           },
           {
-            name: 'IT, телеком',
-            value: 'it',
+            name: 'Физический труд',
+            value: 5,
           },
           {
-            name: 'Производство',
-            value: 'craft',
-          },
-          {
-            name: 'Админ, персонал',
-            value: 'admin',
-          },
-          {
-            name: 'Авто',
-            list: [
-              { name: 'Легковые', value: 'leg_car' },
-              { name: 'Грузовые', value: 'mid_car' },
-              {
-                name: 'Фуры',
-                list: [{ name: 'С прицепом', value: 'with_pricep' }, { name: 'Без прицепа', value: 'withot_pricep' }],
-              },
-            ],
-          },
-          {
-            name: 'Бухгалтерия',
-            value: 'money',
+            name: 'Администрирование',
+            value: 6,
           },
         ],
       },
@@ -86,6 +75,7 @@ class Vacancies extends Component {
 
   render() {
     const { OffersStore, className } = this.props;
+    console.log(OffersStore);
     return styled(styles)(
       <content className={className}>
         <Heading size={'l'} color={'black'}>
@@ -94,6 +84,7 @@ class Vacancies extends Component {
         <div>
           <Filter list={this.filterList} />
           <OffersList list={OffersStore.offers} />
+          {OffersStore.isLoading ? 'Наш робот ищет предложения для вас :)' : null}
         </div>
       </content>,
     );

@@ -49,7 +49,6 @@ class Server extends CC {
             });
 
             passport.deserializeUser(function(id, done) {
-                console.log('2')
                 done(null, user)
             });
 

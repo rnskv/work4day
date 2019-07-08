@@ -2,8 +2,8 @@ import { observable, action } from 'mobx';
 
 export default class Filter {
   @observable params = {
-    region: 58,
-    profession: 'it',
+    cityId: 4,
+    categoryId: null,
   };
 
   @action

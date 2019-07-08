@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import styled from 'reshadow';
 import styles from './Search.shadow.css';
 import Type from 'prop-types';
