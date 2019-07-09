@@ -78,3 +78,8 @@ button[|style='link']:focus {
   background: none;
   color: var(--blue-glow-color);
 }
+
+button[|disabled] {
+  pointer-events: none;
+  opacity: 0.4;
+}

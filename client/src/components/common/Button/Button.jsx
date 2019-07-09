@@ -71,7 +71,7 @@ class Button extends Component {
   };
 
   render() {
-    const { style, color, size, className, visible, children, ...props } = this.props;
+    const { style, color, size, className, visible, disabled, children, ...props } = this.props;
     const buttonProps = {
       ref: root => {
         this.root = root;
@@ -88,7 +88,7 @@ class Button extends Component {
 
     return styled(styles)(
       visible ? (
-        <button use:color={color} use:size={size} use:style={style} {...buttonProps}>
+        <button use:disabled={disabled} use:color={color} use:size={size} use:style={style} {...buttonProps}>
           {children}
         </button>
       ) : null,

@@ -51,6 +51,7 @@ class GetListAction extends Action {
             'date': 1,
             'category.id': 1,
             'category.name': 1,
+            'group.id': 1,
             'group.photo100': 1,
             'group.name': 1,
             'group.screenName': 1,
