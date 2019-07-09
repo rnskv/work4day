@@ -27,57 +27,6 @@ class Vacancies extends Component {
 
   constructor(props) {
     super();
-    console.log(props);
-    this.filterList = [
-      {
-        name: 'Регион',
-        category: 'cityId',
-        list: [
-          {
-            name: 'Пенза',
-            value: 3,
-          },
-          {
-            name: 'Москва',
-            value: 4,
-          },
-          {
-            name: 'Санкт-Петербург',
-            value: 5,
-          },
-        ],
-      },
-      {
-        name: 'Категория',
-        category: 'categoryId',
-        list: [
-          {
-            name: 'Информационные технологии',
-            value: 0,
-          },
-          {
-            name: 'Дизайн',
-            value: 2,
-          },
-          {
-            name: 'Доставка',
-            value: 3,
-          },
-          {
-            name: 'Продажи',
-            value: 4,
-          },
-          {
-            name: 'Физический труд',
-            value: 5,
-          },
-          {
-            name: 'Администрирование',
-            value: 6,
-          },
-        ],
-      },
-    ];
   }
 
   render() {
@@ -91,7 +40,7 @@ class Vacancies extends Component {
           Вакансии
         </Heading>
         <div>
-          <Filter list={this.filterList} />
+          <Filter list={OffersStore.filter.list} />
           <block>
             <OffersList isLoading={OffersStore.isLoading} list={OffersStore.offers} />
             <Loader isLoading={OffersStore.isLoading} />
