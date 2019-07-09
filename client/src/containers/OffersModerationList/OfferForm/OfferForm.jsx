@@ -20,6 +20,7 @@ import Select from 'src/components/common/Select';
 // @observable time;
 
 @inject('OffersStore')
+
 @observer
 class OfferForm extends Component {
   static propTypes = {};
@@ -63,6 +64,8 @@ class OfferForm extends Component {
   render() {
     const { className, OffersStore } = this.props;
     const { groupImageSrc } = this.state;
+
+    console.log('props', this.props);
     return styled(styles)(
       <content className={className}>
         <Heading isBold={true} color={'black'} size={'l'}>

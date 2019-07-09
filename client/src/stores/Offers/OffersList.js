@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx';
 import Filter from './Filter';
 
-import { DefaultApi } from '../../modules/api/index';
+import { DefaultApi } from 'src/modules/api/index';
 
 export default class OfferList {
   @observable offers = [];
