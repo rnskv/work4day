@@ -8,6 +8,7 @@ class OffersList {
 
   constructor() {
     this.getList();
+    console.log(123);
   }
 
   async getList() {
@@ -15,8 +16,9 @@ class OffersList {
       url: '/offers',
     });
 
-    this.list = categoriesData.body;
+    this.list = [...categoriesData.body];
     this.isLoading = false;
+    console.log(this.list);
   }
 }
 

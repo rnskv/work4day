@@ -13,6 +13,8 @@ import Image from 'src/components/common/Image';
 import Form from 'src/components/common/Form';
 import Select from 'src/components/common/Select';
 
+import OfferForm from './OfferForm';
+
 @inject('OffersModerationStore')
 @observer
 class OffersModerationList extends Component {
@@ -25,8 +27,14 @@ class OffersModerationList extends Component {
   }
 
   render() {
-    console.log(this.props);
-    return styled(styles)(<content>123</content>);
+    const { OffersModerationStore } = this.props;
+    return styled(styles)(
+      <content>
+        {OffersModerationStore.offers.list.map(offer => {
+          return <OfferForm data={offer} />;
+        })}
+      </content>,
+    );
   }
 }
 

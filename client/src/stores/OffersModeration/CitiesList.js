@@ -15,7 +15,7 @@ class CitiesList {
       url: '/city',
     });
 
-    this.list = categoriesData.body;
+    this.list = [...categoriesData.body];
     this.isLoading = false;
   }
 }

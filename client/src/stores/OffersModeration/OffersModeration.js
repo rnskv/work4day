@@ -10,6 +10,10 @@ class OffersModeration {
   @observable categories = new CategoriesList();
   @observable cities = new CitiesList();
   @observable offers = new OffersList();
+
+  constructor() {
+    console.log(3);
+  }
 }
 
 export default OffersModeration;

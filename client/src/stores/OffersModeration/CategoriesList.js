@@ -15,7 +15,7 @@ class CategoriesList {
       url: '/category',
     });
 
-    this.list = categoriesData.body;
+    this.list = [...categoriesData.body];
     this.isLoading = false;
   }
 }

@@ -20,7 +20,6 @@ import Select from 'src/components/common/Select';
 // @observable time;
 
 @inject('OffersStore')
-
 @observer
 class OfferForm extends Component {
   static propTypes = {};
@@ -62,31 +61,33 @@ class OfferForm extends Component {
   };
 
   render() {
-    const { className, OffersStore } = this.props;
+    const { className, data, OffersStore } = this.props;
     const { groupImageSrc } = this.state;
 
     console.log('props', this.props);
     return styled(styles)(
       <content className={className}>
         <Heading isBold={true} color={'black'} size={'l'}>
-          Создание оффера
+          Модерация оффера
         </Heading>
 
         <Form>
           <Heading color={'black'} size={'xs'}>
             Текст
           </Heading>
-          <TextArea validations={['required']} size={'xl'} />
+          <TextArea validations={['required']} size={'xl'}>
+            {data.text}
+          </TextArea>
 
           <Heading color={'black'} size={'xs'}>
             Заголовок
           </Heading>
-          <Input validations={['required']} size={'xl'} />
+          <Input value={data.title || 'Нет названия'} validations={['required']} size={'xl'} />
 
           <Heading color={'black'} size={'xs'}>
             ID Поста на стене ВКонтакте
           </Heading>
-          <Input validations={['required']} size={'xl'} />
+          <Input value={data.postId || 'Нет id'} validations={['required']} size={'xl'} />
 
           <Heading color={'black'} size={'xs'}>
             Категория
@@ -112,7 +113,7 @@ class OfferForm extends Component {
           />
 
           <Button type="submit" size={'m'} onClick={this.handleOfferButtonClick}>
-            Создать оффер
+            Модерировать
           </Button>
         </Form>
       </content>,

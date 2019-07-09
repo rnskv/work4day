@@ -1,2 +1,2 @@
 import OffersModeration from './OffersModeration';
-export default OffersModeration;
+export default new OffersModeration();

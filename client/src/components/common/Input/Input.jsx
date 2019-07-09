@@ -17,11 +17,13 @@ class Input extends Component {
     icon: Type.any,
     onChange: Type.func,
     validations: Type.array,
+    value: Type.oneOf(Type.string, Type.number),
   };
 
   static defaultProps = {
     onChange: () => {},
     validations: [],
+    value: '',
   };
 
   constructor(props, context) {
@@ -66,7 +68,7 @@ class Input extends Component {
   };
 
   render() {
-    const { onChange, size, icon, children, ...props } = this.props;
+    const { value, onChange, size, icon, children, ...props } = this.props;
     const { isValid, errors } = this.state;
     return styled(styles)(
       <content {...props} use:size={size} use:isValid={isValid ? 'true' : 'false'}>
@@ -77,6 +79,7 @@ class Input extends Component {
             }}
             use:isValid={isValid ? 'true' : 'false'}
             onChange={this.handleChange}
+            value={value}
           />
           {icon}
         </ComponentsGroup>
