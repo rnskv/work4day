@@ -1,11 +1,24 @@
 content {
-  min-width: 900px;
+  width: 100%;
 }
 div {
   display: flex;
   align-items: flex-start;
+  width: 100%;
+}
+
+block {
+  width: 100%;
 }
 
 Heading {
   margin: 24px 0;
+}
+
+Loader {
+  margin: 24px 0;
+}
+
+Button {
+  margin: 25px auto;
 }

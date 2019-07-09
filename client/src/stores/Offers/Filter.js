@@ -2,8 +2,10 @@ import { observable, action } from 'mobx';
 
 export default class Filter {
   @observable params = {
-    cityId: 4,
+    cityId: null,
     categoryId: null,
+    skip: 0,
+    limit: 10,
   };
 
   @action

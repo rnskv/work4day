@@ -7,6 +7,8 @@ import Type from 'prop-types';
 
 import Heading from 'src/components/common/Heading';
 import ToggledList from 'src/components/common/ToggledList';
+import Button from 'src/components/common/Button';
+import Loader from 'src/components/common/Loader';
 
 import OffersList from './OffersList';
 import Filter from './Filter';
@@ -17,6 +19,11 @@ class Vacancies extends Component {
   static propTypes = {};
 
   static defaultProps = {};
+
+  handleLoadButtonClick = async () => {
+    const { OffersStore } = this.props;
+    await OffersStore.getOffers(true);
+  };
 
   constructor(props) {
     super();
@@ -74,8 +81,10 @@ class Vacancies extends Component {
   }
 
   render() {
+    /* @todo Переделать этот ужас */
+
     const { OffersStore, className } = this.props;
-    console.log(OffersStore);
+
     return styled(styles)(
       <content className={className}>
         <Heading size={'l'} color={'black'}>
@@ -83,8 +92,14 @@ class Vacancies extends Component {
         </Heading>
         <div>
           <Filter list={this.filterList} />
-          <OffersList list={OffersStore.offers} />
-          {OffersStore.isLoading ? 'Наш робот ищет предложения для вас :)' : null}
+          <block>
+            <OffersList isLoading={OffersStore.isLoading} list={OffersStore.offers} />
+            <Loader isLoading={OffersStore.isLoading} />
+
+            <Button size={'m'} onClick={this.handleLoadButtonClick} visible={!OffersStore.isLoading}>
+              Загрузить ещё
+            </Button>
+          </block>
         </div>
       </content>,
     );

@@ -8,15 +8,10 @@ import configs from '../../configs';
 
 class GetListAction extends Action {
     static async run (req, res, next) {
-      const { limit = 10, skip = 0, categoryId, cityId, groupId } = req.query;
+      const { limit = 100, skip = 0, categoryId, cityId, groupId } = req.query;
 
       const offers = await OfferModel.aggregate([
-        {
-          $limit: toNum(limit)
-        },
-        {
-          $skip: toNum(skip)
-        },
+        { $sort : { isModerated : 1, date: -1 } },
         {
           $lookup: {
             from: 'categories',
@@ -62,6 +57,12 @@ class GetListAction extends Action {
             'location.id': 1,
             'location.name': 1,
           }
+        },
+        {
+          $limit: toNum(limit)
+        },
+        {
+          $skip: toNum(skip)
         },
         {
           $unwind: '$category'

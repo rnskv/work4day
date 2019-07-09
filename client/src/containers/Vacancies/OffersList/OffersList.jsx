@@ -8,6 +8,7 @@ import Offer from '../Offer/Offer.jsx';
 class OffersList extends Component {
   static propTypes = {
     list: Type.array.isRequired,
+    isLoading: Type.bool.isRequired,
   };
 
   static defaultProps = {};
@@ -17,13 +18,15 @@ class OffersList extends Component {
   }
 
   render() {
-    const { list } = this.props;
+    const { list, isLoading } = this.props;
 
     return styled(styles)(
       <content>
-        {list.map((offer, index) => {
-          return <Offer key={`offer_${index}`} data={offer} />;
-        })}
+        {!list.length && !isLoading
+          ? 'Ничего не найдено'
+          : list.map((offer, index) => {
+              return <Offer key={`offer_${index}`} data={offer} />;
+            })}
       </content>,
     );
   }
