@@ -29,7 +29,7 @@ class Select extends Component {
     this.root = null;
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (!this.props.text) {
       this.setDefaultValue();
     }
@@ -84,6 +84,10 @@ class Select extends Component {
     });
   };
 
+  handleButtonClick = e => {
+    e.preventDefault();
+  };
+
   renderOptionsList() {
     return this.props.options.map(option => {
       return styled(styles)(
@@ -109,7 +113,7 @@ class Select extends Component {
         onBlur={this.collapse}
         onFocus={this.expand}>
         <input value={this.state.value} id={this.props.id} type="hidden" />
-        <button aria-haspopup="true" aria-expanded={this.state.opened} tabIndex={-1}>
+        <button onClick={this.handleButtonClick} aria-haspopup="true" aria-expanded={this.state.opened} tabIndex={-1}>
           <span>
             <a>{this.state.text}</a>
             {this.state.opened ? (

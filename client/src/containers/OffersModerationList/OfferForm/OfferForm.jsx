@@ -48,6 +48,18 @@ class OfferForm extends Component {
 
   handleOfferButtonClick = e => {
     // e.preventDefault();
+    // const { OffersModerationStore, data } = this.props;
+    // console.log(data);
+    // OffersModerationStore.accept({
+    //   _id: data._id,
+    //   title: this.titleRef.current.value,
+    // });
+    // console.log(this.titleRef.current.value, 'TITLE__REF');
+    // debugger;
+  };
+
+  handleSubmitForm = e => {
+    alert(1);
     const { OffersModerationStore, data } = this.props;
     console.log(data);
     OffersModerationStore.accept({
@@ -55,8 +67,6 @@ class OfferForm extends Component {
       title: this.titleRef.current.value,
     });
     console.log(this.titleRef.current.value, 'TITLE__REF');
-
-    // debugger;
   };
 
   render() {
@@ -68,7 +78,7 @@ class OfferForm extends Component {
           Модерация оффера
         </Heading>
 
-        <Form>
+        <Form onSubmit={this.handleSubmitForm}>
           <Heading size={'xs'}>Текст</Heading>
           <TextArea validations={['required']} size={'xl'}>
             {data.text}
