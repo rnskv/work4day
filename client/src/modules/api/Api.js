@@ -7,31 +7,17 @@ class Request {
     this.params = params;
     this.successCb = successCb;
     this.errorCb = errorCb;
-    this.promise = null;
-    this.refreshCount = 0;
-    this.maxRefreshes = 3;
-    this.refreshTime = 1000;
   }
 
   fetch() {
-    this.promise = fetch(this.url, this.params)
+    window
+      .fetch(this.url, this.params)
       .then(data => {
         this.successCb(data);
       })
       .catch(err => {
-        console.error(new RError(SERVER_UNAVALIBE_RETRY));
-        if (this.refreshCount < this.maxRefreshes) {
-          setTimeout(this.refresh.bind(this), this.refreshTime);
-        } else {
-          this.errorCb(new RError(SERVER_UNAVALIBE));
-        }
+        this.errorCb(new RError(SERVER_UNAVALIBE));
       });
-  }
-
-  refresh() {
-    this.refreshCount++;
-    this.refreshTime *= 2;
-    this.fetch();
   }
 }
 
@@ -82,10 +68,16 @@ class Api {
         requestParams.body = JSON.stringify(params);
       }
 
-      const successCb = async data => {
+      const successCb = data => {
         data
           .json()
-          .then(json => resolve(json))
+          .then(json => {
+            if (data.status > 299 || data.status < 200) {
+              reject(json);
+            } else {
+              resolve(json);
+            }
+          })
           .catch(err => reject(new RError(SERVER_RESPONSE_INVALID)));
       };
 
@@ -94,7 +86,7 @@ class Api {
       };
 
       this.addRequest(requestUrl, new Request(requestUrl, requestParams, successCb, errorCb));
-    }).catch(err => alert(err));
+    });
   }
 }
 

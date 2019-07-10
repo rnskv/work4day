@@ -15,19 +15,31 @@ class OffersModeration {
   constructor() {
     this.offers.getList();
   }
+  handleSuccessAccept = () => {
+    alert('Промодерировано');
+    this.offers.getList();
+  };
+
+  handleErrorAccept = err => {
+    console.error(err);
+    alert('Ошибка');
+  };
 
   @action
   accept = async data => {
     const { _id, title } = data;
     confirm('Вы уверены?');
-    const response = await Api.fetch({
+    const requestParams = {
       url: `/offers/${_id}`,
       method: 'PATCH',
       params: { set: { title, isModerated: true } },
-    });
-    alert('Промодерировано');
-    console.log(response);
-    await this.offers.getList();
+      successCb: this.handleSuccessAccept,
+      errorCb: this.handleErrorAccept,
+    };
+
+    await Api.fetch(requestParams)
+      .then(this.handleSuccessAccept)
+      .catch(this.handleErrorAccept);
   };
 
   cancel() {}

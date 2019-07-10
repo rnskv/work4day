@@ -13,6 +13,7 @@ class UpdateAction extends Action {
           { _id: id },
           { $set: set })
           .then((data) => {
+            res.status(200);
             res.json({
               body: {
                 updatedFields: set
@@ -21,6 +22,7 @@ class UpdateAction extends Action {
             })
           })
           .catch((err) => {
+            res.status(500);
             res.json({
               body: {
                 error: err
