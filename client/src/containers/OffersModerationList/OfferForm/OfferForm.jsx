@@ -30,6 +30,7 @@ class OfferForm extends Component {
     super();
 
     this.titleRef = React.createRef();
+    this.categoryRef = React.createRef();
   }
 
   componentDidMount() {
@@ -46,25 +47,13 @@ class OfferForm extends Component {
     }));
   }
 
-  handleOfferButtonClick = e => {
-    // e.preventDefault();
-    // const { OffersModerationStore, data } = this.props;
-    // console.log(data);
-    // OffersModerationStore.accept({
-    //   _id: data._id,
-    //   title: this.titleRef.current.value,
-    // });
-    // console.log(this.titleRef.current.value, 'TITLE__REF');
-    // debugger;
-  };
-
   handleSubmitForm = e => {
-    alert(1);
     const { OffersModerationStore, data } = this.props;
     console.log(data);
     OffersModerationStore.accept({
       _id: data._id,
       title: this.titleRef.current.value,
+      categoryId: this.categoryRef.current.value,
     });
     console.log(this.titleRef.current.value, 'TITLE__REF');
   };
@@ -90,6 +79,10 @@ class OfferForm extends Component {
             value={data.title || ''}
             placeholder={'Введите название'}
             validations={['required']}
+            defaultOption={{
+              value: null,
+              text: '',
+            }}
             size={'xl'}
           />
 
@@ -100,9 +93,14 @@ class OfferForm extends Component {
             Категория
           </Heading>
 
-          <Select id={'categorySelect'} options={this.getCategoriesOptionsList()} size={'xl'} />
+          <Select
+            ref={this.categoryRef}
+            validations={['required']}
+            options={this.getCategoriesOptionsList()}
+            size={'b'}
+          />
 
-          <Button type="submit" size={'m'} onClick={this.handleOfferButtonClick}>
+          <Button type="submit" size={'m'}>
             Модерировать
           </Button>
         </Form>

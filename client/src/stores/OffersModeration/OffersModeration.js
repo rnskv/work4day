@@ -27,12 +27,12 @@ class OffersModeration {
 
   @action
   accept = async data => {
-    const { _id, title } = data;
+    const { _id, title, categoryId } = data;
     confirm('Вы уверены?');
     const requestParams = {
       url: `/offers/${_id}`,
       method: 'PATCH',
-      params: { set: { title, isModerated: true } },
+      params: { set: { categoryId, title, isModerated: true } },
       successCb: this.handleSuccessAccept,
       errorCb: this.handleErrorAccept,
     };

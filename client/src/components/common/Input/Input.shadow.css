@@ -6,11 +6,6 @@ input[|isValid='false'] {
   border-color: var(--red-error-color);
 }
 
-ul {
-  font-size: 10pt;
-  color: var(--red-text-color);
-}
-
 ComponentsGroup[type='inputView'] {
   width: 100%;
   height: 38px;

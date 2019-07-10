@@ -5,7 +5,7 @@ import Type from 'prop-types';
 import validator from 'src/modules/validator';
 
 import ComponentsGroup from 'src/components/common/ComponentsGroup';
-import ErrorsList from './ErrorsList.jsx';
+import ErrorsList from 'src/components/common/ErrorsList';
 import FormContext from 'src/components/contexts/FormContext';
 
 class Input extends Component {
@@ -69,6 +69,7 @@ class Input extends Component {
   get value() {
     return this.state.value;
   }
+
   render() {
     const { placeholder, onChange, size, icon, children, ...props } = this.props;
     const { isValid, errors, value } = this.state;
