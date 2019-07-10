@@ -21,7 +21,6 @@ class Filter extends Component {
   }
 
   onFilterItemClick(category, value) {
-    console.log(this.props);
     const { changeParams } = this.props.OffersStore.filter;
     changeParams(category, value);
   }
@@ -40,7 +39,6 @@ class Filter extends Component {
           title={'Фильтр'}
           list={list}
           onElementClick={(category, value) => {
-            console.log('В категории ', category, 'выбрано свойство ', value);
             this.onFilterItemClick(category, value);
           }}
           selectable={true}

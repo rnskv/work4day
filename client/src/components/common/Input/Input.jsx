@@ -30,13 +30,12 @@ class Input extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.root = null;
+    this.root = React.createRef();
     this.state = {
       isValid: true,
       errors: [],
       value: props.value || '',
     };
-    console.log(context);
   }
 
   componentDidMount() {
@@ -47,8 +46,6 @@ class Input extends Component {
 
   runValidator(value, validations) {
     const { isValid, errors } = validator.validate(value, validations);
-
-    console.log(isValid, errors);
 
     this.setState({
       isValid,
@@ -69,6 +66,9 @@ class Input extends Component {
     onChange(e);
   };
 
+  get value() {
+    return this.state.value;
+  }
   render() {
     const { placeholder, onChange, size, icon, children, ...props } = this.props;
     const { isValid, errors, value } = this.state;
@@ -76,9 +76,7 @@ class Input extends Component {
       <content {...props} use:size={size} use:isValid={isValid ? 'true' : 'false'}>
         <ComponentsGroup type="inputView">
           <input
-            ref={root => {
-              this.root = root;
-            }}
+            ref={this.root}
             use:isValid={isValid ? 'true' : 'false'}
             onChange={this.handleChange}
             value={value}

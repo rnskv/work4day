@@ -49,7 +49,6 @@ class FilterStore {
 
   @action
   changeCategory = id => () => {
-    console.log('changeCategory', [...this.filteredCategories]);
     !this.filteredCategories.includes(id)
       ? this.filteredCategories.push(id)
       : this.filteredCategories.splice(this.filteredCategories.indexOf(id), 1);

@@ -28,7 +28,6 @@ class Button extends Component {
   };
 
   registerValidatedComponent = component => {
-    console.log(component);
     this.validatedComponent.push(component);
   };
 

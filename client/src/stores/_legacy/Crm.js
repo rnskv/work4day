@@ -41,7 +41,7 @@ class Vacancies {
   @action
   moderate = async data => {
     const { whoNeed, whyNeed, text, categoryId, salary, isModerated, description, title, id } = data;
-    console.log(this.list, data.id);
+
     await Api.fetch({
       url: `/vacancies/${id}`,
       method: 'PATCH',

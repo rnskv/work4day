@@ -29,14 +29,11 @@ class OfferForm extends Component {
   constructor() {
     super();
 
-    this.groupImageSrcInput = this.refs['GroupImageSrc'];
-    this.state = {
-      groupImageSrc: '',
-    };
+    this.titleRef = React.createRef();
   }
 
-  componentWillMount() {
-    this.setDefaultGroupImageSrc();
+  componentDidMount() {
+    console.log(this.titleRef.current.value, 'TITLE__REF');
   }
 
   getCategoriesOptionsList() {
@@ -49,32 +46,22 @@ class OfferForm extends Component {
     }));
   }
 
-  setDefaultGroupImageSrc = () => {
-    this.setState({
-      groupImageSrc: 'https://vk.com/images/camera_100.png?ava=1',
-    });
-  };
-
-  changeGroupImageSrc = e => {
-    this.setState({
-      groupImageSrc: e.currentTarget.value,
-    });
-  };
-
-  onLoadErrorGroupImage = e => {
-    this.setDefaultGroupImageSrc();
-  };
-
   handleOfferButtonClick = e => {
     // e.preventDefault();
+    const { OffersModerationStore, data } = this.props;
+    console.log(data);
+    OffersModerationStore.accept({
+      _id: data._id,
+      title: this.titleRef.current.value,
+    });
+    console.log(this.titleRef.current.value, 'TITLE__REF');
+
     // debugger;
   };
 
   render() {
     const { className, data, OffersStore } = this.props;
-    const { groupImageSrc } = this.state;
 
-    console.log('props', this.props);
     return styled(styles)(
       <content className={className}>
         <Heading isBold={true} color={'black'} size={'l'}>
@@ -82,21 +69,21 @@ class OfferForm extends Component {
         </Heading>
 
         <Form>
-          <Heading color={'black'} size={'xs'}>
-            Текст
-          </Heading>
+          <Heading size={'xs'}>Текст</Heading>
           <TextArea validations={['required']} size={'xl'}>
             {data.text}
           </TextArea>
 
-          <Heading color={'black'} size={'xs'}>
-            Заголовок
-          </Heading>
-          <Input value={data.title || ''} placeholder={'Введите название'} validations={['required']} size={'xl'} />
+          <Heading size={'xs'}>Заголовок</Heading>
+          <Input
+            ref={this.titleRef}
+            value={data.title || ''}
+            placeholder={'Введите название'}
+            validations={['required']}
+            size={'xl'}
+          />
 
-          <Heading color={'black'} size={'xs'}>
-            ID Поста на стене ВКонтакте
-          </Heading>
+          <Heading size={'xs'}>ID Поста на стене ВКонтакте</Heading>
           <Input value={data.postId || 'Нет id'} validations={['required']} size={'xl'} />
 
           <Heading color={'black'} size={'xs'}>

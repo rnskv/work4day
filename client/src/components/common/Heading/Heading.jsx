@@ -6,11 +6,14 @@ import Type from 'prop-types';
 class Heading extends Component {
   static propTypes = {
     id: Type.number,
-    size: Type.oneOf(['xs', 's', 'm', 'l', 'xl']).isRequired,
-    color: Type.oneOf(['white', 'black']).isRequired,
+    size: Type.oneOf(['xs', 's', 'm', 'l', 'xl']),
+    color: Type.oneOf(['white', 'black']),
   };
 
-  static defaultProps = {};
+  static defaultProps = {
+    color: 'black',
+    size: 'm',
+  };
 
   render() {
     const { id, className, color, size, children, hasMargin } = this.props;

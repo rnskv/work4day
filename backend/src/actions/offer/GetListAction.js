@@ -1,6 +1,6 @@
 import Action from '../../core/Action';
 import OfferModel from '../../models/OfferModel';
-import { removeEmptyValuesFromObject, toNum } from '../../helpers/global';
+import { removeEmptyValuesFromObject, toNum, toBool } from '../../helpers/global';
 import CategoryModel from '../../models/CategoryModel';
 
 import VError from '../../core/VError';
@@ -8,8 +8,8 @@ import configs from '../../configs';
 
 class GetListAction extends Action {
     static async run (req, res, next) {
-      const { limit = 100, skip = 0, categoryId, cityId, groupId } = req.query;
-
+      const { limit = 100, skip = 0, categoryId, cityId, groupId, isModerated = false } = req.query;
+      console.log('get', isModerated)
       const offers = await OfferModel.aggregate([
         { $sort : { isModerated : 1, date: -1 } },
         {
@@ -38,15 +38,17 @@ class GetListAction extends Action {
         },
         {
           $match: removeEmptyValuesFromObject({
+            'isModerated': toBool(isModerated),
             'categoryId': toNum(categoryId),
             'group.cityId': toNum(cityId)
           })
         },
         {
           $project: {
-            '_id': 0,
+            '_id': 1,
             'isModerated': 1,
             'text': 1,
+            'title': 1,
             'postId': 1,
             'date': 1,
             'category.id': 1,

@@ -8,7 +8,6 @@ class OffersList {
 
   constructor() {
     this.getList();
-    console.log(123);
   }
 
   async getList() {
@@ -18,7 +17,6 @@ class OffersList {
 
     this.list = [...categoriesData.body];
     this.isLoading = false;
-    console.log(this.list);
   }
 }
 

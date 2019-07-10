@@ -9,6 +9,7 @@ export default class Filter {
     categoryId: null,
     skip: 0,
     limit: 10,
+    isModerated: true,
   };
 
   constructor() {
