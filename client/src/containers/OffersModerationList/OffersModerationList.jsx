@@ -30,8 +30,8 @@ class OffersModerationList extends Component {
     const { OffersModerationStore } = this.props;
     return styled(styles)(
       <content>
-        {OffersModerationStore.offers.list.map(offer => {
-          return <OfferForm data={offer} />;
+        {OffersModerationStore.offers.list.map((offer, index) => {
+          return <OfferForm key={`moder_post_${index}`} data={offer} />;
         })}
       </content>,
     );
