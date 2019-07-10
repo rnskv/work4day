@@ -19,7 +19,7 @@ import Select from 'src/components/common/Select';
 // @observable text;
 // @observable time;
 
-@inject('OffersStore')
+@inject('OffersModerationStore')
 @observer
 class OfferForm extends Component {
   static propTypes = {};
@@ -37,6 +37,16 @@ class OfferForm extends Component {
 
   componentWillMount() {
     this.setDefaultGroupImageSrc();
+  }
+
+  getCategoriesOptionsList() {
+    const { OffersModerationStore } = this.props;
+    const optionList = OffersModerationStore.categories.list;
+
+    return optionList.map(option => ({
+      value: option.id,
+      text: option.name,
+    }));
   }
 
   setDefaultGroupImageSrc = () => {
@@ -82,7 +92,7 @@ class OfferForm extends Component {
           <Heading color={'black'} size={'xs'}>
             Заголовок
           </Heading>
-          <Input value={data.title || 'Нет названия'} validations={['required']} size={'xl'} />
+          <Input value={data.title || ''} placeholder={'Введите название'} validations={['required']} size={'xl'} />
 
           <Heading color={'black'} size={'xs'}>
             ID Поста на стене ВКонтакте
@@ -93,24 +103,7 @@ class OfferForm extends Component {
             Категория
           </Heading>
 
-          <Select
-            id={'categorySelect'}
-            options={[
-              {
-                value: 1,
-                text: 'First option',
-              },
-              {
-                value: 2,
-                text: 'Second option',
-              },
-              {
-                value: 3,
-                text: 'Third option',
-              },
-            ]}
-            size={'xl'}
-          />
+          <Select id={'categorySelect'} options={this.getCategoriesOptionsList()} size={'xl'} />
 
           <Button type="submit" size={'m'} onClick={this.handleOfferButtonClick}>
             Модерировать

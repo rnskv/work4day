@@ -18,12 +18,14 @@ class Input extends Component {
     onChange: Type.func,
     validations: Type.array,
     value: Type.oneOfType([Type.string, Type.number]),
+    placeholder: Type.oneOfType([Type.string, Type.number]),
   };
 
   static defaultProps = {
     onChange: () => {},
     validations: [],
     value: '',
+    placeholder: '',
   };
 
   constructor(props, context) {
@@ -68,7 +70,7 @@ class Input extends Component {
   };
 
   render() {
-    const { onChange, size, icon, children, ...props } = this.props;
+    const { placeholder, onChange, size, icon, children, ...props } = this.props;
     const { isValid, errors, value } = this.state;
     return styled(styles)(
       <content {...props} use:size={size} use:isValid={isValid ? 'true' : 'false'}>
@@ -80,6 +82,7 @@ class Input extends Component {
             use:isValid={isValid ? 'true' : 'false'}
             onChange={this.handleChange}
             value={value}
+            placeholder={placeholder}
           />
           {icon}
         </ComponentsGroup>
