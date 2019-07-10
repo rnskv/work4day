@@ -60,6 +60,7 @@ class Select extends Component {
   }
 
   selectOption(option, callback) {
+    if (!option) return;
     this.setState(
       {
         text: option.text,

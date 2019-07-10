@@ -11,13 +11,8 @@ class UpdateAction extends Action {
 
         await OfferModel.updateOne(
           { _id: id },
-          { $set: {
-              isModerated: toBool(isModerated),
-              ...fields
-            }
-          })
+          { $set: set })
           .then((data) => {
-            console.log('true', data)
             res.json({
               body: {
                 updatedFields: set

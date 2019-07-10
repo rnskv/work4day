@@ -41,7 +41,6 @@ export default class OfferList {
     const offersData = await DefaultApi.fetch({
       url: '/offers',
       urlParams: {
-        isModerated: 0,
         ...this.filter.params,
       },
     });
