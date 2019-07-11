@@ -13,11 +13,10 @@ class Select extends Component {
   static contextType = FormContext;
 
   static propTypes = {
-    id: Type.oneOfType([Type.string, Type.number]).isRequired,
+    id: Type.oneOfType([Type.string, Type.number]),
     value: Type.oneOfType([Type.string, Type.number]),
     options: Type.array,
     text: Type.oneOfType([Type.string, Type.number]),
-    defaultOption: Type.object,
     onChange: Type.func,
     validations: Type.array,
   };
@@ -132,10 +131,9 @@ class Select extends Component {
     const { errors } = this.state;
 
     return styled(styles)(
-      <React.Fragment>
+      <div className={className}>
         <content
           role="select"
-          className={className}
           use:size={size}
           ref={root => {
             this.root = root;
@@ -158,7 +156,7 @@ class Select extends Component {
           <ul role="listbox">{this.renderOptionsList()}</ul>
         </content>
         <ErrorsList errors={errors} />
-      </React.Fragment>,
+      </div>,
     );
   }
 }

@@ -79,10 +79,6 @@ class OfferForm extends Component {
             value={data.title || ''}
             placeholder={'Введите название'}
             validations={['required']}
-            defaultOption={{
-              value: null,
-              text: '',
-            }}
             size={'xl'}
           />
 
@@ -97,6 +93,7 @@ class OfferForm extends Component {
             ref={this.categoryRef}
             validations={['required']}
             options={this.getCategoriesOptionsList()}
+            text=""
             size={'b'}
           />
 

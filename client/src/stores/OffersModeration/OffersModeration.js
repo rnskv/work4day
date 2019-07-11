@@ -5,7 +5,9 @@ import { DefaultApi } from 'src/modules/api/index';
 import CategoriesList from './CategoriesList';
 import CitiesList from './CitiesList';
 import OffersList from './OffersList';
-import { DefaultApi as Api } from '../../modules/api';
+import { DefaultApi as Api } from 'src/modules/api';
+import { GlobalError } from 'src/modules/errors';
+console.log('x3', GlobalError);
 
 class OffersModeration {
   @observable categories = new CategoriesList();
@@ -15,31 +17,30 @@ class OffersModeration {
   constructor() {
     this.offers.getList();
   }
-  handleSuccessAccept = () => {
+  handleSuccessModerate = () => {
     alert('Промодерировано');
     this.offers.getList();
+    throw GlobalError.create(500);
   };
 
-  handleErrorAccept = err => {
-    console.error(err);
-    alert('Ошибка');
+  handleErrorModerate = err => {
+    // console.error(err.message);
+    // alert('Ошибка');
   };
 
   @action
   accept = async data => {
-    const { _id, title, categoryId } = data;
+    const { _id, ...params } = data;
     confirm('Вы уверены?');
     const requestParams = {
       url: `/offers/${_id}`,
       method: 'PATCH',
-      params: { set: { categoryId, title, isModerated: true } },
-      successCb: this.handleSuccessAccept,
-      errorCb: this.handleErrorAccept,
+      params: { set: { ...params, isModerated: true } },
     };
 
     await Api.fetch(requestParams)
-      .then(this.handleSuccessAccept)
-      .catch(this.handleErrorAccept);
+      .then(this.handleSuccessModerate)
+      .catch(this.handleErrorModerate);
   };
 
   cancel() {}
