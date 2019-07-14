@@ -21,6 +21,11 @@ class Offer extends Component {
     super();
   }
 
+  openPostInSocialNetwork = () => {
+    const { data } = this.props;
+    window.open(`https://vk.com/${data.group.screenName}?w=wall-${data.group.id}_${data.postId}`);
+  };
+
   render() {
     const { data } = this.props;
 
@@ -40,11 +45,11 @@ class Offer extends Component {
         </ComponentsGroup>
         <p>{data.text}</p>
         <ComponentsGroup type={'buttons'}>
-          <Button style={'link'} size={'m'}>
-            Откликнуться
+          <Button style={'link'} size={'m'} onClick={this.openPostInSocialNetwork}>
+            Перейти к посту
           </Button>
-          <Button style={'link'} size={'m'}>
-            Показать контакты
+          <Button style={'link'} size={'m'} disabled={true}>
+            Сообщить об ошибке
           </Button>
         </ComponentsGroup>
         <Date date={data.date} format={'dd.mm.yy, HH:MM'} />

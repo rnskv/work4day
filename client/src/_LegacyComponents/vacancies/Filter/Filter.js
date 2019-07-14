@@ -23,7 +23,7 @@ class Filter extends Component {
             ? 'Мы загружаем города...'
             : Object.keys(cities.list).map((cityId, index) => {
                 const city = cities.list[cityId];
-                console.log({ ...city });
+
                 return (
                   <Item
                     key={index}
@@ -39,7 +39,6 @@ class Filter extends Component {
           {cities.isLoading
             ? 'Мы загружаем категории...'
             : Object.keys(categories.list).map((id, index) => {
-                console.log([...filteredCategories]);
                 const category = categories.list[id];
                 return (
                   <Item

@@ -56,7 +56,6 @@ class ToggledList extends Component {
       <content ref={root => (this.root = root)} className={className}>
         {title ? (
           <Heading color="black" size="s">
-            {' '}
             {title}
           </Heading>
         ) : null}

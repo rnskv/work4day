@@ -14,6 +14,10 @@ const vacancySchema = new Schema({
     type: Number,
     default: 0,
   },
+  title: {
+    type: String,
+    default: ''
+  },
   postId: {
     type: Number,
     required: true

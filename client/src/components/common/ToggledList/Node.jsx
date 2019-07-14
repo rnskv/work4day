@@ -53,7 +53,7 @@ class Node extends Component {
   }
 
   state = {
-    opened: false,
+    opened: true,
     selectedElement: null,
   };
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'reshadow';
-import styles from './Input.shadow.css';
+import styles from './ErrorsList.shadow.css';
 import Type from 'prop-types';
 
 class ErrorsList extends Component {

@@ -7,7 +7,7 @@ import Heading from 'src/components/common/Heading';
 import ToggledList from 'src/components/common/ToggledList';
 
 import Vacancies from 'src/containers/Vacancies';
-import OfferForm from 'src/containers/OfferForm';
+import OffersModerationList from 'src/containers/OffersModerationList';
 
 class Admin extends Component {
   static propTypes = {};
@@ -18,7 +18,7 @@ class Admin extends Component {
     return styled(styles)(
       <content>
         Admin Page
-        <OfferForm />
+        <OffersModerationList />
       </content>,
     );
   }

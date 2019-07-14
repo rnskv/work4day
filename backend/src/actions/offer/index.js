@@ -9,5 +9,5 @@ export default {
     // DeleteAction,
     // GetAction,
     GetListAction,
-    // UpdateAction
+    UpdateAction
 }

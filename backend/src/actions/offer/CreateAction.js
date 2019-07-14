@@ -10,7 +10,7 @@ class CreateAction extends Action {
             text: req.body.text,
             categoryId: req.body.categoryId,
             postId: req.body.postId,
-            date: req.body.date
+            date: req.body.date * 1000
         });
 
         try {

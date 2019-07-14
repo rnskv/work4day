@@ -10,6 +10,7 @@ class Button extends Component {
     style: Type.oneOf(['link', 'default']),
     className: Type.string,
     type: Type.oneOf(['button', 'submit', 'reset']),
+    visible: Type.bool,
     onClick: Type.func,
     onMouseDown: Type.func,
     onMouseUp: Type.func,
@@ -24,6 +25,7 @@ class Button extends Component {
     color: 'blue',
     size: 's',
     type: 'button',
+    visible: true,
     onClick: () => {},
     onMouseDown: () => {},
     onMouseUp: () => {},
@@ -69,7 +71,7 @@ class Button extends Component {
   };
 
   render() {
-    const { style, color, size, className, children, ...props } = this.props;
+    const { style, color, size, className, visible, disabled, children, ...props } = this.props;
     const buttonProps = {
       ref: root => {
         this.root = root;
@@ -85,9 +87,11 @@ class Button extends Component {
     };
 
     return styled(styles)(
-      <button use:color={color} use:size={size} use:style={style} {...buttonProps}>
-        {children}
-      </button>,
+      visible ? (
+        <button use:disabled={disabled} use:color={color} use:size={size} use:style={style} {...buttonProps}>
+          {children}
+        </button>
+      ) : null,
     );
   }
 }

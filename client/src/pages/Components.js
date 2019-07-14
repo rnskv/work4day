@@ -192,7 +192,6 @@ class Components extends Component {
       alt: 'Photo',
     };
 
-    console.log(Vacancies);
     return styled`
       Select {
         margin: 10px;

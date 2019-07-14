@@ -12,7 +12,7 @@ class TextArea extends Component {
   render() {
     const { className, children, ...props } = this.props;
 
-    return styled(styles)(<textarea className={className}>{children}</textarea>);
+    return styled(styles)(<textarea defaultValue={children} className={className} />);
   }
 
   static defaultProps = {

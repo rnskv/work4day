@@ -5,6 +5,7 @@ export const removeEmptyValuesFromObject = (obj) => {
       result[key] = obj[key];
     }
   });
+  console.log(result);
   return result;
 };
 
@@ -14,4 +15,16 @@ export const toNum = (string) => {
   } else {
     return Number(string)
   }
+};
+
+export const toBool = (value) => {
+  if (value === 'true') {
+    return true;
+  }
+
+  if (value === 'false') {
+    return false
+  }
+
+  return Boolean(value)
 };

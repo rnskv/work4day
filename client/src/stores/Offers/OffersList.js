@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx';
 import Filter from './Filter';
 
-import { DefaultApi } from '../../modules/api/index';
+import { DefaultApi } from 'src/modules/api/index';
 
 export default class OfferList {
   @observable offers = [];
@@ -18,7 +18,6 @@ export default class OfferList {
     this.offers = [...this.offers, offer];
   }
 
-  @action
   setOffers(offers) {
     this.offers = [];
     offers.forEach(offer => {
@@ -28,17 +27,28 @@ export default class OfferList {
     this.isLoading = false;
   }
 
+  addOffers(offers) {
+    offers.forEach(offer => {
+      this.addOffer(offer);
+    });
+
+    this.isLoading = false;
+  }
+
   @action
-  async getOffers() {
-    console.log(this.filter.params);
+  async getOffers(isAddToCurrent = false) {
+    this.isLoading = true;
     const offersData = await DefaultApi.fetch({
       url: '/offers',
       urlParams: {
-        isModerated: 0,
         ...this.filter.params,
       },
     });
 
-    this.setOffers(offersData.body);
+    if (!isAddToCurrent) {
+      this.setOffers(offersData.body);
+    } else {
+      this.addOffers(offersData.body);
+    }
   }
 }

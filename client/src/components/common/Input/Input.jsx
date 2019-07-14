@@ -5,7 +5,7 @@ import Type from 'prop-types';
 import validator from 'src/modules/validator';
 
 import ComponentsGroup from 'src/components/common/ComponentsGroup';
-import ErrorsList from './ErrorsList.jsx';
+import ErrorsList from 'src/components/common/ErrorsList';
 import FormContext from 'src/components/contexts/FormContext';
 
 class Input extends Component {
@@ -17,22 +17,25 @@ class Input extends Component {
     icon: Type.any,
     onChange: Type.func,
     validations: Type.array,
+    value: Type.oneOfType([Type.string, Type.number]),
+    placeholder: Type.oneOfType([Type.string, Type.number]),
   };
 
   static defaultProps = {
     onChange: () => {},
     validations: [],
+    value: '',
+    placeholder: '',
   };
 
   constructor(props, context) {
     super(props, context);
-    this.root = null;
+    this.root = React.createRef();
     this.state = {
       isValid: true,
       errors: [],
-      value: '',
+      value: props.value || '',
     };
-    console.log(context);
   }
 
   componentDidMount() {
@@ -43,8 +46,6 @@ class Input extends Component {
 
   runValidator(value, validations) {
     const { isValid, errors } = validator.validate(value, validations);
-
-    console.log(isValid, errors);
 
     this.setState({
       isValid,
@@ -65,18 +66,22 @@ class Input extends Component {
     onChange(e);
   };
 
+  get value() {
+    return this.state.value;
+  }
+
   render() {
-    const { onChange, size, icon, children, ...props } = this.props;
-    const { isValid, errors } = this.state;
+    const { placeholder, onChange, size, icon, children, ...props } = this.props;
+    const { isValid, errors, value } = this.state;
     return styled(styles)(
       <content {...props} use:size={size} use:isValid={isValid ? 'true' : 'false'}>
         <ComponentsGroup type="inputView">
           <input
-            ref={root => {
-              this.root = root;
-            }}
+            ref={this.root}
             use:isValid={isValid ? 'true' : 'false'}
             onChange={this.handleChange}
+            value={value}
+            placeholder={placeholder}
           />
           {icon}
         </ComponentsGroup>
