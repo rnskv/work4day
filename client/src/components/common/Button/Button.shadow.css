@@ -1,3 +1,7 @@
+Loader {
+  margin: auto;
+}
+
 button {
   height: 38px;
   width: 200px;
@@ -14,6 +18,7 @@ button {
   color: var(--white-color);
   display: block;
   transition: 0.3s;
+  pointer-events: none;
 }
 
 button[|color='blue'] {
@@ -82,4 +87,8 @@ button[|style='link']:focus {
 button[|disabled] {
   pointer-events: none;
   opacity: 0.4;
+}
+
+button[|interactive] {
+  pointer-events: all;
 }

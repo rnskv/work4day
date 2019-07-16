@@ -43,9 +43,12 @@ class Vacancies extends Component {
           <Filter list={OffersStore.filter.list} />
           <block>
             <OffersList isLoading={OffersStore.isLoading} list={OffersStore.offers} />
-            <Loader isLoading={OffersStore.isLoading} />
 
-            <Button size={'m'} onClick={this.handleLoadButtonClick} visible={!OffersStore.isLoading}>
+            <Button
+              isLoading={OffersStore.isLoading}
+              interactive={!OffersStore.isLoading}
+              size={'m'}
+              onClick={this.handleLoadButtonClick}>
               Загрузить ещё
             </Button>
           </block>

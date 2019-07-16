@@ -1,4 +1,44 @@
-Heading {
-  width: 100%;
-  text-align: center;
+container,
+container:after {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+container[|color='white'] {
+  border-left: 4px solid var(--white-color);
+}
+
+container[|color='black'] {
+  border-left: 4px solid var(--black-color);
+}
+
+container {
+  position: relative;
+  border-top: 4px solid rgba(255, 255, 255, 0.2);
+  border-right: 4px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 4px solid rgba(255, 255, 255, 0.2);
+  -webkit-animation: load8 0.6s infinite linear;
+  animation: load8 0.6s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
