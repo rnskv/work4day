@@ -43,7 +43,12 @@ class Filter extends Component {
           }}
           selectable={true}
         />
-        <Button color={'blue'} size={'auto'} onClick={this.handleButtonClick}>
+        <Button
+          isLoading={OffersStore.isLoading}
+          interactive={!OffersStore.isLoading}
+          color={'blue'}
+          size={'auto'}
+          onClick={this.handleButtonClick}>
           Применить
         </Button>
       </content>,

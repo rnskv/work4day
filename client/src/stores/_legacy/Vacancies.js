@@ -43,6 +43,7 @@ class Vacancies {
     this.list = this.isAppend ? [...this.list, ...response.body] : response.body;
     this.isLoading = false;
 
+    console.log(response);
     const responseLength = response.body.length;
 
     if (responseLength === 0) {

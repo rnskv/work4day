@@ -20,7 +20,6 @@ class OffersModeration {
   handleSuccessModerate = () => {
     alert('Промодерировано');
     this.offers.getList();
-    throw GlobalError.create(500);
   };
 
   handleErrorModerate = err => {

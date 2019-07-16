@@ -9,17 +9,18 @@ class Loader extends Component {
   static propTypes = {
     isLoading: Type.bool.isRequired,
     className: Type.string,
+    color: Type.oneOf(['white', 'black']),
+  };
+
+  static defaultProps = {
+    color: 'white',
   };
 
   render() {
-    const { isLoading, className } = this.props;
+    const { isLoading, className, color } = this.props;
 
     return styled(styles)(
-      isLoading ? (
-        <Heading className={className} color={'black'} size={'m'}>
-          Loading...
-        </Heading>
-      ) : null,
+      isLoading ? <container use:color={color} className={className} color={'black'} size={'m'} /> : null,
     );
   }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'reshadow';
 import styles from './Button.shadow.css';
 import Type from 'prop-types';
+import Loader from '../Loader';
 
 class Button extends Component {
   static propTypes = {
@@ -10,6 +11,9 @@ class Button extends Component {
     style: Type.oneOf(['link', 'default']),
     className: Type.string,
     type: Type.oneOf(['button', 'submit', 'reset']),
+    isLoading: Type.bool,
+    disabled: Type.bool,
+    interactive: Type.bool,
     visible: Type.bool,
     onClick: Type.func,
     onMouseDown: Type.func,
@@ -26,6 +30,8 @@ class Button extends Component {
     size: 's',
     type: 'button',
     visible: true,
+    isLoading: false,
+    interactive: true,
     onClick: () => {},
     onMouseDown: () => {},
     onMouseUp: () => {},
@@ -71,7 +77,7 @@ class Button extends Component {
   };
 
   render() {
-    const { style, color, size, className, visible, disabled, children, ...props } = this.props;
+    const { style, color, size, className, visible, isLoading, interactive, disabled, children, ...props } = this.props;
     const buttonProps = {
       ref: root => {
         this.root = root;
@@ -88,8 +94,14 @@ class Button extends Component {
 
     return styled(styles)(
       visible ? (
-        <button use:disabled={disabled} use:color={color} use:size={size} use:style={style} {...buttonProps}>
-          {children}
+        <button
+          use:disabled={disabled}
+          use:interactive={interactive}
+          use:color={color}
+          use:size={size}
+          use:style={style}
+          {...buttonProps}>
+          {isLoading ? <Loader isLoading={isLoading} /> : <span>{children}</span>}
         </button>
       ) : null,
     );
