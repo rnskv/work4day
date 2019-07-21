@@ -36,7 +36,7 @@ export default class OfferList {
   }
 
   @action
-  async getOffers(isAddToCurrent = false) {
+  async getOffers(addToCurrent = false) {
     this.isLoading = true;
     const offersData = await DefaultApi.fetch({
       url: '/offers',
@@ -45,10 +45,16 @@ export default class OfferList {
       },
     });
 
-    if (!isAddToCurrent) {
+    if (!addToCurrent) {
       this.setOffers(offersData.body);
     } else {
+      const { params } = this.filter;
+      const isLast = params.skip + params.limit >= offersData.meta.count;
+      console.log(isLast, params.skip, params.limit);
       this.addOffers(offersData.body);
+
+      const newSkipValue = !isLast ? params.skip + params.limit : 0;
+      this.filter.changeParams('skip', newSkipValue);
     }
   }
 }

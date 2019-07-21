@@ -47,7 +47,7 @@ export default class Filter {
   }
 
   @action
-  changeParams = (category, property) => {
-    this.params[category] = property;
+  changeParams = (property, value) => {
+    this.params[property] = value;
   };
 }
