@@ -62,28 +62,37 @@ class GetListAction extends Action {
           }
         },
         {
-          $limit: toNum(limit)
+          $facet: {
+            body: [
+              {
+                $limit: toNum(limit)
+              },
+              {
+                $skip: toNum(skip)
+              },
+              {
+                $unwind: '$category'
+              },
+              {
+                $unwind: '$group'
+              },
+              {
+                $unwind: '$location'
+              }
+            ],
+            meta: [
+              {
+                $group: {
+                  _id: null,
+                  count: { $sum: 1 }
+                }
+              }
+            ]
+          }
         },
-        {
-          $skip: toNum(skip)
-        },
-        {
-          $unwind: '$category'
-        },
-        {
-          $unwind: '$group'
-        },
-        {
-          $unwind: '$location'
-        }
       ]).exec();
 
-      res.json({
-        body: offers,
-        meta: {
-          count: await OfferModel.count()
-        }
-      })
+      res.json(offers[0])
     }
 }
 
