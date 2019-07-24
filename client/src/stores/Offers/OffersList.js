@@ -8,6 +8,7 @@ export default class OfferList {
   @observable filter = new Filter();
   @observable isLoading = true;
   @observable errors = [];
+  @observable isLoadAll = true;
 
   constructor() {
     this.getOffers();
@@ -45,20 +46,18 @@ export default class OfferList {
       },
     });
 
+    const { params } = this.filter;
+    const isLast = params.skip + params.limit >= offersData.meta.count;
+
+    this.isLoadAll = isLast;
+
     if (!addToCurrent) {
       this.setOffers(offersData.body);
       this.filter.resetOffsetParams();
     } else {
-      const { params } = this.filter;
-
-      const isLast = params.skip + params.limit >= offersData.meta.count;
-
-      console.log(isLast, params.skip, params.limit, offersData);
-
       this.addOffers(offersData.body);
 
-      const newSkipValue = !isLast ? params.skip + params.limit : 0;
-      this.filter.changeParams('skip', newSkipValue);
+      this.filter.changeParams('skip', isLast ? 0 : params.skip + params.limit);
     }
   }
 }
