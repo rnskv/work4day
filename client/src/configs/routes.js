@@ -9,6 +9,7 @@ export default {
   '/': { component: Home, exact: true },
   '/search': { component: SearchPage },
   '/admin': { component: AdminPage },
-  '/crm': { component: Crm },
+  '/crm/main': { component: Crm },
+  '/crm/offers': { component: AdminPage },
   '/components': { component: ComponentsPage },
 };

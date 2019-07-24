@@ -6,6 +6,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'index_bundle.js',
   },
   resolve: {
@@ -30,13 +31,20 @@ module.exports = {
   plugins: [
     new PrettierPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src/index.html'),
+      template:  path.join(__dirname, '/src/index.html'),
+      path: path.join(__dirname, 'dist'),
+      publicPath: './',
+      filename: 'index.html',
     }),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     compress: true,
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/$/, to: '/index.html' },
+      ]
+    },
     port: 9000,
   },
 };
