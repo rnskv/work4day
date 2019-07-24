@@ -93,8 +93,8 @@ class GetListAction extends Action {
       ]).exec();
 
       res.json({
-        body: offers[0].body,
-        meta: offers[0].meta[0]
+        body: offers[0].body || [],
+        meta: offers[0].meta[0] || { count: 0 }
       })
     }
 }
