@@ -65,10 +65,10 @@ class GetListAction extends Action {
           $facet: {
             body: [
               {
-                $limit: toNum(limit)
+                $skip: toNum(skip)
               },
               {
-                $skip: toNum(skip)
+                $limit: toNum(limit)
               },
               {
                 $unwind: '$category'
@@ -92,7 +92,10 @@ class GetListAction extends Action {
         },
       ]).exec();
 
-      res.json(offers[0])
+      res.json({
+        body: offers[0].body,
+        meta: offers[0].meta[0]
+      })
     }
 }
 

@@ -50,4 +50,9 @@ export default class Filter {
   changeParams = (property, value) => {
     this.params[property] = value;
   };
+
+  resetOffsetParams() {
+    this.skip = 0;
+    this.limit = 10;
+  }
 }

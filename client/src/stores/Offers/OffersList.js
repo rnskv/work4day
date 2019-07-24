@@ -47,10 +47,14 @@ export default class OfferList {
 
     if (!addToCurrent) {
       this.setOffers(offersData.body);
+      this.filter.resetOffsetParams();
     } else {
       const { params } = this.filter;
+
       const isLast = params.skip + params.limit >= offersData.meta.count;
-      console.log(isLast, params.skip, params.limit);
+
+      console.log(isLast, params.skip, params.limit, offersData);
+
       this.addOffers(offersData.body);
 
       const newSkipValue = !isLast ? params.skip + params.limit : 0;
