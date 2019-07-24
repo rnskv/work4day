@@ -44,13 +44,20 @@ class Vacancies extends Component {
           <block>
             <OffersList isLoading={OffersStore.isLoading} list={OffersStore.offers} />
 
-            <Button
-              isLoading={OffersStore.isLoading}
-              interactive={!OffersStore.isLoading}
-              size={'m'}
-              onClick={this.handleLoadButtonClick}>
-              Загрузить ещё
-            </Button>
+            {!OffersStore.isLoadAll ? (
+              <Button
+                isLoading={OffersStore.isLoading}
+                interactive={!OffersStore.isLoading}
+                size={'m'}
+                onClick={this.handleLoadButtonClick}>
+                Загрузить еще
+              </Button>
+            ) : (
+              // @todo Crate helper function. Scroll must be to begin of offers container, with animation.
+              <Button style={'link'} size={'m'} onClick={() => window.scrollTo(0, 0)}>
+                Наверх
+              </Button>
+            )}
           </block>
         </div>
       </content>,

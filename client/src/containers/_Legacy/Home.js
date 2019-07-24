@@ -11,6 +11,7 @@ import FindVacancies from '../../_LegacyComponents/vacancies/FindVacancies/FindV
 
 import Select from '../../components/common/Select/index';
 import Button from '../../components/common/Button/index';
+import Vacancies from 'src/containers/Vacancies';
 
 import '../../styles/Home.css';
 
@@ -23,11 +24,15 @@ class Home extends Component {
     return (
       <content>
         <Header />
-        <div className="section section--find_vacancies">
-          <NewVacancies VacanciesStore={VacanciesStore} />
-        </div>
+        {/*<div className="section section--find_vacancies">*/}
+        {/*<NewVacancies VacanciesStore={VacanciesStore} />*/}
+        {/*</div>*/}
+        {/*<div className="section section--new_vacancies">*/}
+        {/*<FindVacancies FilterStore={FilterStore} VacanciesStore={VacanciesStore} />*/}
+        {/*</div>*/}
+
         <div className="section section--new_vacancies">
-          <FindVacancies FilterStore={FilterStore} VacanciesStore={VacanciesStore} />
+          <Vacancies />
         </div>
       </content>
     );
