@@ -1,4 +1,6 @@
 content {
   width: 300px;
   background: var(--black-color);
+  min-height: 400px;
+  color: #fff;
 }

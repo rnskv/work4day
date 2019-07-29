@@ -1,0 +1,7 @@
+Sidebar {
+  position: absolute;
+}
+
+ComponentsGroup[type='content'] {
+  margin-left: 300px;
+}
