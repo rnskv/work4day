@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'reshadow';
 import styles from './OfferForm.shadow.css';
-import { observer, inject } from 'mobx-react';
+import { observer, inject } from 'mobx-react/index';
 
 import Type from 'prop-types';
 

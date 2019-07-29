@@ -3,11 +3,8 @@ import styled from 'reshadow';
 import styles from './Offers.shadow.css';
 import Type from 'prop-types';
 
-import Heading from 'src/components/common/Heading';
-import ToggledList from 'src/components/common/ToggledList';
-
-import Vacancies from 'src/containers/Vacancies';
-import OffersModerationList from 'src/containers/OffersModerationList';
+import Sidebar from 'src/containers/crm/Sidebar';
+import OffersModerationList from 'src/containers/crm/OffersModerationList';
 
 class Offers extends Component {
   static propTypes = {};
@@ -17,7 +14,7 @@ class Offers extends Component {
   render() {
     return styled(styles)(
       <content>
-        Admin Page
+        <Sidebar />
         <OffersModerationList />
       </content>,
     );
