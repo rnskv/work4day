@@ -5,6 +5,8 @@ import { observer, inject } from 'mobx-react';
 
 import Type from 'prop-types';
 
+import SidebarItem from './SidebarItem.jsx';
+
 class Sidebar extends Component {
   static propTypes = {};
 
@@ -12,12 +14,40 @@ class Sidebar extends Component {
 
   constructor(props) {
     super();
+
+    this.items = [
+      {
+        name: 'Офферы',
+        link: '/crm/offers',
+      },
+      {
+        name: 'Города',
+        link: '/crm/cities',
+      },
+      {
+        name: 'Группы',
+        link: '/crm/groups',
+      },
+      {
+        name: 'Категории',
+        link: '/crm/categories',
+      },
+    ];
   }
 
   render() {
     const { OffersStore, className } = this.props;
 
-    return styled(styles)(<content className={className}>Sidebar</content>);
+    return styled(styles)(
+      <content className={className}>
+        {this.items.map(item => (
+          <SidebarItem link={item.link} key={item.name}>
+            {' '}
+            {item.name}{' '}
+          </SidebarItem>
+        ))}
+      </content>,
+    );
   }
 }
 

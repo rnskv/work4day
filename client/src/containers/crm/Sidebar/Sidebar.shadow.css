@@ -4,3 +4,14 @@ content {
   min-height: 400px;
   color: #fff;
 }
+
+li {
+  background: var(--blue-color);
+  padding: 8px 12px;
+  display: block;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
