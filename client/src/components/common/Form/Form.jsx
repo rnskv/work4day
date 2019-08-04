@@ -3,15 +3,14 @@ import styled from 'reshadow';
 import styles from './Form.shadow.css';
 import Type from 'prop-types';
 import FormContext from 'src/components/contexts/FormContext';
-class Button extends Component {
-  static defaultProps = {};
-
+class Form extends Component {
   static propTypes = {};
+  static defaultProps = {};
 
   constructor(props, context) {
     super(props, context);
     this.root = null;
-    this.validatedComponent = [];
+    this.validatedComponents = [];
     this.getNode = this.getNode.bind(this);
   }
 
@@ -28,12 +27,12 @@ class Button extends Component {
   };
 
   registerValidatedComponent = component => {
-    this.validatedComponent.push(component);
+    this.validatedComponents.push(component);
   };
 
   deepValidation = () => {
     let isValid = true;
-    this.validatedComponent.forEach(component => {
+    this.validatedComponents.forEach(component => {
       if (component.runValidator) {
         const result = component.runValidator(component.value, component.props.validations);
         isValid = isValid && result;
@@ -61,4 +60,4 @@ class Button extends Component {
   }
 }
 
-export default Button;
+export default Form;

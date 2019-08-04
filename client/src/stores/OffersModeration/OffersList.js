@@ -16,7 +16,6 @@ class OffersList {
       url: '/offers',
       urlParams: {
         isModerated: false,
-        limit: 3,
       },
     });
 

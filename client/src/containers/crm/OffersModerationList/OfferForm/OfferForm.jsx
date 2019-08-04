@@ -12,6 +12,7 @@ import Button from 'src/components/common/Button';
 import Image from 'src/components/common/Image';
 import Form from 'src/components/common/Form';
 import Select from 'src/components/common/Select';
+import ComponentsGroup from 'src/components/common/ComponentsGroup';
 
 // @observable title;
 // @observable group;
@@ -48,14 +49,26 @@ class OfferForm extends Component {
   }
 
   handleSubmitForm = e => {
+    e.preventDefault();
+    this.acceptOffer();
+  };
+
+  acceptOffer = e => {
     const { OffersModerationStore, data } = this.props;
-    console.log(data);
+
     OffersModerationStore.accept({
       _id: data._id,
       title: this.titleRef.current.value,
       categoryId: this.categoryRef.current.value,
     });
-    console.log(this.titleRef.current.value, 'TITLE__REF');
+  };
+
+  cancelOffer = e => {
+    const { OffersModerationStore, data } = this.props;
+
+    OffersModerationStore.cancel({
+      _id: data._id,
+    });
   };
 
   render() {
@@ -97,9 +110,14 @@ class OfferForm extends Component {
             size={'b'}
           />
 
-          <Button type="submit" size={'m'}>
-            Модерировать
-          </Button>
+          <ComponentsGroup type={'buttons'}>
+            <Button type="submit" size={'m'}>
+              Модерировать
+            </Button>
+            <Button color={'red'} size={'m'} onClick={this.cancelOffer}>
+              Удалить
+            </Button>
+          </ComponentsGroup>
         </Form>
       </content>,
     );

@@ -20,9 +20,13 @@ Heading {
 }
 
 Button {
-  margin: 24px 0 0 0;
+  margin: 24px 24px 0 0;
 }
 
 TextArea {
   height: 300px;
+}
+
+ComponentsGroup {
+  display: flex;
 }
