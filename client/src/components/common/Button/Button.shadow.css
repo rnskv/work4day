@@ -38,6 +38,10 @@ button[|color='white'] {
   border: 1px solid var(--white-color);
 }
 
+button[|color='red'] {
+  background: var(--red-error-color);
+}
+
 button[|color='white']:hover {
   background-color: var(--white-color);
   color: var(--black-color);
@@ -46,6 +50,14 @@ button[|color='white']:hover {
 button[|color='white']:focus {
   background-color: var(--grey-color);
   color: var(--black-color);
+}
+
+button[|color='red']:hover {
+  background-color: var(--red-glow-color);
+}
+
+button[|color='red']:focus {
+  background-color: var(--red-active-color);
 }
 
 button[|size='s'] {

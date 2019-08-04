@@ -7,7 +7,7 @@ import Type from 'prop-types';
 import Heading from 'src/components/common/Heading';
 import ToggledList from 'src/components/common/ToggledList';
 
-import Vacancies from 'src/containers/Vacancies';
+import Vacancies from 'src/containers/product/Vacancies';
 
 class Search extends Component {
   static propTypes = {};

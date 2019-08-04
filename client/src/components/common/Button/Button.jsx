@@ -6,7 +6,7 @@ import Loader from '../Loader';
 
 class Button extends Component {
   static propTypes = {
-    color: Type.oneOf(['white', 'blue']),
+    color: Type.oneOf(['white', 'blue', 'red']),
     size: Type.oneOf(['s', 'm', 'l', 'auto']),
     style: Type.oneOf(['link', 'default']),
     className: Type.string,

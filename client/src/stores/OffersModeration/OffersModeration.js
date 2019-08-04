@@ -42,7 +42,19 @@ class OffersModeration {
       .catch(this.handleErrorModerate);
   };
 
-  cancel() {}
+  cancel = async data => {
+    const { _id } = data;
+    confirm('Вы уверены?');
+    const requestParams = {
+      url: `/offers/${_id}`,
+      method: 'DELETE',
+      params: { _id },
+    };
+
+    await Api.fetch(requestParams)
+      .then(this.handleSuccessModerate)
+      .catch(this.handleErrorModerate);
+  };
 }
 
 export default OffersModeration;

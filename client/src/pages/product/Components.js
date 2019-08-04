@@ -10,7 +10,7 @@ import Input from 'src/components/common/Input';
 import Icon from 'src/components/common/Icon';
 import ToggledList from 'src/components/common/ToggledList';
 
-import Vacancies from 'src/containers/Vacancies';
+import Vacancies from 'src/containers/product/Vacancies';
 
 @observer
 class Components extends Component {

@@ -11,7 +11,7 @@ import FindVacancies from '../../_LegacyComponents/vacancies/FindVacancies/FindV
 
 import Select from '../../components/common/Select/index';
 import Button from '../../components/common/Button/index';
-import Vacancies from 'src/containers/Vacancies';
+import Vacancies from 'src/containers/product/Vacancies';
 
 import '../../styles/Home.css';
 

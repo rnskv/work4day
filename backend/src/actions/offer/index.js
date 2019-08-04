@@ -6,7 +6,7 @@ import UpdateAction from './UpdateAction';
 
 export default {
     CreateAction,
-    // DeleteAction,
+    DeleteAction,
     // GetAction,
     GetListAction,
     UpdateAction

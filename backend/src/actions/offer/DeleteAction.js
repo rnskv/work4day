@@ -1,5 +1,5 @@
 import Action from '../../core/Action';
-import VacancyModel from '../../models/VacancyModel';
+import OfferModel from '../../models/OfferModel';
 import VError from '../../core/VError';
 
 class DeleteAction extends Action {
@@ -9,9 +9,25 @@ class DeleteAction extends Action {
 
         console.log('delete action', id,  set);
 
-        VacancyModel.remove({ _id: id })
-            .then(() => { res.json({text: 'remove action'}) })
-            .catch(e => { res.json(e)});
+        OfferModel.deleteOne({ _id: id })
+            .then(() => {
+              res.status(200);
+              res.json({
+                body: {
+                  status: 'ok'
+                },
+                meta: {}
+              })
+            })
+            .catch(error => {
+              res.status(500);
+              res.json({
+                body: {
+                  error
+                },
+                meta: {}
+              })
+            });
     }
 }
 
